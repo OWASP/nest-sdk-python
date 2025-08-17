@@ -55,6 +55,7 @@ python:
   methodArguments: infer-optional-args
   moduleName: ""
   outputModelSuffix: output
+  packageManager: uv
   packageName: owasp-nest
   pytestFilterWarnings: []
   pytestTimeout: 0

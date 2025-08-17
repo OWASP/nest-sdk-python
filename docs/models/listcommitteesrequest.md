@@ -1,0 +1,10 @@
+# ListCommitteesRequest
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ordering`                                                                             | [OptionalNullable[models.ListCommitteesOrdering]](../models/listcommitteesordering.md) | :heavy_minus_sign:                                                                     | Ordering field                                                                         |
+| `page`                                                                                 | *Optional[int]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `page_size`                                                                            | *OptionalNullable[int]*                                                                | :heavy_minus_sign:                                                                     | N/A                                                                                    |
