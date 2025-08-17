@@ -1,0 +1,63 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: Nest
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
+  sdkHooksConfigAccess: true
+  tests:
+    generateTests: false
+    generateNewTests: true
+    skipResponseBodyAssertions: false
+  retries:
+    backoffStrategy: exponential
+    maxRetries: 3
+python:
+  version: 0.0.1
+  additionalDependencies:
+    dev: {}
+    main: {}
+  authors:
+    - name: Arkadii Yakvoets
+      email: arkadii.yakovets@owasp.org
+  baseErrorName: NestApiError
+  clientServerStatusCodesAsErrors: true
+  defaultErrorName: NestError
+  description: OWASP Nest Python SDK
+  enableCustomCodeRegions: false
+  enumFormat: enum
+  fixFlags:
+    responseRequiredSep2024: true
+  flattenGlobalSecurity: true
+  flattenRequests: true
+  flatteningOrder: parameters-first
+  imports:
+    option: openapi
+    paths:
+      callbacks: ""
+      errors: ""
+      operations: ""
+      shared: ""
+      webhooks: ""
+  inputModelSuffix: input
+  maxMethodParams: 20
+  methodArguments: infer-optional-args
+  moduleName: ""
+  outputModelSuffix: output
+  packageName: owasp-nest
+  pytestFilterWarnings: []
+  pytestTimeout: 0
+  responseFormat: flat
+  templateVersion: v2
