@@ -13,9 +13,6 @@ targets:
     target: python
     source: nest-openapi
     output: .
-    publish:
-      pypi:
-        token: $pypi_token
     codeSamples:
       registry:
         location: registry.speakeasyapi.dev/owasp/nest/python-code-samples
