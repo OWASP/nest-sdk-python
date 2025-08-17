@@ -29,9 +29,7 @@ python:
   additionalDependencies:
     dev: {}
     main: {}
-  authors:
-    - name: Arkadii Yakvoets
-      email: arkadii.yakovets@owasp.org
+  authors: Arkadii Yakvoets
   baseErrorName: NestApiError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: NestError
