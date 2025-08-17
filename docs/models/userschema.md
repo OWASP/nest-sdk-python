@@ -1,0 +1,24 @@
+# UserSchema
+
+Schema for User.
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `avatar_url`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `bio`                                                                | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `company`                                                            | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `email`                                                              | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `followers_count`                                                    | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `following_count`                                                    | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `location`                                                           | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `login`                                                              | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `name`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `public_repositories_count`                                          | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `title`                                                              | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `twitter_username`                                                   | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `url`                                                                | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
