@@ -29,7 +29,8 @@ python:
   additionalDependencies:
     dev: {}
     main: {}
-  authors: Arkadii Yakvoets
+  authors:
+    - Arkadii Yakovets
   baseErrorName: NestApiError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: NestError
