@@ -1,7 +1,7 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-  owasp-nest-openapi:
+  nest-openapi:
     inputs:
       - location: https://nest.owasp.org/api/v1/openapi.json
     transformations:
@@ -11,12 +11,12 @@ sources:
 targets:
   nest-api:
     target: python
-    source: owasp-nest-openapi
+    source: nest-openapi
     output: .
     publish:
       pypi:
         token: $pypi_token
     codeSamples:
       registry:
-        location: registry.speakeasyapi.dev/owasp/nest/owasp-nest-api-python-code-samples
+        location: registry.speakeasyapi.dev/owasp/nest/python-code-samples
       blocking: false

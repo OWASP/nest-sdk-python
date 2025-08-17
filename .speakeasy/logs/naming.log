@@ -1,0 +1,84 @@
+DEBUG	
+
+--- Renaming 10 types with name "ordering" ---
+DEBUG	discriminated: Renamed to "list_chapters_ordering" 
+	 labels: "original_name:ordering operation:list_chapters operationTag:OWASP data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:OWASP operation:list_chapters parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_committees_ordering" 
+	 labels: "original_name:ordering operation:list_committees operationTag:OWASP data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:OWASP operation:list_committees parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_events_ordering" 
+	 labels: "original_name:ordering operation:list_events operationTag:OWASP data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:OWASP operation:list_events parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_projects_ordering" 
+	 labels: "original_name:ordering operation:list_projects operationTag:OWASP data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:OWASP operation:list_projects parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_issues_ordering" 
+	 labels: "original_name:ordering operation:list_issues operationTag:GitHub data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:GitHub operation:list_issues parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_labels_ordering" 
+	 labels: "original_name:ordering operation:list_labels operationTag:GitHub data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:GitHub operation:list_labels parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_organizations_ordering" 
+	 labels: "original_name:ordering operation:list_organizations operationTag:GitHub data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:GitHub operation:list_organizations parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_releases_ordering" 
+	 labels: "original_name:ordering operation:list_releases operationTag:GitHub data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:GitHub operation:list_releases parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_repositories_ordering" 
+	 labels: "original_name:ordering operation:list_repositories operationTag:GitHub data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:GitHub operation:list_repositories parameter:queryParam originalName:ordering"
+DEBUG	discriminated: Renamed to "list_users_ordering" 
+	 labels: "original_name:ordering operation:list_users operationTag:GitHub data_type:enum parameter:queryParam" 
+	 registrationID: "scope:operations operationTag:GitHub operation:list_users parameter:queryParam originalName:ordering"
+DEBUG	
+
+Nest (SDK empty)
+Owasp (SDK empty)
+ListChaptersRequest (country: string, region: string, ordering: enum ...)
+ ListChaptersOrdering (enum: created_at, -created_at, updated_at ...)
+PagedChapterSchema (items: array, count: integer)
+  ChapterSchema (country: string, created_at: date-time, name: string ...)
+Security (ApiKeyAuth: string)
+ListCommitteesRequest (ordering: enum, page: integer, page_size: integer)
+ ListCommitteesOrdering (enum: created_at, -created_at, updated_at ...)
+PagedCommitteeSchema (items: array, count: integer)
+  CommitteeSchema (name: string, description: string, created_at: date-time ...)
+ListEventsRequest (ordering: enum, page: integer, page_size: integer)
+ ListEventsOrdering (enum: start_date, -start_date, end_date ...)
+PagedEventSchema (items: array, count: integer)
+  EventSchema (description: string, name: string, end_date: date-time ...)
+ListProjectsRequest (level: ProjectLevel, ordering: enum, page: integer ...)
+ ProjectLevel (enum: other, incubator, lab ...)
+ ListProjectsOrdering (enum: created_at, -created_at, updated_at ...)
+PagedProjectSchema (items: array, count: integer)
+  ProjectSchema (created_at: date-time, description: string, level: ProjectLevel ...)
+GitHub (SDK empty)
+ListIssuesRequest (state: State, ordering: enum, page: integer ...)
+ State (enum: open, closed)
+ ListIssuesOrdering (enum: created_at, -created_at, updated_at ...)
+PagedIssueSchema (items: array, count: integer)
+  IssueSchema (body: string, created_at: date-time, title: string ...)
+ListLabelsRequest (color: string, ordering: enum, page: integer ...)
+ ListLabelsOrdering (enum: nest_created_at, -nest_created_at, nest_updated_at ...)
+PagedLabelSchema (items: array, count: integer)
+  LabelSchema (color: string, description: string, name: string)
+ListOrganizationsRequest (location: string, ordering: enum, page: integer ...)
+ ListOrganizationsOrdering (enum: created_at, -created_at, updated_at ...)
+PagedOrganizationSchema (items: array, count: integer)
+  OrganizationSchema (company: string, created_at: date-time, location: string ...)
+ListReleasesRequest (tag_name: string, ordering: enum, page: integer ...)
+ ListReleasesOrdering (enum: created_at, -created_at, published_at ...)
+PagedReleaseSchema (items: array, count: integer)
+  ReleaseSchema (created_at: date-time, description: string, name: string ...)
+ListRepositoriesRequest (ordering: enum, page: integer, page_size: integer)
+ ListRepositoriesOrdering (enum: created_at, -created_at, updated_at ...)
+PagedRepositorySchema (items: array, count: integer)
+  RepositorySchema (created_at: date-time, description: string, name: string ...)
+ListUsersRequest (company: string, location: string, ordering: enum ...)
+ ListUsersOrdering (enum: created_at, -created_at, updated_at ...)
+PagedUserSchema (items: array, count: integer)
+  UserSchema (avatar_url: string, bio: string, company: string ...)
+GetUserRequest (login: string)
+UserErrorResponse (error)
+

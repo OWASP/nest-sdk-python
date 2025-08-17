@@ -1,6 +1,6 @@
 configVersion: 2.0.0
 generation:
-  sdkClassName: NestApi
+  sdkClassName: Nest
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -30,11 +30,12 @@ python:
     dev: {}
     main: {}
   authors:
-    - Nest
-  baseErrorName: APIError
+    - name: Arkadii Yakvoets
+      email: arkadii.yakovets@owasp.org
+  baseErrorName: NestApiError
   clientServerStatusCodesAsErrors: true
-  defaultErrorName: SDKError
-  description: Python Client SDK for OWASP Nest.
+  defaultErrorName: NestError
+  description: OWASP Nest Python SDK
   enableCustomCodeRegions: false
   enumFormat: enum
   fixFlags:
@@ -55,7 +56,7 @@ python:
   methodArguments: infer-optional-args
   moduleName: ""
   outputModelSuffix: output
-  packageName: owasp-nest-sdk
+  packageName: owasp-nest
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat
