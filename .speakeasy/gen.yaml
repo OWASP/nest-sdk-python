@@ -30,8 +30,8 @@ python:
     dev: {}
     main: {}
   authors:
-    - name: Arkadii Yakvoets
-      email: arkadii.yakovets@owasp.org
+    - email: arkadii.yakovets@owasp.org
+      name: Arkadii Yakvoets
   baseErrorName: NestApiError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: NestError
@@ -56,6 +56,7 @@ python:
   methodArguments: infer-optional-args
   moduleName: ""
   outputModelSuffix: output
+  packageManager: uv
   packageName: owasp-nest
   pytestFilterWarnings: []
   pytestTimeout: 0

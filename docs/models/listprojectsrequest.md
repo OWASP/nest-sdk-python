@@ -1,0 +1,11 @@
+# ListProjectsRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `level`                                                                            | [OptionalNullable[models.ProjectLevel]](../models/projectlevel.md)                 | :heavy_minus_sign:                                                                 | Level of the project                                                               |
+| `ordering`                                                                         | [OptionalNullable[models.ListProjectsOrdering]](../models/listprojectsordering.md) | :heavy_minus_sign:                                                                 | Ordering field                                                                     |
+| `page`                                                                             | *Optional[int]*                                                                    | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `page_size`                                                                        | *OptionalNullable[int]*                                                            | :heavy_minus_sign:                                                                 | N/A                                                                                |

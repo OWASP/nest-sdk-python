@@ -1,0 +1,41 @@
+speakeasyVersion: 1.605.0
+sources:
+    nest-openapi:
+        sourceNamespace: python-sdk
+        sourceRevisionDigest: sha256:874fc4a6517595ab46cca585c1062fb2837d3a2298c5bdd098c54f26f750d3d4
+        sourceBlobDigest: sha256:9966ff9419317067352121ec9fd6f0d39c6b68e241ae4a3c91bc8a4197aba997
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1755399680
+            - 1.0.0
+targets:
+    nest-api:
+        source: nest-openapi
+        sourceNamespace: python-sdk
+        sourceRevisionDigest: sha256:874fc4a6517595ab46cca585c1062fb2837d3a2298c5bdd098c54f26f750d3d4
+        sourceBlobDigest: sha256:9966ff9419317067352121ec9fd6f0d39c6b68e241ae4a3c91bc8a4197aba997
+        codeSamplesNamespace: python-code-samples
+        codeSamplesRevisionDigest: sha256:4eb97468504c04950a835cf4daa8f9e9212463c0821ce8a578c44833239e2be3
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        nest-openapi:
+            inputs:
+                - location: https://nest.owasp.org/api/v1/openapi.json
+            transformations:
+                - removeUnused: true
+            registry:
+                location: registry.speakeasyapi.dev/owasp/nest/python-sdk
+    targets:
+        nest-api:
+            target: python
+            source: nest-openapi
+            output: .
+            publish:
+                pypi:
+                    token: $pypi_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/owasp/nest/python-code-samples
+                blocking: false
