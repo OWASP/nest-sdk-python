@@ -8,10 +8,9 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.owasp.list_chapters(country="India", region="Asia", page=1)
+    nest.settings_api_v1_api_root()
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 ```
 
 </br>
@@ -28,10 +27,9 @@ async def main():
         api_key_auth="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.owasp.list_chapters_async(country="India", region="Asia", page=1)
+        await nest.settings_api_v1_api_root_async()
 
-        # Handle response
-        print(res)
+        # Use the SDK ...
 
 asyncio.run(main())
 ```

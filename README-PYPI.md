@@ -44,10 +44,6 @@ OWASP Nest: Open Worldwide Application Security Project API
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 > [!NOTE]
 > **Python version upgrade policy**
 >
@@ -60,7 +56,7 @@ The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
 *uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
 
 ```bash
-uv add git+https://github.com/OWASP/nest-sdk-python.git
+uv add owasp-nest
 ```
 
 ### PIP
@@ -68,7 +64,7 @@ uv add git+https://github.com/OWASP/nest-sdk-python.git
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+https://github.com/OWASP/nest-sdk-python.git
+pip install owasp-nest
 ```
 
 ### Poetry
@@ -76,7 +72,7 @@ pip install git+https://github.com/OWASP/nest-sdk-python.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+https://github.com/OWASP/nest-sdk-python.git
+poetry add owasp-nest
 ```
 
 ### Shell and script usage with `uv`
@@ -135,10 +131,9 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.owasp.list_chapters(country="India", region="Asia", page=1)
+    nest.settings_api_v1_api_root()
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 ```
 
 </br>
@@ -155,10 +150,9 @@ async def main():
         api_key_auth="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.owasp.list_chapters_async(country="India", region="Asia", page=1)
+        await nest.settings_api_v1_api_root_async()
 
-        # Handle response
-        print(res)
+        # Use the SDK ...
 
 asyncio.run(main())
 ```
@@ -184,10 +178,9 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.owasp.list_chapters(country="India", region="Asia", page=1)
+    nest.settings_api_v1_api_root()
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 <!-- End Authentication [security] -->
@@ -208,6 +201,9 @@ with Nest(
 * [list_users](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/github/README.md#list_users) - List users
 * [get_user](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/github/README.md#get_user) - Get user by login
 
+### [Nest SDK](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/nest/README.md)
+
+* [settings_api_v1_api_root](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/nest/README.md#settings_api_v1_api_root) - Api Root
 
 ### [owasp](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/owasp/README.md)
 
@@ -234,11 +230,10 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.owasp.list_chapters(country="India", region="Asia", page=1,
+    nest.settings_api_v1_api_root(,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 
@@ -253,10 +248,9 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.owasp.list_chapters(country="India", region="Asia", page=1)
+    nest.settings_api_v1_api_root()
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 <!-- End Retries [retries] -->
@@ -320,7 +314,7 @@ with Nest(
 
 
 **Inherit from [`NestAPIError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nestapierror.py)**:
-* [`UserErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/usererrorresponse.py): Error response schema for User. Status code `404`. Applicable to 1 of 11 methods.*
+* [`UserErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/usererrorresponse.py): Error response schema for User. Status code `404`. Applicable to 1 of 12 methods.*
 * [`ResponseValidationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -343,10 +337,9 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.owasp.list_chapters(country="India", region="Asia", page=1)
+    nest.settings_api_v1_api_root()
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 <!-- End Server Selection [server] -->
