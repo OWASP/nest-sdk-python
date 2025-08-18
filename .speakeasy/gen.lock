@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.605.1
   generationVersion: 2.684.0
-  releaseVersion: 0.0.2
-  configChecksum: 445810e050686cca0ff9ebacae58d341
+  releaseVersion: 0.0.3
+  configChecksum: 421a97723dd2d25869121278dfb41cbd
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -256,6 +256,3 @@ examples:
           application/json: {"message": "<value>"}
   settings_api_v1_api_root: {}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## SDK Changes Detected:
-  * `nest.settings_api_v1_api_root()`: **Added**
