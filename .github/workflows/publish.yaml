@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - .speakeasy/gen.lock
+  workflow_dispatch:
 
 permissions:
   checks: write

@@ -34,9 +34,9 @@ python:
     - object
   authors:
     - Arkadii Yakovets
-  baseErrorName: NestApiError
+  baseErrorName: NestError
   clientServerStatusCodesAsErrors: true
-  defaultErrorName: NestError
+  defaultErrorName: NestApiError
   description: OWASP Nest Python SDK
   enableCustomCodeRegions: false
   enumFormat: enum

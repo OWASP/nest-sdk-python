@@ -9,7 +9,7 @@ sources:
         registry:
             location: registry.speakeasyapi.dev/owasp/nest/python-sdk
 targets:
-    nest-api:
+    nest-sdk-python:
         target: python
         source: nest-openapi
         output: .
