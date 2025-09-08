@@ -5,29 +5,29 @@ from owasp_nest import models, utils
 from owasp_nest._hooks import HookContext
 from owasp_nest.types import OptionalNullable, UNSET
 from owasp_nest.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
-class Owasp(BaseSDK):
-    def list_chapters(
+class Community(BaseSDK):
+    def list_members(
         self,
         *,
-        country: OptionalNullable[str] = UNSET,
-        region: OptionalNullable[str] = UNSET,
-        ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
+        company: OptionalNullable[str] = UNSET,
+        location: OptionalNullable[str] = UNSET,
+        ordering: OptionalNullable[models.ListMembersOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedChapterSchema:
-        r"""List chapters
+    ) -> models.PagedMemberSchema:
+        r"""List members
 
-        Retrieve a paginated list of OWASP chapters.
+        Retrieve a paginated list of OWASP community members.
 
-        :param country: Country of the chapter
-        :param region: Region of the chapter
+        :param company: Company of the user
+        :param location: Location of the member
         :param ordering: Ordering field
         :param page:
         :param page_size:
@@ -46,9 +46,9 @@ class Owasp(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListChaptersRequest(
-            country=country,
-            region=region,
+        request = models.ListMembersRequest(
+            company=company,
+            location=location,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -56,7 +56,7 @@ class Owasp(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/owasp/chapters/",
+            path="/api/v1/members/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -82,7 +82,7 @@ class Owasp(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_chapters",
+                operation_id="list_members",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -92,7 +92,7 @@ class Owasp(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedChapterSchema, http_res)
+            return unmarshal_json_response(models.PagedMemberSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestError("API error occurred", http_res, http_res_text)
@@ -102,25 +102,25 @@ class Owasp(BaseSDK):
 
         raise models.NestError("Unexpected response received", http_res)
 
-    async def list_chapters_async(
+    async def list_members_async(
         self,
         *,
-        country: OptionalNullable[str] = UNSET,
-        region: OptionalNullable[str] = UNSET,
-        ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
+        company: OptionalNullable[str] = UNSET,
+        location: OptionalNullable[str] = UNSET,
+        ordering: OptionalNullable[models.ListMembersOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedChapterSchema:
-        r"""List chapters
+    ) -> models.PagedMemberSchema:
+        r"""List members
 
-        Retrieve a paginated list of OWASP chapters.
+        Retrieve a paginated list of OWASP community members.
 
-        :param country: Country of the chapter
-        :param region: Region of the chapter
+        :param company: Company of the user
+        :param location: Location of the member
         :param ordering: Ordering field
         :param page:
         :param page_size:
@@ -139,9 +139,9 @@ class Owasp(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListChaptersRequest(
-            country=country,
-            region=region,
+        request = models.ListMembersRequest(
+            company=company,
+            location=location,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -149,7 +149,7 @@ class Owasp(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/owasp/chapters/",
+            path="/api/v1/members/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -175,7 +175,7 @@ class Owasp(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_chapters",
+                operation_id="list_members",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -185,7 +185,7 @@ class Owasp(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedChapterSchema, http_res)
+            return unmarshal_json_response(models.PagedMemberSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestError("API error occurred", http_res, http_res_text)
@@ -195,21 +195,197 @@ class Owasp(BaseSDK):
 
         raise models.NestError("Unexpected response received", http_res)
 
-    def list_committees(
+    def get_member(
         self,
         *,
-        ordering: OptionalNullable[models.ListCommitteesOrdering] = UNSET,
+        login: str,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.MemberSchema:
+        r"""Get member by login
+
+        Retrieve a member by login.
+
+        :param login:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.GetMemberRequest(
+            login=login,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/members/{login}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="get_member",
+                oauth2_scopes=[],
+                security_source=self.sdk_configuration.security,
+            ),
+            request=req,
+            error_status_codes=["404", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.MemberSchema, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(
+                models.MemberErrorResponseData, http_res
+            )
+            raise models.MemberErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.NestError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.NestError("API error occurred", http_res, http_res_text)
+
+        raise models.NestError("Unexpected response received", http_res)
+
+    async def get_member_async(
+        self,
+        *,
+        login: str,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.MemberSchema:
+        r"""Get member by login
+
+        Retrieve a member by login.
+
+        :param login:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.GetMemberRequest(
+            login=login,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/members/{login}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="get_member",
+                oauth2_scopes=[],
+                security_source=self.sdk_configuration.security,
+            ),
+            request=req,
+            error_status_codes=["404", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.MemberSchema, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(
+                models.MemberErrorResponseData, http_res
+            )
+            raise models.MemberErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.NestError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.NestError("API error occurred", http_res, http_res_text)
+
+        raise models.NestError("Unexpected response received", http_res)
+
+    def list_organizations(
+        self,
+        *,
+        location: OptionalNullable[str] = UNSET,
+        ordering: OptionalNullable[models.ListOrganizationsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedCommitteeSchema:
-        r"""List committees
+    ) -> models.PagedOrganizationSchema:
+        r"""List organizations
 
-        Retrieve a paginated list of OWASP committees.
+        Retrieve a paginated list of GitHub organizations.
 
+        :param location: Location of the organization
         :param ordering: Ordering field
         :param page:
         :param page_size:
@@ -228,7 +404,8 @@ class Owasp(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListCommitteesRequest(
+        request = models.ListOrganizationsRequest(
+            location=location,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -236,7 +413,7 @@ class Owasp(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/owasp/committees/",
+            path="/api/v1/organizations/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -262,7 +439,7 @@ class Owasp(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_committees",
+                operation_id="list_organizations",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -272,7 +449,7 @@ class Owasp(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedCommitteeSchema, http_res)
+            return unmarshal_json_response(models.PagedOrganizationSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestError("API error occurred", http_res, http_res_text)
@@ -282,21 +459,23 @@ class Owasp(BaseSDK):
 
         raise models.NestError("Unexpected response received", http_res)
 
-    async def list_committees_async(
+    async def list_organizations_async(
         self,
         *,
-        ordering: OptionalNullable[models.ListCommitteesOrdering] = UNSET,
+        location: OptionalNullable[str] = UNSET,
+        ordering: OptionalNullable[models.ListOrganizationsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedCommitteeSchema:
-        r"""List committees
+    ) -> models.PagedOrganizationSchema:
+        r"""List organizations
 
-        Retrieve a paginated list of OWASP committees.
+        Retrieve a paginated list of GitHub organizations.
 
+        :param location: Location of the organization
         :param ordering: Ordering field
         :param page:
         :param page_size:
@@ -315,7 +494,8 @@ class Owasp(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListCommitteesRequest(
+        request = models.ListOrganizationsRequest(
+            location=location,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -323,7 +503,7 @@ class Owasp(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/owasp/committees/",
+            path="/api/v1/organizations/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -349,7 +529,7 @@ class Owasp(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_committees",
+                operation_id="list_organizations",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -359,361 +539,7 @@ class Owasp(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedCommitteeSchema, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-
-        raise models.NestError("Unexpected response received", http_res)
-
-    def list_events(
-        self,
-        *,
-        ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
-        page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedEventSchema:
-        r"""List events
-
-        Retrieve a paginated list of OWASP events.
-
-        :param ordering: Ordering field
-        :param page:
-        :param page_size:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.ListEventsRequest(
-            ordering=ordering,
-            page=page,
-            page_size=page_size,
-        )
-
-        req = self._build_request(
-            method="GET",
-            path="/api/v1/owasp/events/",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="list_events",
-                oauth2_scopes=[],
-                security_source=self.sdk_configuration.security,
-            ),
-            request=req,
-            error_status_codes=["4XX", "5XX"],
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedEventSchema, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-
-        raise models.NestError("Unexpected response received", http_res)
-
-    async def list_events_async(
-        self,
-        *,
-        ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
-        page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedEventSchema:
-        r"""List events
-
-        Retrieve a paginated list of OWASP events.
-
-        :param ordering: Ordering field
-        :param page:
-        :param page_size:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.ListEventsRequest(
-            ordering=ordering,
-            page=page,
-            page_size=page_size,
-        )
-
-        req = self._build_request_async(
-            method="GET",
-            path="/api/v1/owasp/events/",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="list_events",
-                oauth2_scopes=[],
-                security_source=self.sdk_configuration.security,
-            ),
-            request=req,
-            error_status_codes=["4XX", "5XX"],
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedEventSchema, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-
-        raise models.NestError("Unexpected response received", http_res)
-
-    def list_projects(
-        self,
-        *,
-        level: OptionalNullable[models.ProjectLevel] = UNSET,
-        ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
-        page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedProjectSchema:
-        r"""List projects
-
-        Retrieve a paginated list of OWASP projects.
-
-        :param level: Level of the project
-        :param ordering: Ordering field
-        :param page:
-        :param page_size:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.ListProjectsRequest(
-            level=level,
-            ordering=ordering,
-            page=page,
-            page_size=page_size,
-        )
-
-        req = self._build_request(
-            method="GET",
-            path="/api/v1/owasp/projects/",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="list_projects",
-                oauth2_scopes=[],
-                security_source=self.sdk_configuration.security,
-            ),
-            request=req,
-            error_status_codes=["4XX", "5XX"],
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedProjectSchema, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-
-        raise models.NestError("Unexpected response received", http_res)
-
-    async def list_projects_async(
-        self,
-        *,
-        level: OptionalNullable[models.ProjectLevel] = UNSET,
-        ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
-        page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedProjectSchema:
-        r"""List projects
-
-        Retrieve a paginated list of OWASP projects.
-
-        :param level: Level of the project
-        :param ordering: Ordering field
-        :param page:
-        :param page_size:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.ListProjectsRequest(
-            level=level,
-            ordering=ordering,
-            page=page,
-            page_size=page_size,
-        )
-
-        req = self._build_request_async(
-            method="GET",
-            path="/api/v1/owasp/projects/",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="list_projects",
-                oauth2_scopes=[],
-                security_source=self.sdk_configuration.security,
-            ),
-            request=req,
-            error_status_codes=["4XX", "5XX"],
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedProjectSchema, http_res)
+            return unmarshal_json_response(models.PagedOrganizationSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestError("API error occurred", http_res, http_res_text)

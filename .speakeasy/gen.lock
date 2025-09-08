@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 01c0ac4d7427d5658bca51f77c785c5a
+  docChecksum: dec60afacf47f0e4f8f08103ec1723c3
   docVersion: 1.0.0
-  speakeasyVersion: 1.605.1
-  generationVersion: 2.684.0
-  releaseVersion: 0.0.3
-  configChecksum: 421a97723dd2d25869121278dfb41cbd
+  speakeasyVersion: 1.611.1
+  generationVersion: 2.694.1
+  releaseVersion: 0.1.0
+  configChecksum: d7dd93ed26d760ffe835343b8bd4550c
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.19.9
+    core: 5.20.3
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -32,12 +32,13 @@ generatedFiles:
   - .gitattributes
   - .vscode/settings.json
   - USAGE.md
+  - docs/models/chaptererrorresponse.md
   - docs/models/chapterschema.md
   - docs/models/committeeschema.md
   - docs/models/eventschema.md
-  - docs/models/getuserrequest.md
+  - docs/models/getchapterrequest.md
+  - docs/models/getmemberrequest.md
   - docs/models/issueschema.md
-  - docs/models/labelschema.md
   - docs/models/listchaptersordering.md
   - docs/models/listchaptersrequest.md
   - docs/models/listcommitteesordering.md
@@ -46,8 +47,8 @@ generatedFiles:
   - docs/models/listeventsrequest.md
   - docs/models/listissuesordering.md
   - docs/models/listissuesrequest.md
-  - docs/models/listlabelsordering.md
-  - docs/models/listlabelsrequest.md
+  - docs/models/listmembersordering.md
+  - docs/models/listmembersrequest.md
   - docs/models/listorganizationsordering.md
   - docs/models/listorganizationsrequest.md
   - docs/models/listprojectsordering.md
@@ -56,31 +57,34 @@ generatedFiles:
   - docs/models/listreleasesrequest.md
   - docs/models/listrepositoriesordering.md
   - docs/models/listrepositoriesrequest.md
-  - docs/models/listusersordering.md
-  - docs/models/listusersrequest.md
+  - docs/models/membererrorresponse.md
+  - docs/models/memberschema.md
   - docs/models/organizationschema.md
   - docs/models/pagedchapterschema.md
   - docs/models/pagedcommitteeschema.md
   - docs/models/pagedeventschema.md
   - docs/models/pagedissueschema.md
-  - docs/models/pagedlabelschema.md
+  - docs/models/pagedmemberschema.md
   - docs/models/pagedorganizationschema.md
   - docs/models/pagedprojectschema.md
   - docs/models/pagedreleaseschema.md
   - docs/models/pagedrepositoryschema.md
-  - docs/models/pageduserschema.md
   - docs/models/projectlevel.md
   - docs/models/projectschema.md
   - docs/models/releaseschema.md
   - docs/models/repositoryschema.md
   - docs/models/security.md
   - docs/models/state.md
-  - docs/models/usererrorresponse.md
-  - docs/models/userschema.md
   - docs/models/utils/retryconfig.md
-  - docs/sdks/github/README.md
+  - docs/sdks/chapters/README.md
+  - docs/sdks/committees/README.md
+  - docs/sdks/community/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/issues/README.md
   - docs/sdks/nest/README.md
-  - docs/sdks/owasp/README.md
+  - docs/sdks/projects/README.md
+  - docs/sdks/releases/README.md
+  - docs/sdks/repositories/README.md
   - py.typed
   - pylintrc
   - pyproject.toml
@@ -92,25 +96,31 @@ generatedFiles:
   - src/owasp_nest/_hooks/types.py
   - src/owasp_nest/_version.py
   - src/owasp_nest/basesdk.py
-  - src/owasp_nest/github.py
+  - src/owasp_nest/chapters.py
+  - src/owasp_nest/committees.py
+  - src/owasp_nest/community.py
+  - src/owasp_nest/events.py
   - src/owasp_nest/httpclient.py
+  - src/owasp_nest/issues.py
   - src/owasp_nest/models/__init__.py
+  - src/owasp_nest/models/chaptererrorresponse.py
   - src/owasp_nest/models/chapterschema.py
   - src/owasp_nest/models/committeeschema.py
   - src/owasp_nest/models/eventschema.py
-  - src/owasp_nest/models/get_userop.py
+  - src/owasp_nest/models/get_chapterop.py
+  - src/owasp_nest/models/get_memberop.py
   - src/owasp_nest/models/issueschema.py
-  - src/owasp_nest/models/labelschema.py
   - src/owasp_nest/models/list_chaptersop.py
   - src/owasp_nest/models/list_committeesop.py
   - src/owasp_nest/models/list_eventsop.py
   - src/owasp_nest/models/list_issuesop.py
-  - src/owasp_nest/models/list_labelsop.py
+  - src/owasp_nest/models/list_membersop.py
   - src/owasp_nest/models/list_organizationsop.py
   - src/owasp_nest/models/list_projectsop.py
   - src/owasp_nest/models/list_releasesop.py
   - src/owasp_nest/models/list_repositoriesop.py
-  - src/owasp_nest/models/list_usersop.py
+  - src/owasp_nest/models/membererrorresponse.py
+  - src/owasp_nest/models/memberschema.py
   - src/owasp_nest/models/nestapierror.py
   - src/owasp_nest/models/nesterror.py
   - src/owasp_nest/models/no_response_error.py
@@ -119,12 +129,11 @@ generatedFiles:
   - src/owasp_nest/models/pagedcommitteeschema.py
   - src/owasp_nest/models/pagedeventschema.py
   - src/owasp_nest/models/pagedissueschema.py
-  - src/owasp_nest/models/pagedlabelschema.py
+  - src/owasp_nest/models/pagedmemberschema.py
   - src/owasp_nest/models/pagedorganizationschema.py
   - src/owasp_nest/models/pagedprojectschema.py
   - src/owasp_nest/models/pagedreleaseschema.py
   - src/owasp_nest/models/pagedrepositoryschema.py
-  - src/owasp_nest/models/pageduserschema.py
   - src/owasp_nest/models/projectlevel.py
   - src/owasp_nest/models/projectschema.py
   - src/owasp_nest/models/releaseschema.py
@@ -132,10 +141,10 @@ generatedFiles:
   - src/owasp_nest/models/responsevalidationerror.py
   - src/owasp_nest/models/security.py
   - src/owasp_nest/models/state.py
-  - src/owasp_nest/models/usererrorresponse.py
-  - src/owasp_nest/models/userschema.py
-  - src/owasp_nest/owasp.py
+  - src/owasp_nest/projects.py
   - src/owasp_nest/py.typed
+  - src/owasp_nest/releases.py
+  - src/owasp_nest/repositories.py
   - src/owasp_nest/sdk.py
   - src/owasp_nest/sdkconfiguration.py
   - src/owasp_nest/types/__init__.py
@@ -255,4 +264,58 @@ examples:
         "404":
           application/json: {"message": "<value>"}
   settings_api_v1_api_root: {}
+  get_chapter:
+    speakeasy-default-get-chapter:
+      parameters:
+        path:
+          key: "<key>"
+      responses:
+        "200":
+          application/json: {"country": "Hungary", "created_at": "2024-10-15T07:48:29.830Z", "name": "<value>", "region": "<value>", "updated_at": "2023-12-24T21:08:33.483Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  list_members:
+    speakeasy-default-list-members:
+      parameters:
+        query:
+          location: "India"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"avatar_url": "https://noxious-promise.info", "bio": "<value>", "company": "Schmeler and Sons", "created_at": "2023-10-11T15:28:15.365Z", "email": "Marie_Lesch@hotmail.com", "followers_count": 650853, "following_count": 788452, "location": "<value>", "login": "Emie.Jenkins79", "name": "<value>", "public_repositories_count": 740999, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-03-27T20:40:12.982Z", "url": "https://old-fashioned-provider.biz/"}], "count": 381744}
+  get_member:
+    speakeasy-default-get-member:
+      parameters:
+        path:
+          login: "Stanton97"
+      responses:
+        "200":
+          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "email": "Viva91@hotmail.com", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `nest.chapters.list_chapters()`: **Added**
+  * `nest.chapters.get_chapter()`: **Added**
+  * `nest.committees.list_committees()`: **Added**
+  * `nest.community.list_members()`: **Added**
+  * `nest.community.get_member()`: **Added**
+  * `nest.community.list_organizations()`: **Added**
+  * `nest.events.list_events()`: **Added**
+  * `nest.issues.list_issues()`: **Added**
+  * `nest.projects.list_projects()`: **Added**
+  * `nest.releases.list_releases()`: **Added**
+  * `nest.repositories.list_repositories()`: **Added**
+  * `nest.settings_api_v1_api_root()`: **Deleted** **Breaking** :warning:
+  * `nest.owasp.list_chapters()`: **Deleted** **Breaking** :warning:
+  * `nest.owasp.list_committees()`: **Deleted** **Breaking** :warning:
+  * `nest.owasp.list_events()`: **Deleted** **Breaking** :warning:
+  * `nest.owasp.list_projects()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.list_issues()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.list_labels()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.list_organizations()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.list_releases()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.list_repositories()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.list_users()`: **Deleted** **Breaking** :warning:
+  * `nest.git_hub.get_user()`: **Deleted** **Breaking** :warning:

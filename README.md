@@ -131,9 +131,10 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    nest.settings_api_v1_api_root()
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 ```
 
 </br>
@@ -150,9 +151,10 @@ async def main():
         api_key_auth="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        await nest.settings_api_v1_api_root_async()
+        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
 
-        # Use the SDK ...
+        # Handle response
+        print(res)
 
 asyncio.run(main())
 ```
@@ -178,9 +180,10 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    nest.settings_api_v1_api_root()
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 
 ```
 <!-- End Authentication [security] -->
@@ -191,26 +194,41 @@ with Nest(
 <details open>
 <summary>Available methods</summary>
 
-### [git_hub](docs/sdks/github/README.md)
+### [chapters](docs/sdks/chapters/README.md)
 
-* [list_issues](docs/sdks/github/README.md#list_issues) - List issues
-* [list_labels](docs/sdks/github/README.md#list_labels) - List labels
-* [list_organizations](docs/sdks/github/README.md#list_organizations) - List organizations
-* [list_releases](docs/sdks/github/README.md#list_releases) - List releases
-* [list_repositories](docs/sdks/github/README.md#list_repositories) - List repositories
-* [list_users](docs/sdks/github/README.md#list_users) - List users
-* [get_user](docs/sdks/github/README.md#get_user) - Get user by login
+* [list_chapters](docs/sdks/chapters/README.md#list_chapters) - List chapters
+* [get_chapter](docs/sdks/chapters/README.md#get_chapter) - Get chapter
 
-### [Nest SDK](docs/sdks/nest/README.md)
+### [committees](docs/sdks/committees/README.md)
 
-* [settings_api_v1_api_root](docs/sdks/nest/README.md#settings_api_v1_api_root) - Api Root
+* [list_committees](docs/sdks/committees/README.md#list_committees) - List committees
 
-### [owasp](docs/sdks/owasp/README.md)
+### [community](docs/sdks/community/README.md)
 
-* [list_chapters](docs/sdks/owasp/README.md#list_chapters) - List chapters
-* [list_committees](docs/sdks/owasp/README.md#list_committees) - List committees
-* [list_events](docs/sdks/owasp/README.md#list_events) - List events
-* [list_projects](docs/sdks/owasp/README.md#list_projects) - List projects
+* [list_members](docs/sdks/community/README.md#list_members) - List members
+* [get_member](docs/sdks/community/README.md#get_member) - Get member by login
+* [list_organizations](docs/sdks/community/README.md#list_organizations) - List organizations
+
+### [events](docs/sdks/events/README.md)
+
+* [list_events](docs/sdks/events/README.md#list_events) - List events
+
+### [issues](docs/sdks/issues/README.md)
+
+* [list_issues](docs/sdks/issues/README.md#list_issues) - List issues
+
+
+### [projects](docs/sdks/projects/README.md)
+
+* [list_projects](docs/sdks/projects/README.md#list_projects) - List projects
+
+### [releases](docs/sdks/releases/README.md)
+
+* [list_releases](docs/sdks/releases/README.md#list_releases) - List releases
+
+### [repositories](docs/sdks/repositories/README.md)
+
+* [list_repositories](docs/sdks/repositories/README.md#list_repositories) - List repositories
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -230,10 +248,11 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    nest.settings_api_v1_api_root(,
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 
 ```
 
@@ -248,9 +267,10 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    nest.settings_api_v1_api_root()
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 
 ```
 <!-- End Retries [retries] -->
@@ -280,7 +300,7 @@ with Nest(
     res = None
     try:
 
-        res = nest.git_hub.get_user(login="Enos13")
+        res = nest.chapters.get_chapter(key="<key>")
 
         # Handle response
         print(res)
@@ -295,7 +315,7 @@ with Nest(
         print(e.raw_response)
 
         # Depending on the method different errors may be thrown
-        if isinstance(e, models.UserErrorResponse):
+        if isinstance(e, models.ChapterErrorResponse):
             print(e.data.message)  # str
 ```
 
@@ -303,7 +323,7 @@ with Nest(
 **Primary error:**
 * [`NestAPIError`](./src/owasp_nest/models/nestapierror.py): The base class for HTTP error responses.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (7)</summary>
 
 <br />
 
@@ -314,7 +334,8 @@ with Nest(
 
 
 **Inherit from [`NestAPIError`](./src/owasp_nest/models/nestapierror.py)**:
-* [`UserErrorResponse`](./src/owasp_nest/models/usererrorresponse.py): Error response schema for User. Status code `404`. Applicable to 1 of 12 methods.*
+* [`ChapterErrorResponse`](./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 11 methods.*
+* [`MemberErrorResponse`](./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`ResponseValidationError`](./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -337,9 +358,10 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    nest.settings_api_v1_api_root()
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 
 ```
 <!-- End Server Selection [server] -->

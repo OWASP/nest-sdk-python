@@ -15,33 +15,41 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class ListLabelsOrdering(str, Enum):
+class ListMembersOrdering(str, Enum):
     r"""Ordering field"""
 
-    NEST_CREATED_AT = "nest_created_at"
-    MINUS_NEST_CREATED_AT = "-nest_created_at"
-    NEST_UPDATED_AT = "nest_updated_at"
-    MINUS_NEST_UPDATED_AT = "-nest_updated_at"
+    CREATED_AT = "created_at"
+    MINUS_CREATED_AT = "-created_at"
+    UPDATED_AT = "updated_at"
+    MINUS_UPDATED_AT = "-updated_at"
 
 
-class ListLabelsRequestTypedDict(TypedDict):
-    color: NotRequired[Nullable[str]]
-    r"""Color of the label"""
-    ordering: NotRequired[Nullable[ListLabelsOrdering]]
+class ListMembersRequestTypedDict(TypedDict):
+    company: NotRequired[Nullable[str]]
+    r"""Company of the user"""
+    location: NotRequired[Nullable[str]]
+    r"""Location of the member"""
+    ordering: NotRequired[Nullable[ListMembersOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
     page_size: NotRequired[Nullable[int]]
 
 
-class ListLabelsRequest(BaseModel):
-    color: Annotated[
+class ListMembersRequest(BaseModel):
+    company: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Color of the label"""
+    r"""Company of the user"""
+
+    location: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Location of the member"""
 
     ordering: Annotated[
-        OptionalNullable[ListLabelsOrdering],
+        OptionalNullable[ListMembersOrdering],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Ordering field"""
@@ -58,8 +66,8 @@ class ListLabelsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["color", "ordering", "page", "page_size"]
-        nullable_fields = ["color", "ordering", "page_size"]
+        optional_fields = ["company", "location", "ordering", "page", "page_size"]
+        nullable_fields = ["company", "location", "ordering", "page_size"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -1,6 +1,6 @@
-# UserSchema
+# MemberSchema
 
-Schema for User.
+Schema for Member.
 
 
 ## Fields

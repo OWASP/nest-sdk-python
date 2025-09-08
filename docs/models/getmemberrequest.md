@@ -1,10 +1,8 @@
-# UserErrorResponse
-
-Error response schema for User.
+# GetMemberRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `message`          | *str*              | :heavy_check_mark: | N/A                |
+| `login`            | *str*              | :heavy_check_mark: | N/A                |

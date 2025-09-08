@@ -7,18 +7,18 @@ from owasp_nest.types import BaseModel
 from typing import Optional
 
 
-class UserErrorResponseData(BaseModel):
+class MemberErrorResponseData(BaseModel):
     message: str
 
 
-class UserErrorResponse(NestAPIError):
-    r"""Error response schema for User."""
+class MemberErrorResponse(NestAPIError):
+    r"""Member error response schema."""
 
-    data: UserErrorResponseData
+    data: MemberErrorResponseData
 
     def __init__(
         self,
-        data: UserErrorResponseData,
+        data: MemberErrorResponseData,
         raw_response: httpx.Response,
         body: Optional[str] = None,
     ):

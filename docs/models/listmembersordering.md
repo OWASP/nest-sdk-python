@@ -1,4 +1,4 @@
-# ListUsersOrdering
+# ListMembersOrdering
 
 Ordering field
 
