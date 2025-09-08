@@ -1,6 +1,6 @@
 [project]
 name = "owasp-nest"
-version = "0.0.3"
+version = "0.1.0"
 description = "OWASP Nest Python SDK"
 authors = [{ name = "Arkadii Yakovets" },]
 readme = "README-PYPI.md"
@@ -30,6 +30,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"
+asyncio_mode = "auto"
 pythonpath = ["src"]
 
 [tool.mypy]

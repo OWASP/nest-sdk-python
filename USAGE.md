@@ -8,9 +8,10 @@ with Nest(
     api_key_auth="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    nest.settings_api_v1_api_root()
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 ```
 
 </br>
@@ -27,9 +28,10 @@ async def main():
         api_key_auth="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        await nest.settings_api_v1_api_root_async()
+        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
 
-        # Use the SDK ...
+        # Handle response
+        print(res)
 
 asyncio.run(main())
 ```

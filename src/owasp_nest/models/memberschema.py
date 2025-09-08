@@ -6,8 +6,8 @@ from owasp_nest.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class UserSchemaTypedDict(TypedDict):
-    r"""Schema for User."""
+class MemberSchemaTypedDict(TypedDict):
+    r"""Schema for Member."""
 
     avatar_url: str
     bio: str
@@ -26,8 +26,8 @@ class UserSchemaTypedDict(TypedDict):
     url: str
 
 
-class UserSchema(BaseModel):
-    r"""Schema for User."""
+class MemberSchema(BaseModel):
+    r"""Schema for Member."""
 
     avatar_url: str
 

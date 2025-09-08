@@ -8,24 +8,43 @@ from .utils.retries import RetryConfig
 import httpx
 import importlib
 from owasp_nest import models, utils
-from owasp_nest._hooks import HookContext, SDKHooks
+from owasp_nest._hooks import SDKHooks
 from owasp_nest.types import OptionalNullable, UNSET
-from typing import Any, Callable, Dict, Mapping, Optional, TYPE_CHECKING, Union, cast
+import sys
+from typing import Any, Callable, Dict, Optional, TYPE_CHECKING, Union, cast
 import weakref
 
 if TYPE_CHECKING:
-    from owasp_nest.github import GitHub
-    from owasp_nest.owasp import Owasp
+    from owasp_nest.chapters import Chapters
+    from owasp_nest.committees import Committees
+    from owasp_nest.community import Community
+    from owasp_nest.events import Events
+    from owasp_nest.issues import Issues
+    from owasp_nest.projects import Projects
+    from owasp_nest.releases import Releases
+    from owasp_nest.repositories import Repositories
 
 
 class Nest(BaseSDK):
     r"""OWASP Nest: Open Worldwide Application Security Project API"""
 
-    owasp: "Owasp"
-    git_hub: "GitHub"
+    chapters: "Chapters"
+    committees: "Committees"
+    community: "Community"
+    events: "Events"
+    issues: "Issues"
+    projects: "Projects"
+    releases: "Releases"
+    repositories: "Repositories"
     _sub_sdk_map = {
-        "owasp": ("owasp_nest.owasp", "Owasp"),
-        "git_hub": ("owasp_nest.github", "GitHub"),
+        "chapters": ("owasp_nest.chapters", "Chapters"),
+        "committees": ("owasp_nest.committees", "Committees"),
+        "community": ("owasp_nest.community", "Community"),
+        "events": ("owasp_nest.events", "Events"),
+        "issues": ("owasp_nest.issues", "Issues"),
+        "projects": ("owasp_nest.projects", "Projects"),
+        "releases": ("owasp_nest.releases", "Releases"),
+        "repositories": ("owasp_nest.repositories", "Repositories"),
     }
 
     def __init__(
@@ -97,6 +116,7 @@ class Nest(BaseSDK):
                 timeout_ms=timeout_ms,
                 debug_logger=debug_logger,
             ),
+            parent_ref=self,
         )
 
         hooks = SDKHooks()
@@ -116,13 +136,24 @@ class Nest(BaseSDK):
             self.sdk_configuration.async_client_supplied,
         )
 
+    def dynamic_import(self, modname, retries=3):
+        for attempt in range(retries):
+            try:
+                return importlib.import_module(modname)
+            except KeyError:
+                # Clear any half-initialized module and retry
+                sys.modules.pop(modname, None)
+                if attempt == retries - 1:
+                    break
+        raise KeyError(f"Failed to import module '{modname}' after {retries} attempts")
+
     def __getattr__(self, name: str):
         if name in self._sub_sdk_map:
             module_path, class_name = self._sub_sdk_map[name]
             try:
-                module = importlib.import_module(module_path)
+                module = self.dynamic_import(module_path)
                 klass = getattr(module, class_name)
-                instance = klass(self.sdk_configuration)
+                instance = klass(self.sdk_configuration, parent_ref=self)
                 setattr(self, name, instance)
                 return instance
             except ImportError as e:
@@ -164,151 +195,3 @@ class Nest(BaseSDK):
         ):
             await self.sdk_configuration.async_client.aclose()
         self.sdk_configuration.async_client = None
-
-    def settings_api_v1_api_root(
-        self,
-        *,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ):
-        r"""Api Root
-
-        Handle API root endpoint requests.
-
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-        req = self._build_request(
-            method="GET",
-            path="/api/v1/",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=None,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="*/*",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="settings_api_v1_api_root",
-                oauth2_scopes=[],
-                security_source=self.sdk_configuration.security,
-            ),
-            request=req,
-            error_status_codes=["4XX", "5XX"],
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "*"):
-            return
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-
-        raise models.NestError("Unexpected response received", http_res)
-
-    async def settings_api_v1_api_root_async(
-        self,
-        *,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ):
-        r"""Api Root
-
-        Handle API root endpoint requests.
-
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-        req = self._build_request_async(
-            method="GET",
-            path="/api/v1/",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=None,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="*/*",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="settings_api_v1_api_root",
-                oauth2_scopes=[],
-                security_source=self.sdk_configuration.security,
-            ),
-            request=req,
-            error_status_codes=["4XX", "5XX"],
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "*"):
-            return
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
-
-        raise models.NestError("Unexpected response received", http_res)
