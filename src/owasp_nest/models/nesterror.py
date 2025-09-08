@@ -3,36 +3,24 @@
 import httpx
 from typing import Optional
 
-from owasp_nest.models import NestAPIError
 
-MAX_MESSAGE_LEN = 10_000
+class NestError(Exception):
+    """The base class for all HTTP error responses."""
 
-
-class NestError(NestAPIError):
-    """The fallback error class if no more specific error class is matched."""
+    message: str
+    status_code: int
+    body: str
+    headers: httpx.Headers
+    raw_response: httpx.Response
 
     def __init__(
         self, message: str, raw_response: httpx.Response, body: Optional[str] = None
     ):
-        body_display = body or raw_response.text or '""'
+        self.message = message
+        self.status_code = raw_response.status_code
+        self.body = body if body is not None else raw_response.text
+        self.headers = raw_response.headers
+        self.raw_response = raw_response
 
-        if message:
-            message += ": "
-        message += f"Status {raw_response.status_code}"
-
-        headers = raw_response.headers
-        content_type = headers.get("content-type", '""')
-        if content_type != "application/json":
-            if " " in content_type:
-                content_type = f'"{content_type}"'
-            message += f" Content-Type {content_type}"
-
-        if len(body_display) > MAX_MESSAGE_LEN:
-            truncated = body_display[:MAX_MESSAGE_LEN]
-            remaining = len(body_display) - MAX_MESSAGE_LEN
-            body_display = f"{truncated}...and {remaining} more chars"
-
-        message += f". Body: {body_display}"
-        message = message.strip()
-
-        super().__init__(message, raw_response, body)
+    def __str__(self):
+        return self.message

@@ -1,4 +1,4 @@
-speakeasyVersion: 1.611.1
+speakeasyVersion: 1.613.0
 sources:
     nest-openapi:
         sourceNamespace: python-sdk
@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
         tags:
             - latest
-            - speakeasy-sdk-regen-1757205380
+            - speakeasy-sdk-regen-1757375179
             - 1.0.0
 targets:
     nest-api:
@@ -16,6 +16,13 @@ targets:
         sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
         codeSamplesNamespace: python-code-samples
         codeSamplesRevisionDigest: sha256:96834e2760512d68b2b26fb400c4c2b8e397f36dda2d2f190b5ab7f0f592ab89
+    nest-sdk-python:
+        source: nest-openapi
+        sourceNamespace: python-sdk
+        sourceRevisionDigest: sha256:1b934a74d9d9e15c6aa606b153c0481afcb554e668c2815b60a7e4c063e32b71
+        sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
+        codeSamplesNamespace: python-code-samples
+        codeSamplesRevisionDigest: sha256:d06743bc6ec737247d764b6235173e371f19204583a89d748d7c79dca5f2d4d2
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -28,7 +35,7 @@ workflow:
             registry:
                 location: registry.speakeasyapi.dev/owasp/nest/python-sdk
     targets:
-        nest-api:
+        nest-sdk-python:
             target: python
             source: nest-openapi
             output: .

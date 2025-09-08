@@ -278,7 +278,7 @@ with Nest(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-[`NestAPIError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nestapierror.py) is the base class for all HTTP error responses. It has the following properties:
+[`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py) is the base class for all HTTP error responses. It has the following properties:
 
 | Property           | Type             | Description                                                                             |
 | ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
@@ -306,7 +306,7 @@ with Nest(
         print(res)
 
 
-    except models.NestAPIError as e:
+    except models.NestError as e:
         # The base class for HTTP error responses
         print(e.message)
         print(e.status_code)
@@ -321,7 +321,7 @@ with Nest(
 
 ### Error Classes
 **Primary error:**
-* [`NestAPIError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nestapierror.py): The base class for HTTP error responses.
+* [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
 <details><summary>Less common errors (7)</summary>
 
@@ -333,7 +333,7 @@ with Nest(
     * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
 
 
-**Inherit from [`NestAPIError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nestapierror.py)**:
+**Inherit from [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py)**:
 * [`ChapterErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`MemberErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`ResponseValidationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.

@@ -3,10 +3,10 @@ id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
   docChecksum: dec60afacf47f0e4f8f08103ec1723c3
   docVersion: 1.0.0
-  speakeasyVersion: 1.611.1
-  generationVersion: 2.694.1
-  releaseVersion: 0.1.0
-  configChecksum: d7dd93ed26d760ffe835343b8bd4550c
+  speakeasyVersion: 1.613.0
+  generationVersion: 2.696.0
+  releaseVersion: 0.1.1
+  configChecksum: fc0aa704cbe7c5293993fb70f2183b89
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -294,28 +294,3 @@ examples:
         "404":
           application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `nest.chapters.list_chapters()`: **Added**
-  * `nest.chapters.get_chapter()`: **Added**
-  * `nest.committees.list_committees()`: **Added**
-  * `nest.community.list_members()`: **Added**
-  * `nest.community.get_member()`: **Added**
-  * `nest.community.list_organizations()`: **Added**
-  * `nest.events.list_events()`: **Added**
-  * `nest.issues.list_issues()`: **Added**
-  * `nest.projects.list_projects()`: **Added**
-  * `nest.releases.list_releases()`: **Added**
-  * `nest.repositories.list_repositories()`: **Added**
-  * `nest.settings_api_v1_api_root()`: **Deleted** **Breaking** :warning:
-  * `nest.owasp.list_chapters()`: **Deleted** **Breaking** :warning:
-  * `nest.owasp.list_committees()`: **Deleted** **Breaking** :warning:
-  * `nest.owasp.list_events()`: **Deleted** **Breaking** :warning:
-  * `nest.owasp.list_projects()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.list_issues()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.list_labels()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.list_organizations()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.list_releases()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.list_repositories()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.list_users()`: **Deleted** **Breaking** :warning:
-  * `nest.git_hub.get_user()`: **Deleted** **Breaking** :warning:

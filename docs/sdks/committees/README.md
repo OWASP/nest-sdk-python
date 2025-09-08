@@ -44,6 +44,6 @@ with Nest(
 
 ### Errors
 
-| Error Type       | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| models.NestError | 4XX, 5XX         | \*/\*            |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |

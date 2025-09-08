@@ -47,9 +47,9 @@ with Nest(
 
 ### Errors
 
-| Error Type       | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| models.NestError | 4XX, 5XX         | \*/\*            |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
 
 ## get_chapter
 
@@ -89,4 +89,4 @@ with Nest(
 | Error Type                  | Status Code                 | Content Type                |
 | --------------------------- | --------------------------- | --------------------------- |
 | models.ChapterErrorResponse | 404                         | application/json            |
-| models.NestError            | 4XX, 5XX                    | \*/\*                       |
+| models.NestAPIError         | 4XX, 5XX                    | \*/\*                       |
