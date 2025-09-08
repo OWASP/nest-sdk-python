@@ -48,9 +48,9 @@ with Nest(
 
 ### Errors
 
-| Error Type       | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| models.NestError | 4XX, 5XX         | \*/\*            |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
 
 ## get_member
 
@@ -90,7 +90,7 @@ with Nest(
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | models.MemberErrorResponse | 404                        | application/json           |
-| models.NestError           | 4XX, 5XX                   | \*/\*                      |
+| models.NestAPIError        | 4XX, 5XX                   | \*/\*                      |
 
 ## list_organizations
 
@@ -130,6 +130,6 @@ with Nest(
 
 ### Errors
 
-| Error Type       | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| models.NestError | 4XX, 5XX         | \*/\*            |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import httpx
-from owasp_nest.models import NestAPIError
+from owasp_nest.models import NestError
 from owasp_nest.types import BaseModel
 from typing import Optional
 
@@ -11,7 +11,7 @@ class ChapterErrorResponseData(BaseModel):
     message: str
 
 
-class ChapterErrorResponse(NestAPIError):
+class ChapterErrorResponse(NestError):
     r"""Chapter error response schema."""
 
     data: ChapterErrorResponseData

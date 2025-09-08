@@ -3,10 +3,10 @@
 import httpx
 from typing import Optional
 
-from owasp_nest.models import NestAPIError
+from owasp_nest.models import NestError
 
 
-class ResponseValidationError(NestAPIError):
+class ResponseValidationError(NestError):
     """Error raised when there is a type mismatch between the response data and the expected Pydantic model."""
 
     def __init__(

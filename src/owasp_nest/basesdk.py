@@ -275,7 +275,7 @@ class BaseSDK:
                     http_res = result
                 else:
                     logger.debug("Raising unexpected SDK error")
-                    raise models.NestError("Unexpected error occurred", http_res)
+                    raise models.NestAPIError("Unexpected error occurred", http_res)
 
             return http_res
 
@@ -347,7 +347,7 @@ class BaseSDK:
                     http_res = result
                 else:
                     logger.debug("Raising unexpected SDK error")
-                    raise models.NestError("Unexpected error occurred", http_res)
+                    raise models.NestAPIError("Unexpected error occurred", http_res)
 
             return http_res
 

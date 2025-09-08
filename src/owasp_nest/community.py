@@ -95,12 +95,12 @@ class Community(BaseSDK):
             return unmarshal_json_response(models.PagedMemberSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
 
-        raise models.NestError("Unexpected response received", http_res)
+        raise models.NestAPIError("Unexpected response received", http_res)
 
     async def list_members_async(
         self,
@@ -188,12 +188,12 @@ class Community(BaseSDK):
             return unmarshal_json_response(models.PagedMemberSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
 
-        raise models.NestError("Unexpected response received", http_res)
+        raise models.NestAPIError("Unexpected response received", http_res)
 
     def get_member(
         self,
@@ -275,12 +275,12 @@ class Community(BaseSDK):
             raise models.MemberErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
 
-        raise models.NestError("Unexpected response received", http_res)
+        raise models.NestAPIError("Unexpected response received", http_res)
 
     async def get_member_async(
         self,
@@ -362,12 +362,12 @@ class Community(BaseSDK):
             raise models.MemberErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
 
-        raise models.NestError("Unexpected response received", http_res)
+        raise models.NestAPIError("Unexpected response received", http_res)
 
     def list_organizations(
         self,
@@ -452,12 +452,12 @@ class Community(BaseSDK):
             return unmarshal_json_response(models.PagedOrganizationSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
 
-        raise models.NestError("Unexpected response received", http_res)
+        raise models.NestAPIError("Unexpected response received", http_res)
 
     async def list_organizations_async(
         self,
@@ -542,9 +542,9 @@ class Community(BaseSDK):
             return unmarshal_json_response(models.PagedOrganizationSchema, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.NestError("API error occurred", http_res, http_res_text)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
 
-        raise models.NestError("Unexpected response received", http_res)
+        raise models.NestAPIError("Unexpected response received", http_res)
