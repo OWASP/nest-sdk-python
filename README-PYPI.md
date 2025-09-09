@@ -9,11 +9,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *owas
     </a>
 </div>
 
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/owasp/nest). Delete this section before > publishing to a package manager.
-
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -114,7 +109,7 @@ Once that is saved to a file, you can run it with `uv run script.py` where
 
 Generally, the SDK will work well with most IDEs out of the box. However, when using PyCharm, you can enjoy much better integration with Pydantic by installing an additional plugin.
 
-- [PyCharm Pydantic Plugin](https://docs.pydantic.dev/latest/integrations/pycharm/)
+* [PyCharm Pydantic Plugin](https://docs.pydantic.dev/latest/integrations/pycharm/)
 <!-- End IDE Support [idesupport] -->
 
 <!-- Start SDK Example Usage [usage] -->
@@ -140,6 +135,7 @@ with Nest(
 </br>
 
 The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -172,6 +168,7 @@ This SDK supports the following security scheme globally:
 | `api_key_auth` | apiKey | API key |
 
 To authenticate with the API the `api_key_auth` parameter must be set when initializing the SDK client instance. For example:
+
 ```python
 from owasp_nest import Nest
 
@@ -217,7 +214,6 @@ with Nest(
 
 * [list_issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#list_issues) - List issues
 
-
 ### [projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md)
 
 * [list_projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md#list_projects) - List projects
@@ -239,6 +235,7 @@ with Nest(
 Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
+
 ```python
 from owasp_nest import Nest
 from owasp_nest.utils import BackoffStrategy, RetryConfig
@@ -257,6 +254,7 @@ with Nest(
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
+
 ```python
 from owasp_nest import Nest
 from owasp_nest.utils import BackoffStrategy, RetryConfig
@@ -290,6 +288,7 @@ with Nest(
 | `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](https://github.com/OWASP/nest-sdk-python/blob/master/#error-classes). |
 
 ### Example
+
 ```python
 from owasp_nest import Nest, models
 
@@ -320,7 +319,9 @@ with Nest(
 ```
 
 ### Error Classes
+
 **Primary error:**
+
 * [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
 <details><summary>Less common errors (7)</summary>
@@ -328,12 +329,13 @@ with Nest(
 <br />
 
 **Network errors:**
-* [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
-    * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
-    * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
 
+* [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
+  * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
+  * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
 
 **Inherit from [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py)**:
+
 * [`ChapterErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`MemberErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`ResponseValidationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
@@ -349,6 +351,7 @@ with Nest(
 ### Override Server URL Per-Client
 
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+
 ```python
 from owasp_nest import Nest
 
@@ -374,6 +377,7 @@ Depending on whether you are using the sync or async version of the SDK, you can
 This allows you to wrap the client with your own custom logic, such as adding custom headers, logging, or error handling, or you can just pass an instance of `httpx.Client` or `httpx.AsyncClient` directly.
 
 For example, you could specify a header for every request that this sdk makes as follows:
+
 ```python
 from owasp_nest import Nest
 import httpx
@@ -383,6 +387,7 @@ s = Nest(client=http_client)
 ```
 
 or you could wrap the client with your own custom logic:
+
 ```python
 from owasp_nest import Nest
 from owasp_nest.httpclient import AsyncHttpClient
@@ -480,6 +485,7 @@ async def amain():
 You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
+
 ```python
 from owasp_nest import Nest
 import logging
@@ -501,7 +507,7 @@ looking for the latest version.
 
 ## Contributions
 
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
+While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation.
+We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
 
 ### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=owasp-nest&utm_campaign=python)
