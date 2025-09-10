@@ -1,13 +1,13 @@
-speakeasyVersion: 1.613.0
+speakeasyVersion: 1.615.0
 sources:
     nest-openapi:
         sourceNamespace: python-sdk
-        sourceRevisionDigest: sha256:1b934a74d9d9e15c6aa606b153c0481afcb554e668c2815b60a7e4c063e32b71
-        sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
+        sourceRevisionDigest: sha256:1b21d0696a09889621579f15656544030864b59539f345c5507a1bcbe7395b10
+        sourceBlobDigest: sha256:cd062c24d07f3abf6f7c12b4a2245edb5b20a9d121f33b49637c79ac6b3c6b92
         tags:
             - latest
-            - speakeasy-sdk-regen-1757375179
-            - 1.0.0
+            - speakeasy-sdk-regen-1757527848
+            - 0.2.0
 targets:
     nest-api:
         source: nest-openapi
@@ -19,17 +19,17 @@ targets:
     nest-sdk-python:
         source: nest-openapi
         sourceNamespace: python-sdk
-        sourceRevisionDigest: sha256:1b934a74d9d9e15c6aa606b153c0481afcb554e668c2815b60a7e4c063e32b71
-        sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
+        sourceRevisionDigest: sha256:1b21d0696a09889621579f15656544030864b59539f345c5507a1bcbe7395b10
+        sourceBlobDigest: sha256:cd062c24d07f3abf6f7c12b4a2245edb5b20a9d121f33b49637c79ac6b3c6b92
         codeSamplesNamespace: python-code-samples
-        codeSamplesRevisionDigest: sha256:d06743bc6ec737247d764b6235173e371f19204583a89d748d7c79dca5f2d4d2
+        codeSamplesRevisionDigest: sha256:7066df4f2655c07c87edfe7e8cfadd7efb9337a8812edd05f05b86c4896e5d88
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         nest-openapi:
             inputs:
-                - location: https://nest.owasp.org/api/v1/openapi.json
+                - location: https://nest.owasp.dev/api/v0/openapi.json
             transformations:
                 - removeUnused: true
             registry:

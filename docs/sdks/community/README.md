@@ -15,13 +15,13 @@ Retrieve a paginated list of OWASP community members.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_members" method="get" path="/api/v1/members/" -->
+<!-- UsageSnippet language="python" operationID="list_members" method="get" path="/api/v0/members/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.community.list_members(location="India", page=1)
@@ -58,13 +58,13 @@ Retrieve a member by login.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get_member" method="get" path="/api/v1/members/{login}" -->
+<!-- UsageSnippet language="python" operationID="get_member" method="get" path="/api/v0/members/{login}" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.community.get_member(login="Stanton97")
@@ -98,13 +98,13 @@ Retrieve a paginated list of GitHub organizations.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_organizations" method="get" path="/api/v1/organizations/" -->
+<!-- UsageSnippet language="python" operationID="list_organizations" method="get" path="/api/v0/organizations/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.community.list_organizations(location="United States of America", page=1)

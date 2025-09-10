@@ -5,7 +5,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
@@ -25,7 +25,7 @@ from owasp_nest import Nest
 async def main():
 
     async with Nest(
-        api_key_auth="<YOUR_API_KEY_HERE>",
+        api_key_header="<YOUR_API_KEY_HERE>",
     ) as nest:
 
         res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)

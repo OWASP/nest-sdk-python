@@ -53,7 +53,7 @@ class Projects(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/projects/",
+            path="/api/v0/projects/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -143,7 +143,7 @@ class Projects(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/projects/",
+            path="/api/v0/projects/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

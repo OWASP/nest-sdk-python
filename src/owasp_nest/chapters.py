@@ -56,7 +56,7 @@ class Chapters(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/chapters/",
+            path="/api/v0/chapters/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -149,7 +149,7 @@ class Chapters(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/chapters/",
+            path="/api/v0/chapters/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -230,7 +230,7 @@ class Chapters(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/chapters/{key}",
+            path="/api/v0/chapters/{key}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -317,7 +317,7 @@ class Chapters(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/chapters/{key}",
+            path="/api/v0/chapters/{key}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

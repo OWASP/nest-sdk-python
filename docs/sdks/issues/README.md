@@ -13,13 +13,13 @@ Retrieve a paginated list of GitHub issues.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_issues" method="get" path="/api/v1/issues/" -->
+<!-- UsageSnippet language="python" operationID="list_issues" method="get" path="/api/v0/issues/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.issues.list_issues(page=1)

@@ -109,7 +109,7 @@ Once that is saved to a file, you can run it with `uv run script.py` where
 
 Generally, the SDK will work well with most IDEs out of the box. However, when using PyCharm, you can enjoy much better integration with Pydantic by installing an additional plugin.
 
-* [PyCharm Pydantic Plugin](https://docs.pydantic.dev/latest/integrations/pycharm/)
+- [PyCharm Pydantic Plugin](https://docs.pydantic.dev/latest/integrations/pycharm/)
 <!-- End IDE Support [idesupport] -->
 
 <!-- Start SDK Example Usage [usage] -->
@@ -123,7 +123,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
@@ -135,7 +135,6 @@ with Nest(
 </br>
 
 The same SDK client can also be used to make asynchronous requests by importing asyncio.
-
 ```python
 # Asynchronous Example
 import asyncio
@@ -144,7 +143,7 @@ from owasp_nest import Nest
 async def main():
 
     async with Nest(
-        api_key_auth="<YOUR_API_KEY_HERE>",
+        api_key_header="<YOUR_API_KEY_HERE>",
     ) as nest:
 
         res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
@@ -163,18 +162,17 @@ asyncio.run(main())
 
 This SDK supports the following security scheme globally:
 
-| Name           | Type   | Scheme  |
-| -------------- | ------ | ------- |
-| `api_key_auth` | apiKey | API key |
+| Name             | Type   | Scheme  |
+| ---------------- | ------ | ------- |
+| `api_key_header` | apiKey | API key |
 
-To authenticate with the API the `api_key_auth` parameter must be set when initializing the SDK client instance. For example:
-
+To authenticate with the API the `api_key_header` parameter must be set when initializing the SDK client instance. For example:
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
@@ -214,6 +212,7 @@ with Nest(
 
 * [list_issues](docs/sdks/issues/README.md#list_issues) - List issues
 
+
 ### [projects](docs/sdks/projects/README.md)
 
 * [list_projects](docs/sdks/projects/README.md#list_projects) - List projects
@@ -235,14 +234,13 @@ with Nest(
 Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
-
 ```python
 from owasp_nest import Nest
 from owasp_nest.utils import BackoffStrategy, RetryConfig
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1,
@@ -254,7 +252,6 @@ with Nest(
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
-
 ```python
 from owasp_nest import Nest
 from owasp_nest.utils import BackoffStrategy, RetryConfig
@@ -262,7 +259,7 @@ from owasp_nest.utils import BackoffStrategy, RetryConfig
 
 with Nest(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
@@ -288,13 +285,12 @@ with Nest(
 | `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
-
 ```python
 from owasp_nest import Nest, models
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
     res = None
     try:
@@ -319,9 +315,7 @@ with Nest(
 ```
 
 ### Error Classes
-
 **Primary error:**
-
 * [`NestError`](./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
 <details><summary>Less common errors (7)</summary>
@@ -329,13 +323,12 @@ with Nest(
 <br />
 
 **Network errors:**
-
 * [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
-  * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
-  * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
+    * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
+    * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
+
 
 **Inherit from [`NestError`](./src/owasp_nest/models/nesterror.py)**:
-
 * [`ChapterErrorResponse`](./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`MemberErrorResponse`](./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`ResponseValidationError`](./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
@@ -351,14 +344,13 @@ with Nest(
 ### Override Server URL Per-Client
 
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
-
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    server_url="https://nest.owasp.org",
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    server_url="https://nest.owasp.dev",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
@@ -377,7 +369,6 @@ Depending on whether you are using the sync or async version of the SDK, you can
 This allows you to wrap the client with your own custom logic, such as adding custom headers, logging, or error handling, or you can just pass an instance of `httpx.Client` or `httpx.AsyncClient` directly.
 
 For example, you could specify a header for every request that this sdk makes as follows:
-
 ```python
 from owasp_nest import Nest
 import httpx
@@ -387,7 +378,6 @@ s = Nest(client=http_client)
 ```
 
 or you could wrap the client with your own custom logic:
-
 ```python
 from owasp_nest import Nest
 from owasp_nest.httpclient import AsyncHttpClient
@@ -464,7 +454,7 @@ from owasp_nest import Nest
 def main():
 
     with Nest(
-        api_key_auth="<YOUR_API_KEY_HERE>",
+        api_key_header="<YOUR_API_KEY_HERE>",
     ) as nest:
         # Rest of application here...
 
@@ -473,7 +463,7 @@ def main():
 async def amain():
 
     async with Nest(
-        api_key_auth="<YOUR_API_KEY_HERE>",
+        api_key_header="<YOUR_API_KEY_HERE>",
     ) as nest:
         # Rest of application here...
 ```
@@ -485,7 +475,6 @@ async def amain():
 You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
-
 ```python
 from owasp_nest import Nest
 import logging

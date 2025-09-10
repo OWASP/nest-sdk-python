@@ -13,13 +13,13 @@ Retrieve a paginated list of OWASP events.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_events" method="get" path="/api/v1/events/" -->
+<!-- UsageSnippet language="python" operationID="list_events" method="get" path="/api/v0/events/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.events.list_events(page=1)
