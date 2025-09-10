@@ -7,11 +7,11 @@ from typing_extensions import Annotated, TypedDict
 
 
 class SecurityTypedDict(TypedDict):
-    api_key_auth: str
+    api_key_header: str
 
 
 class Security(BaseModel):
-    api_key_auth: Annotated[
+    api_key_header: Annotated[
         str,
         FieldMetadata(
             security=SecurityMetadata(

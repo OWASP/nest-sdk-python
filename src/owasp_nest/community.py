@@ -56,7 +56,7 @@ class Community(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/members/",
+            path="/api/v0/members/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -149,7 +149,7 @@ class Community(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/members/",
+            path="/api/v0/members/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -230,7 +230,7 @@ class Community(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/members/{login}",
+            path="/api/v0/members/{login}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -317,7 +317,7 @@ class Community(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/members/{login}",
+            path="/api/v0/members/{login}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -413,7 +413,7 @@ class Community(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/organizations/",
+            path="/api/v0/organizations/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -503,7 +503,7 @@ class Community(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/organizations/",
+            path="/api/v0/organizations/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

@@ -50,7 +50,7 @@ class Events(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/events/",
+            path="/api/v0/events/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -137,7 +137,7 @@ class Events(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/events/",
+            path="/api/v0/events/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

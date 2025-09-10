@@ -14,13 +14,13 @@ Retrieve a paginated list of OWASP chapters.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_chapters" method="get" path="/api/v1/chapters/" -->
+<!-- UsageSnippet language="python" operationID="list_chapters" method="get" path="/api/v0/chapters/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
@@ -57,13 +57,13 @@ Retrieve chapter details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get_chapter" method="get" path="/api/v1/chapters/{key}" -->
+<!-- UsageSnippet language="python" operationID="get_chapter" method="get" path="/api/v0/chapters/{key}" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.chapters.get_chapter(key="<key>")

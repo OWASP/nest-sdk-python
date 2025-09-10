@@ -13,13 +13,13 @@ Retrieve a paginated list of OWASP committees.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_committees" method="get" path="/api/v1/committees/" -->
+<!-- UsageSnippet language="python" operationID="list_committees" method="get" path="/api/v0/committees/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.committees.list_committees(page=1)

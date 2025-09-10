@@ -13,13 +13,13 @@ Retrieve a paginated list of OWASP projects.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_projects" method="get" path="/api/v1/projects/" -->
+<!-- UsageSnippet language="python" operationID="list_projects" method="get" path="/api/v0/projects/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.projects.list_projects(page=1)

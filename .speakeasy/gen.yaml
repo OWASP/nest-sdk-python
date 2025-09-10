@@ -25,7 +25,7 @@ generation:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.1.1
+  version: 0.2.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -63,4 +63,5 @@ python:
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2

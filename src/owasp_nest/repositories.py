@@ -50,7 +50,7 @@ class Repositories(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/repositories/",
+            path="/api/v0/repositories/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -137,7 +137,7 @@ class Repositories(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/repositories/",
+            path="/api/v0/repositories/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

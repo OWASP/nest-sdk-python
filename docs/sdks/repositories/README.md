@@ -13,13 +13,13 @@ Retrieve a paginated list of GitHub repositories.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list_repositories" method="get" path="/api/v1/repositories/" -->
+<!-- UsageSnippet language="python" operationID="list_repositories" method="get" path="/api/v0/repositories/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_auth="<YOUR_API_KEY_HERE>",
+    api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.repositories.list_repositories(page=1)
