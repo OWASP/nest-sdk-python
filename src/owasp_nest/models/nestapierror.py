@@ -2,12 +2,14 @@
 
 import httpx
 from typing import Optional
+from dataclasses import dataclass
 
 from owasp_nest.models import NestError
 
 MAX_MESSAGE_LEN = 10_000
 
 
+@dataclass(frozen=True)
 class NestAPIError(NestError):
     """The fallback error class if no more specific error class is matched."""
 

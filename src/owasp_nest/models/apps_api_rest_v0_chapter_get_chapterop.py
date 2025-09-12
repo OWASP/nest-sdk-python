@@ -6,11 +6,11 @@ from owasp_nest.utils import FieldMetadata, PathParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
-class GetMemberRequestTypedDict(TypedDict):
-    login: str
+class AppsAPIRestV0ChapterGetChapterRequestTypedDict(TypedDict):
+    chapter_id: str
 
 
-class GetMemberRequest(BaseModel):
-    login: Annotated[
+class AppsAPIRestV0ChapterGetChapterRequest(BaseModel):
+    chapter_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]

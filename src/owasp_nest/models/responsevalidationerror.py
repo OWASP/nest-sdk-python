@@ -2,10 +2,12 @@
 
 import httpx
 from typing import Optional
+from dataclasses import dataclass
 
 from owasp_nest.models import NestError
 
 
+@dataclass(frozen=True)
 class ResponseValidationError(NestError):
     """Error raised when there is a type mismatch between the response data and the expected Pydantic model."""
 

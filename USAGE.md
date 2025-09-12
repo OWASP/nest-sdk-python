@@ -8,7 +8,7 @@ with Nest(
     api_key_header="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1)
 
     # Handle response
     print(res)
@@ -28,7 +28,7 @@ async def main():
         api_key_header="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
+        res = await nest.chapters.apps_api_rest_v0_chapter_list_chapters_async(page=1)
 
         # Handle response
         print(res)

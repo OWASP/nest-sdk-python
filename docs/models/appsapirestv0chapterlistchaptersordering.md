@@ -1,4 +1,4 @@
-# ListProjectsOrdering
+# AppsAPIRestV0ChapterListChaptersOrdering
 
 Ordering field
 

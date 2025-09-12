@@ -1,8 +1,10 @@
-# GetChapterRequest
+# ProjectErrorResponse
+
+Project error response schema.
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `key`              | *str*              | :heavy_check_mark: | N/A                |
+| `message`          | *str*              | :heavy_check_mark: | N/A                |
