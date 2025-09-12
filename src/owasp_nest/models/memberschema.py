@@ -13,7 +13,6 @@ class MemberSchemaTypedDict(TypedDict):
     bio: str
     company: str
     created_at: datetime
-    email: str
     followers_count: int
     following_count: int
     location: str
@@ -36,8 +35,6 @@ class MemberSchema(BaseModel):
     company: str
 
     created_at: datetime
-
-    email: str
 
     followers_count: int
 

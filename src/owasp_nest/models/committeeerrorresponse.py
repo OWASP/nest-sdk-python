@@ -8,19 +8,19 @@ from owasp_nest.types import BaseModel
 from typing import Optional
 
 
-class ChapterErrorResponseData(BaseModel):
+class CommitteeErrorResponseData(BaseModel):
     message: str
 
 
 @dataclass(frozen=True)
-class ChapterErrorResponse(NestError):
-    r"""Chapter error response schema."""
+class CommitteeErrorResponse(NestError):
+    r"""Committee error response schema."""
 
-    data: ChapterErrorResponseData = field(hash=False)
+    data: CommitteeErrorResponseData = field(hash=False)
 
     def __init__(
         self,
-        data: ChapterErrorResponseData,
+        data: CommitteeErrorResponseData,
         raw_response: httpx.Response,
         body: Optional[str] = None,
     ):

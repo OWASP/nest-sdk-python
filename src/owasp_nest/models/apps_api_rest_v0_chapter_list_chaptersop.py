@@ -15,7 +15,7 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class ListChaptersOrdering(str, Enum):
+class AppsAPIRestV0ChapterListChaptersOrdering(str, Enum):
     r"""Ordering field"""
 
     CREATED_AT = "created_at"
@@ -24,18 +24,18 @@ class ListChaptersOrdering(str, Enum):
     MINUS_UPDATED_AT = "-updated_at"
 
 
-class ListChaptersRequestTypedDict(TypedDict):
+class AppsAPIRestV0ChapterListChaptersRequestTypedDict(TypedDict):
     country: NotRequired[Nullable[str]]
     r"""Country of the chapter"""
     region: NotRequired[Nullable[str]]
     r"""Region of the chapter"""
-    ordering: NotRequired[Nullable[ListChaptersOrdering]]
+    ordering: NotRequired[Nullable[AppsAPIRestV0ChapterListChaptersOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
     page_size: NotRequired[Nullable[int]]
 
 
-class ListChaptersRequest(BaseModel):
+class AppsAPIRestV0ChapterListChaptersRequest(BaseModel):
     country: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -49,7 +49,7 @@ class ListChaptersRequest(BaseModel):
     r"""Region of the chapter"""
 
     ordering: Annotated[
-        OptionalNullable[ListChaptersOrdering],
+        OptionalNullable[AppsAPIRestV0ChapterListChaptersOrdering],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Ordering field"""

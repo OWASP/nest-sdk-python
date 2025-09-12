@@ -7,27 +7,59 @@ import builtins
 import sys
 
 if TYPE_CHECKING:
+    from .apps_api_rest_v0_chapter_get_chapterop import (
+        AppsAPIRestV0ChapterGetChapterRequest,
+        AppsAPIRestV0ChapterGetChapterRequestTypedDict,
+    )
+    from .apps_api_rest_v0_chapter_list_chaptersop import (
+        AppsAPIRestV0ChapterListChaptersOrdering,
+        AppsAPIRestV0ChapterListChaptersRequest,
+        AppsAPIRestV0ChapterListChaptersRequestTypedDict,
+    )
+    from .apps_api_rest_v0_committee_get_chapterop import (
+        AppsAPIRestV0CommitteeGetChapterRequest,
+        AppsAPIRestV0CommitteeGetChapterRequestTypedDict,
+    )
+    from .apps_api_rest_v0_event_list_eventsop import (
+        AppsAPIRestV0EventListEventsOrdering,
+        AppsAPIRestV0EventListEventsRequest,
+        AppsAPIRestV0EventListEventsRequestTypedDict,
+    )
+    from .apps_api_rest_v0_member_get_memberop import (
+        AppsAPIRestV0MemberGetMemberRequest,
+        AppsAPIRestV0MemberGetMemberRequestTypedDict,
+    )
+    from .apps_api_rest_v0_organization_get_organizationop import (
+        AppsAPIRestV0OrganizationGetOrganizationRequest,
+        AppsAPIRestV0OrganizationGetOrganizationRequestTypedDict,
+    )
+    from .apps_api_rest_v0_organization_list_organizationop import (
+        AppsAPIRestV0OrganizationListOrganizationOrdering,
+        AppsAPIRestV0OrganizationListOrganizationRequest,
+        AppsAPIRestV0OrganizationListOrganizationRequestTypedDict,
+    )
+    from .apps_api_rest_v0_project_get_projectop import (
+        AppsAPIRestV0ProjectGetProjectRequest,
+        AppsAPIRestV0ProjectGetProjectRequestTypedDict,
+    )
+    from .apps_api_rest_v0_project_list_projectsop import (
+        AppsAPIRestV0ProjectListProjectsOrdering,
+        AppsAPIRestV0ProjectListProjectsRequest,
+        AppsAPIRestV0ProjectListProjectsRequestTypedDict,
+    )
     from .chaptererrorresponse import ChapterErrorResponse, ChapterErrorResponseData
     from .chapterschema import ChapterSchema, ChapterSchemaTypedDict
+    from .committeeerrorresponse import (
+        CommitteeErrorResponse,
+        CommitteeErrorResponseData,
+    )
     from .committeeschema import CommitteeSchema, CommitteeSchemaTypedDict
     from .eventschema import EventSchema, EventSchemaTypedDict
-    from .get_chapterop import GetChapterRequest, GetChapterRequestTypedDict
-    from .get_memberop import GetMemberRequest, GetMemberRequestTypedDict
     from .issueschema import IssueSchema, IssueSchemaTypedDict
-    from .list_chaptersop import (
-        ListChaptersOrdering,
-        ListChaptersRequest,
-        ListChaptersRequestTypedDict,
-    )
     from .list_committeesop import (
         ListCommitteesOrdering,
         ListCommitteesRequest,
         ListCommitteesRequestTypedDict,
-    )
-    from .list_eventsop import (
-        ListEventsOrdering,
-        ListEventsRequest,
-        ListEventsRequestTypedDict,
     )
     from .list_issuesop import (
         ListIssuesOrdering,
@@ -38,16 +70,6 @@ if TYPE_CHECKING:
         ListMembersOrdering,
         ListMembersRequest,
         ListMembersRequestTypedDict,
-    )
-    from .list_organizationsop import (
-        ListOrganizationsOrdering,
-        ListOrganizationsRequest,
-        ListOrganizationsRequestTypedDict,
-    )
-    from .list_projectsop import (
-        ListProjectsOrdering,
-        ListProjectsRequest,
-        ListProjectsRequestTypedDict,
     )
     from .list_releasesop import (
         ListReleasesOrdering,
@@ -63,6 +85,10 @@ if TYPE_CHECKING:
     from .memberschema import MemberSchema, MemberSchemaTypedDict
     from .nestapierror import NestAPIError
     from .no_response_error import NoResponseError
+    from .organizationerrorresponse import (
+        OrganizationErrorResponse,
+        OrganizationErrorResponseData,
+    )
     from .organizationschema import OrganizationSchema, OrganizationSchemaTypedDict
     from .pagedchapterschema import PagedChapterSchema, PagedChapterSchemaTypedDict
     from .pagedcommitteeschema import (
@@ -82,6 +108,7 @@ if TYPE_CHECKING:
         PagedRepositorySchema,
         PagedRepositorySchemaTypedDict,
     )
+    from .projecterrorresponse import ProjectErrorResponse, ProjectErrorResponseData
     from .projectlevel import ProjectLevel
     from .projectschema import ProjectSchema, ProjectSchemaTypedDict
     from .releaseschema import ReleaseSchema, ReleaseSchemaTypedDict
@@ -91,41 +118,49 @@ if TYPE_CHECKING:
     from .state import State
 
 __all__ = [
+    "AppsAPIRestV0ChapterGetChapterRequest",
+    "AppsAPIRestV0ChapterGetChapterRequestTypedDict",
+    "AppsAPIRestV0ChapterListChaptersOrdering",
+    "AppsAPIRestV0ChapterListChaptersRequest",
+    "AppsAPIRestV0ChapterListChaptersRequestTypedDict",
+    "AppsAPIRestV0CommitteeGetChapterRequest",
+    "AppsAPIRestV0CommitteeGetChapterRequestTypedDict",
+    "AppsAPIRestV0EventListEventsOrdering",
+    "AppsAPIRestV0EventListEventsRequest",
+    "AppsAPIRestV0EventListEventsRequestTypedDict",
+    "AppsAPIRestV0MemberGetMemberRequest",
+    "AppsAPIRestV0MemberGetMemberRequestTypedDict",
+    "AppsAPIRestV0OrganizationGetOrganizationRequest",
+    "AppsAPIRestV0OrganizationGetOrganizationRequestTypedDict",
+    "AppsAPIRestV0OrganizationListOrganizationOrdering",
+    "AppsAPIRestV0OrganizationListOrganizationRequest",
+    "AppsAPIRestV0OrganizationListOrganizationRequestTypedDict",
+    "AppsAPIRestV0ProjectGetProjectRequest",
+    "AppsAPIRestV0ProjectGetProjectRequestTypedDict",
+    "AppsAPIRestV0ProjectListProjectsOrdering",
+    "AppsAPIRestV0ProjectListProjectsRequest",
+    "AppsAPIRestV0ProjectListProjectsRequestTypedDict",
     "ChapterErrorResponse",
     "ChapterErrorResponseData",
     "ChapterSchema",
     "ChapterSchemaTypedDict",
+    "CommitteeErrorResponse",
+    "CommitteeErrorResponseData",
     "CommitteeSchema",
     "CommitteeSchemaTypedDict",
     "EventSchema",
     "EventSchemaTypedDict",
-    "GetChapterRequest",
-    "GetChapterRequestTypedDict",
-    "GetMemberRequest",
-    "GetMemberRequestTypedDict",
     "IssueSchema",
     "IssueSchemaTypedDict",
-    "ListChaptersOrdering",
-    "ListChaptersRequest",
-    "ListChaptersRequestTypedDict",
     "ListCommitteesOrdering",
     "ListCommitteesRequest",
     "ListCommitteesRequestTypedDict",
-    "ListEventsOrdering",
-    "ListEventsRequest",
-    "ListEventsRequestTypedDict",
     "ListIssuesOrdering",
     "ListIssuesRequest",
     "ListIssuesRequestTypedDict",
     "ListMembersOrdering",
     "ListMembersRequest",
     "ListMembersRequestTypedDict",
-    "ListOrganizationsOrdering",
-    "ListOrganizationsRequest",
-    "ListOrganizationsRequestTypedDict",
-    "ListProjectsOrdering",
-    "ListProjectsRequest",
-    "ListProjectsRequestTypedDict",
     "ListReleasesOrdering",
     "ListReleasesRequest",
     "ListReleasesRequestTypedDict",
@@ -139,6 +174,8 @@ __all__ = [
     "NestAPIError",
     "NestError",
     "NoResponseError",
+    "OrganizationErrorResponse",
+    "OrganizationErrorResponseData",
     "OrganizationSchema",
     "OrganizationSchemaTypedDict",
     "PagedChapterSchema",
@@ -159,6 +196,8 @@ __all__ = [
     "PagedReleaseSchemaTypedDict",
     "PagedRepositorySchema",
     "PagedRepositorySchemaTypedDict",
+    "ProjectErrorResponse",
+    "ProjectErrorResponseData",
     "ProjectLevel",
     "ProjectSchema",
     "ProjectSchemaTypedDict",
@@ -173,41 +212,49 @@ __all__ = [
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "AppsAPIRestV0ChapterGetChapterRequest": ".apps_api_rest_v0_chapter_get_chapterop",
+    "AppsAPIRestV0ChapterGetChapterRequestTypedDict": ".apps_api_rest_v0_chapter_get_chapterop",
+    "AppsAPIRestV0ChapterListChaptersOrdering": ".apps_api_rest_v0_chapter_list_chaptersop",
+    "AppsAPIRestV0ChapterListChaptersRequest": ".apps_api_rest_v0_chapter_list_chaptersop",
+    "AppsAPIRestV0ChapterListChaptersRequestTypedDict": ".apps_api_rest_v0_chapter_list_chaptersop",
+    "AppsAPIRestV0CommitteeGetChapterRequest": ".apps_api_rest_v0_committee_get_chapterop",
+    "AppsAPIRestV0CommitteeGetChapterRequestTypedDict": ".apps_api_rest_v0_committee_get_chapterop",
+    "AppsAPIRestV0EventListEventsOrdering": ".apps_api_rest_v0_event_list_eventsop",
+    "AppsAPIRestV0EventListEventsRequest": ".apps_api_rest_v0_event_list_eventsop",
+    "AppsAPIRestV0EventListEventsRequestTypedDict": ".apps_api_rest_v0_event_list_eventsop",
+    "AppsAPIRestV0MemberGetMemberRequest": ".apps_api_rest_v0_member_get_memberop",
+    "AppsAPIRestV0MemberGetMemberRequestTypedDict": ".apps_api_rest_v0_member_get_memberop",
+    "AppsAPIRestV0OrganizationGetOrganizationRequest": ".apps_api_rest_v0_organization_get_organizationop",
+    "AppsAPIRestV0OrganizationGetOrganizationRequestTypedDict": ".apps_api_rest_v0_organization_get_organizationop",
+    "AppsAPIRestV0OrganizationListOrganizationOrdering": ".apps_api_rest_v0_organization_list_organizationop",
+    "AppsAPIRestV0OrganizationListOrganizationRequest": ".apps_api_rest_v0_organization_list_organizationop",
+    "AppsAPIRestV0OrganizationListOrganizationRequestTypedDict": ".apps_api_rest_v0_organization_list_organizationop",
+    "AppsAPIRestV0ProjectGetProjectRequest": ".apps_api_rest_v0_project_get_projectop",
+    "AppsAPIRestV0ProjectGetProjectRequestTypedDict": ".apps_api_rest_v0_project_get_projectop",
+    "AppsAPIRestV0ProjectListProjectsOrdering": ".apps_api_rest_v0_project_list_projectsop",
+    "AppsAPIRestV0ProjectListProjectsRequest": ".apps_api_rest_v0_project_list_projectsop",
+    "AppsAPIRestV0ProjectListProjectsRequestTypedDict": ".apps_api_rest_v0_project_list_projectsop",
     "ChapterErrorResponse": ".chaptererrorresponse",
     "ChapterErrorResponseData": ".chaptererrorresponse",
     "ChapterSchema": ".chapterschema",
     "ChapterSchemaTypedDict": ".chapterschema",
+    "CommitteeErrorResponse": ".committeeerrorresponse",
+    "CommitteeErrorResponseData": ".committeeerrorresponse",
     "CommitteeSchema": ".committeeschema",
     "CommitteeSchemaTypedDict": ".committeeschema",
     "EventSchema": ".eventschema",
     "EventSchemaTypedDict": ".eventschema",
-    "GetChapterRequest": ".get_chapterop",
-    "GetChapterRequestTypedDict": ".get_chapterop",
-    "GetMemberRequest": ".get_memberop",
-    "GetMemberRequestTypedDict": ".get_memberop",
     "IssueSchema": ".issueschema",
     "IssueSchemaTypedDict": ".issueschema",
-    "ListChaptersOrdering": ".list_chaptersop",
-    "ListChaptersRequest": ".list_chaptersop",
-    "ListChaptersRequestTypedDict": ".list_chaptersop",
     "ListCommitteesOrdering": ".list_committeesop",
     "ListCommitteesRequest": ".list_committeesop",
     "ListCommitteesRequestTypedDict": ".list_committeesop",
-    "ListEventsOrdering": ".list_eventsop",
-    "ListEventsRequest": ".list_eventsop",
-    "ListEventsRequestTypedDict": ".list_eventsop",
     "ListIssuesOrdering": ".list_issuesop",
     "ListIssuesRequest": ".list_issuesop",
     "ListIssuesRequestTypedDict": ".list_issuesop",
     "ListMembersOrdering": ".list_membersop",
     "ListMembersRequest": ".list_membersop",
     "ListMembersRequestTypedDict": ".list_membersop",
-    "ListOrganizationsOrdering": ".list_organizationsop",
-    "ListOrganizationsRequest": ".list_organizationsop",
-    "ListOrganizationsRequestTypedDict": ".list_organizationsop",
-    "ListProjectsOrdering": ".list_projectsop",
-    "ListProjectsRequest": ".list_projectsop",
-    "ListProjectsRequestTypedDict": ".list_projectsop",
     "ListReleasesOrdering": ".list_releasesop",
     "ListReleasesRequest": ".list_releasesop",
     "ListReleasesRequestTypedDict": ".list_releasesop",
@@ -220,6 +267,8 @@ _dynamic_imports: dict[str, str] = {
     "MemberSchemaTypedDict": ".memberschema",
     "NestAPIError": ".nestapierror",
     "NoResponseError": ".no_response_error",
+    "OrganizationErrorResponse": ".organizationerrorresponse",
+    "OrganizationErrorResponseData": ".organizationerrorresponse",
     "OrganizationSchema": ".organizationschema",
     "OrganizationSchemaTypedDict": ".organizationschema",
     "PagedChapterSchema": ".pagedchapterschema",
@@ -240,6 +289,8 @@ _dynamic_imports: dict[str, str] = {
     "PagedReleaseSchemaTypedDict": ".pagedreleaseschema",
     "PagedRepositorySchema": ".pagedrepositoryschema",
     "PagedRepositorySchemaTypedDict": ".pagedrepositoryschema",
+    "ProjectErrorResponse": ".projecterrorresponse",
+    "ProjectErrorResponseData": ".projecterrorresponse",
     "ProjectLevel": ".projectlevel",
     "ProjectSchema": ".projectschema",
     "ProjectSchemaTypedDict": ".projectschema",
