@@ -1,8 +1,8 @@
-# AppsAPIRestV0ChapterGetChapterRequest
+# GetProjectRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `chapter_id`       | *str*              | :heavy_check_mark: | N/A                | London             |
+| `project_id`       | *str*              | :heavy_check_mark: | N/A                | Nest               |

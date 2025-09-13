@@ -49,7 +49,7 @@ class Nest(BaseSDK):
 
     def __init__(
         self,
-        api_key_header: Union[str, Callable[[], str]],
+        api_key: Union[str, Callable[[], str]],
         server_idx: Optional[int] = None,
         server_url: Optional[str] = None,
         url_params: Optional[Dict[str, str]] = None,
@@ -61,7 +61,7 @@ class Nest(BaseSDK):
     ) -> None:
         r"""Instantiates the SDK configuring it with the provided parameters.
 
-        :param api_key_header: The api_key_header required for authentication
+        :param api_key: The api_key required for authentication
         :param server_idx: The index of the server to use for all methods
         :param server_url: The server URL to use for all methods
         :param url_params: Parameters to optionally template the server URL with
@@ -92,11 +92,11 @@ class Nest(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(api_key_header):
+        if callable(api_key):
             # pylint: disable=unnecessary-lambda-assignment
-            security = lambda: models.Security(api_key_header=api_key_header())
+            security = lambda: models.Security(api_key=api_key())
         else:
-            security = models.Security(api_key_header=api_key_header)
+            security = models.Security(api_key=api_key)
 
         if server_url is not None:
             if url_params is not None:

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 4846c5d20bdbc8f586bcb4e13e03a1f5
+  docChecksum: 20c4e164cc76274c3efeec8c258eafc0
   docVersion: 0.2.1
   speakeasyVersion: 1.615.2
   generationVersion: 2.698.4
-  releaseVersion: 0.2.1
-  configChecksum: faca172653f2b1d1a8f916487cbc13f3
+  releaseVersion: 0.2.2
+  configChecksum: f6e70e963599be579076d5e24b00b126
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -32,31 +32,31 @@ generatedFiles:
   - .gitattributes
   - .vscode/settings.json
   - USAGE.md
-  - docs/models/appsapirestv0chaptergetchapterrequest.md
-  - docs/models/appsapirestv0chapterlistchaptersordering.md
-  - docs/models/appsapirestv0chapterlistchaptersrequest.md
-  - docs/models/appsapirestv0committeegetchapterrequest.md
-  - docs/models/appsapirestv0eventlisteventsordering.md
-  - docs/models/appsapirestv0eventlisteventsrequest.md
-  - docs/models/appsapirestv0membergetmemberrequest.md
-  - docs/models/appsapirestv0organizationgetorganizationrequest.md
-  - docs/models/appsapirestv0organizationlistorganizationordering.md
-  - docs/models/appsapirestv0organizationlistorganizationrequest.md
-  - docs/models/appsapirestv0projectgetprojectrequest.md
-  - docs/models/appsapirestv0projectlistprojectsordering.md
-  - docs/models/appsapirestv0projectlistprojectsrequest.md
   - docs/models/chaptererrorresponse.md
   - docs/models/chapterschema.md
   - docs/models/committeeerrorresponse.md
   - docs/models/committeeschema.md
   - docs/models/eventschema.md
+  - docs/models/getchapterrequest.md
+  - docs/models/getcommitteerequest.md
+  - docs/models/getmemberrequest.md
+  - docs/models/getorganizationrequest.md
+  - docs/models/getprojectrequest.md
   - docs/models/issueschema.md
+  - docs/models/listchaptersordering.md
+  - docs/models/listchaptersrequest.md
   - docs/models/listcommitteesordering.md
   - docs/models/listcommitteesrequest.md
+  - docs/models/listeventsordering.md
+  - docs/models/listeventsrequest.md
   - docs/models/listissuesordering.md
   - docs/models/listissuesrequest.md
   - docs/models/listmembersordering.md
   - docs/models/listmembersrequest.md
+  - docs/models/listorganizationsordering.md
+  - docs/models/listorganizationsrequest.md
+  - docs/models/listprojectsordering.md
+  - docs/models/listprojectsrequest.md
   - docs/models/listreleasesordering.md
   - docs/models/listreleasesrequest.md
   - docs/models/listrepositoriesordering.md
@@ -109,24 +109,24 @@ generatedFiles:
   - src/owasp_nest/httpclient.py
   - src/owasp_nest/issues.py
   - src/owasp_nest/models/__init__.py
-  - src/owasp_nest/models/apps_api_rest_v0_chapter_get_chapterop.py
-  - src/owasp_nest/models/apps_api_rest_v0_chapter_list_chaptersop.py
-  - src/owasp_nest/models/apps_api_rest_v0_committee_get_chapterop.py
-  - src/owasp_nest/models/apps_api_rest_v0_event_list_eventsop.py
-  - src/owasp_nest/models/apps_api_rest_v0_member_get_memberop.py
-  - src/owasp_nest/models/apps_api_rest_v0_organization_get_organizationop.py
-  - src/owasp_nest/models/apps_api_rest_v0_organization_list_organizationop.py
-  - src/owasp_nest/models/apps_api_rest_v0_project_get_projectop.py
-  - src/owasp_nest/models/apps_api_rest_v0_project_list_projectsop.py
   - src/owasp_nest/models/chaptererrorresponse.py
   - src/owasp_nest/models/chapterschema.py
   - src/owasp_nest/models/committeeerrorresponse.py
   - src/owasp_nest/models/committeeschema.py
   - src/owasp_nest/models/eventschema.py
+  - src/owasp_nest/models/get_chapterop.py
+  - src/owasp_nest/models/get_committeeop.py
+  - src/owasp_nest/models/get_memberop.py
+  - src/owasp_nest/models/get_organizationop.py
+  - src/owasp_nest/models/get_projectop.py
   - src/owasp_nest/models/issueschema.py
+  - src/owasp_nest/models/list_chaptersop.py
   - src/owasp_nest/models/list_committeesop.py
+  - src/owasp_nest/models/list_eventsop.py
   - src/owasp_nest/models/list_issuesop.py
   - src/owasp_nest/models/list_membersop.py
+  - src/owasp_nest/models/list_organizationsop.py
+  - src/owasp_nest/models/list_projectsop.py
   - src/owasp_nest/models/list_releasesop.py
   - src/owasp_nest/models/list_repositoriesop.py
   - src/owasp_nest/models/membererrorresponse.py
@@ -210,6 +210,7 @@ examples:
       parameters:
         query:
           page: 1
+          ordering: "-created_at"
       responses:
         "200":
           application/json: {"items": [], "count": 820243}
@@ -281,6 +282,7 @@ examples:
       parameters:
         path:
           key: "<key>"
+          chapter_id: "London"
       responses:
         "200":
           application/json: {"country": "Hungary", "created_at": "2024-10-15T07:48:29.830Z", "name": "<value>", "region": "<value>", "updated_at": "2023-12-24T21:08:33.483Z"}
@@ -300,9 +302,10 @@ examples:
       parameters:
         path:
           login: "Stanton97"
+          member_id: "OWASP"
       responses:
         "200":
-          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "email": "Viva91@hotmail.com", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
+          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
         "404":
           application/json: {"message": "<value>"}
   apps_api_rest_v0_chapter_list_chapters:
@@ -389,22 +392,54 @@ examples:
           application/json: {"created_at": "2025-02-01T21:38:47.314Z", "description": "astride hence easily", "level": "other", "name": "<value>", "updated_at": "2023-10-02T12:16:09.505Z"}
         "404":
           application/json: {"message": "<value>"}
+  get_committee:
+    speakeasy-default-get-committee:
+      parameters:
+        path:
+          committee_id: "project"
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "phew regal hoarse what tedious pharmacopoeia stealthily disadvantage emergent at", "created_at": "2024-10-26T15:58:22.888Z", "updated_at": "2024-10-23T09:23:37.658Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_organization:
+    speakeasy-default-get-organization:
+      parameters:
+        path:
+          organization_id: "OWASP"
+      responses:
+        "200":
+          application/json: {"company": "Padberg - Hettinger", "created_at": "2025-12-12T04:28:03.547Z", "location": "<value>", "login": "Alessandra_Beer", "name": "<value>", "updated_at": "2023-07-11T13:29:35.567Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_project:
+    speakeasy-default-get-project:
+      parameters:
+        path:
+          project_id: "Nest"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "description": "since limply gah consequently ugh petticoat wholly possible", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z"}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Python SDK Changes Detected:
-  * `nest.community.list_members()`:  `response.items.[].email` **Removed** **Breaking** :warning:
-  * `nest.projects.apps_api_rest_v0_project_get_project()`: **Added**
-  * `nest.community.get_member()`: **Deleted** **Breaking** :warning:
-  * `nest.community.apps_api_rest_v0_member_get_member()`: **Added**
-  * `nest.community.apps_api_rest_v0_organization_list_organization()`: **Added**
-  * `nest.community.apps_api_rest_v0_organization_get_organization()`: **Added**
-  * `nest.events.apps_api_rest_v0_event_list_events()`: **Added**
-  * `nest.committees.apps_api_rest_v0_committee_get_chapter()`: **Added**
-  * `nest.chapters.list_chapters()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.apps_api_rest_v0_project_list_projects()`: **Added**
-  * `nest.chapters.get_chapter()`: **Deleted** **Breaking** :warning:
-  * `nest.chapters.apps_api_rest_v0_chapter_list_chapters()`: **Added**
-  * `nest.community.list_organizations()`: **Deleted** **Breaking** :warning:
-  * `nest.events.list_events()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.list_projects()`: **Deleted** **Breaking** :warning:
-  * `nest.chapters.apps_api_rest_v0_chapter_get_chapter()`: **Added**
+  * `nest.chapters.list_chapters()`: **Added**
+  * `nest.chapters.get_chapter()`: **Added**
+  * `nest.committees.get_committee()`: **Added**
+  * `nest.community.get_member()`: **Added**
+  * `nest.community.list_organizations()`: **Added**
+  * `nest.community.get_organization()`: **Added**
+  * `nest.events.list_events()`: **Added**
+  * `nest.projects.list_projects()`: **Added**
+  * `nest.projects.get_project()`: **Added**
+  * `nest.chapters.apps_api_rest_v0_chapter_list_chapters()`: **Deleted** **Breaking** :warning:
+  * `nest.chapters.apps_api_rest_v0_chapter_get_chapter()`: **Deleted** **Breaking** :warning:
+  * `nest.committees.apps_api_rest_v0_committee_get_chapter()`: **Deleted** **Breaking** :warning:
+  * `nest.community.apps_api_rest_v0_member_get_member()`: **Deleted** **Breaking** :warning:
+  * `nest.community.apps_api_rest_v0_organization_list_organization()`: **Deleted** **Breaking** :warning:
+  * `nest.community.apps_api_rest_v0_organization_get_organization()`: **Deleted** **Breaking** :warning:
+  * `nest.events.apps_api_rest_v0_event_list_events()`: **Deleted** **Breaking** :warning:
+  * `nest.projects.apps_api_rest_v0_project_list_projects()`: **Deleted** **Breaking** :warning:
+  * `nest.projects.apps_api_rest_v0_project_get_project()`: **Deleted** **Breaking** :warning:

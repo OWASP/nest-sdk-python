@@ -19,7 +19,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.releases.list_releases(tag_name="v1.0.0", page=1)

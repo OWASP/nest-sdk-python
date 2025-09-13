@@ -1,4 +1,4 @@
-# AppsAPIRestV0EventListEventsOrdering
+# ListEventsOrdering
 
 Ordering field
 

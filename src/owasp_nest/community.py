@@ -195,7 +195,7 @@ class Community(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    def apps_api_rest_v0_member_get_member(
+    def get_member(
         self,
         *,
         member_id: str,
@@ -224,7 +224,7 @@ class Community(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0MemberGetMemberRequest(
+        request = models.GetMemberRequest(
             member_id=member_id,
         )
 
@@ -256,7 +256,7 @@ class Community(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_member_get_member",
+                operation_id="get_member",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -282,7 +282,7 @@ class Community(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_member_get_member_async(
+    async def get_member_async(
         self,
         *,
         member_id: str,
@@ -311,7 +311,7 @@ class Community(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0MemberGetMemberRequest(
+        request = models.GetMemberRequest(
             member_id=member_id,
         )
 
@@ -343,7 +343,7 @@ class Community(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_member_get_member",
+                operation_id="get_member",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -369,13 +369,11 @@ class Community(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    def apps_api_rest_v0_organization_list_organization(
+    def list_organizations(
         self,
         *,
         location: OptionalNullable[str] = UNSET,
-        ordering: OptionalNullable[
-            models.AppsAPIRestV0OrganizationListOrganizationOrdering
-        ] = UNSET,
+        ordering: OptionalNullable[models.ListOrganizationsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -406,7 +404,7 @@ class Community(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0OrganizationListOrganizationRequest(
+        request = models.ListOrganizationsRequest(
             location=location,
             ordering=ordering,
             page=page,
@@ -441,7 +439,7 @@ class Community(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_organization_list_organization",
+                operation_id="list_organizations",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -461,13 +459,11 @@ class Community(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_organization_list_organization_async(
+    async def list_organizations_async(
         self,
         *,
         location: OptionalNullable[str] = UNSET,
-        ordering: OptionalNullable[
-            models.AppsAPIRestV0OrganizationListOrganizationOrdering
-        ] = UNSET,
+        ordering: OptionalNullable[models.ListOrganizationsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -498,7 +494,7 @@ class Community(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0OrganizationListOrganizationRequest(
+        request = models.ListOrganizationsRequest(
             location=location,
             ordering=ordering,
             page=page,
@@ -533,7 +529,7 @@ class Community(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_organization_list_organization",
+                operation_id="list_organizations",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -553,7 +549,7 @@ class Community(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    def apps_api_rest_v0_organization_get_organization(
+    def get_organization(
         self,
         *,
         organization_id: str,
@@ -582,7 +578,7 @@ class Community(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0OrganizationGetOrganizationRequest(
+        request = models.GetOrganizationRequest(
             organization_id=organization_id,
         )
 
@@ -614,7 +610,7 @@ class Community(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_organization_get_organization",
+                operation_id="get_organization",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -640,7 +636,7 @@ class Community(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_organization_get_organization_async(
+    async def get_organization_async(
         self,
         *,
         organization_id: str,
@@ -669,7 +665,7 @@ class Community(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0OrganizationGetOrganizationRequest(
+        request = models.GetOrganizationRequest(
             organization_id=organization_id,
         )
 
@@ -701,7 +697,7 @@ class Community(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_organization_get_organization",
+                operation_id="get_organization",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),

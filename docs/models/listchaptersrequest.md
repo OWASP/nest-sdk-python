@@ -1,0 +1,12 @@
+# ListChaptersRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `country`                                                                          | *OptionalNullable[str]*                                                            | :heavy_minus_sign:                                                                 | Country of the chapter                                                             |
+| `region`                                                                           | *OptionalNullable[str]*                                                            | :heavy_minus_sign:                                                                 | Region of the chapter                                                              |
+| `ordering`                                                                         | [OptionalNullable[models.ListChaptersOrdering]](../models/listchaptersordering.md) | :heavy_minus_sign:                                                                 | Ordering field                                                                     |
+| `page`                                                                             | *Optional[int]*                                                                    | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `page_size`                                                                        | *OptionalNullable[int]*                                                            | :heavy_minus_sign:                                                                 | N/A                                                                                |

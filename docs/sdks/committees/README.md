@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list_committees](#list_committees) - List committees
-* [apps_api_rest_v0_committee_get_chapter](#apps_api_rest_v0_committee_get_chapter) - Get committee
+* [get_committee](#get_committee) - Get committee
 
 ## list_committees
 
@@ -20,7 +20,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.committees.list_committees(page=1)
@@ -49,22 +49,22 @@ with Nest(
 | ------------------- | ------------------- | ------------------- |
 | models.NestAPIError | 4XX, 5XX            | \*/\*               |
 
-## apps_api_rest_v0_committee_get_chapter
+## get_committee
 
 Retrieve committee details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="apps_api_rest_v0_committee_get_chapter" method="get" path="/api/v0/committees/{committee_id}" -->
+<!-- UsageSnippet language="python" operationID="get_committee" method="get" path="/api/v0/committees/{committee_id}" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.committees.apps_api_rest_v0_committee_get_chapter(committee_id="project")
+    res = nest.committees.get_committee(committee_id="project")
 
     # Handle response
     print(res)

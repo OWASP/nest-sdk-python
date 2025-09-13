@@ -6,9 +6,9 @@
 ### Available Operations
 
 * [list_members](#list_members) - List members
-* [apps_api_rest_v0_member_get_member](#apps_api_rest_v0_member_get_member) - Get member
-* [apps_api_rest_v0_organization_list_organization](#apps_api_rest_v0_organization_list_organization) - List organizations
-* [apps_api_rest_v0_organization_get_organization](#apps_api_rest_v0_organization_get_organization) - Get organization
+* [get_member](#get_member) - Get member
+* [list_organizations](#list_organizations) - List organizations
+* [get_organization](#get_organization) - Get organization
 
 ## list_members
 
@@ -22,7 +22,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
     res = nest.community.list_members(location="India", page=1)
@@ -53,22 +53,22 @@ with Nest(
 | ------------------- | ------------------- | ------------------- |
 | models.NestAPIError | 4XX, 5XX            | \*/\*               |
 
-## apps_api_rest_v0_member_get_member
+## get_member
 
 Retrieve member details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="apps_api_rest_v0_member_get_member" method="get" path="/api/v0/members/{member_id}" -->
+<!-- UsageSnippet language="python" operationID="get_member" method="get" path="/api/v0/members/{member_id}" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.community.apps_api_rest_v0_member_get_member(member_id="OWASP")
+    res = nest.community.get_member(member_id="OWASP")
 
     # Handle response
     print(res)
@@ -93,22 +93,22 @@ with Nest(
 | models.MemberErrorResponse | 404                        | application/json           |
 | models.NestAPIError        | 4XX, 5XX                   | \*/\*                      |
 
-## apps_api_rest_v0_organization_list_organization
+## list_organizations
 
 Retrieve a paginated list of GitHub organizations.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="apps_api_rest_v0_organization_list_organization" method="get" path="/api/v0/organizations/" -->
+<!-- UsageSnippet language="python" operationID="list_organizations" method="get" path="/api/v0/organizations/" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.community.apps_api_rest_v0_organization_list_organization(location="United States of America", page=1)
+    res = nest.community.list_organizations(location="United States of America", page=1)
 
     # Handle response
     print(res)
@@ -117,13 +117,13 @@ with Nest(
 
 ### Parameters
 
-| Parameter                                                                                                                                       | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     | Example                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `location`                                                                                                                                      | *OptionalNullable[str]*                                                                                                                         | :heavy_minus_sign:                                                                                                                              | Location of the organization                                                                                                                    | United States of America                                                                                                                        |
-| `ordering`                                                                                                                                      | [OptionalNullable[models.AppsAPIRestV0OrganizationListOrganizationOrdering]](../../models/appsapirestv0organizationlistorganizationordering.md) | :heavy_minus_sign:                                                                                                                              | Ordering field                                                                                                                                  |                                                                                                                                                 |
-| `page`                                                                                                                                          | *Optional[int]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                              | N/A                                                                                                                                             |                                                                                                                                                 |
-| `page_size`                                                                                                                                     | *OptionalNullable[int]*                                                                                                                         | :heavy_minus_sign:                                                                                                                              | N/A                                                                                                                                             |                                                                                                                                                 |
-| `retries`                                                                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                | :heavy_minus_sign:                                                                                                                              | Configuration to override the default retry behavior of the client.                                                                             |                                                                                                                                                 |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `location`                                                                                      | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | Location of the organization                                                                    | United States of America                                                                        |
+| `ordering`                                                                                      | [OptionalNullable[models.ListOrganizationsOrdering]](../../models/listorganizationsordering.md) | :heavy_minus_sign:                                                                              | Ordering field                                                                                  |                                                                                                 |
+| `page`                                                                                          | *Optional[int]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
+| `page_size`                                                                                     | *OptionalNullable[int]*                                                                         | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
+| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |                                                                                                 |
 
 ### Response
 
@@ -135,22 +135,22 @@ with Nest(
 | ------------------- | ------------------- | ------------------- |
 | models.NestAPIError | 4XX, 5XX            | \*/\*               |
 
-## apps_api_rest_v0_organization_get_organization
+## get_organization
 
 Retrieve project details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="apps_api_rest_v0_organization_get_organization" method="get" path="/api/v0/organizations/{organization_id}" -->
+<!-- UsageSnippet language="python" operationID="get_organization" method="get" path="/api/v0/organizations/{organization_id}" -->
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.community.apps_api_rest_v0_organization_get_organization(organization_id="OWASP")
+    res = nest.community.get_organization(organization_id="OWASP")
 
     # Handle response
     print(res)

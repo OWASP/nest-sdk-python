@@ -15,7 +15,7 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class AppsAPIRestV0EventListEventsOrdering(str, Enum):
+class ListEventsOrdering(str, Enum):
     r"""Ordering field"""
 
     START_DATE = "start_date"
@@ -24,16 +24,16 @@ class AppsAPIRestV0EventListEventsOrdering(str, Enum):
     MINUS_END_DATE = "-end_date"
 
 
-class AppsAPIRestV0EventListEventsRequestTypedDict(TypedDict):
-    ordering: NotRequired[Nullable[AppsAPIRestV0EventListEventsOrdering]]
+class ListEventsRequestTypedDict(TypedDict):
+    ordering: NotRequired[Nullable[ListEventsOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
     page_size: NotRequired[Nullable[int]]
 
 
-class AppsAPIRestV0EventListEventsRequest(BaseModel):
+class ListEventsRequest(BaseModel):
     ordering: Annotated[
-        OptionalNullable[AppsAPIRestV0EventListEventsOrdering],
+        OptionalNullable[ListEventsOrdering],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Ordering field"""

@@ -9,10 +9,10 @@ from typing import Mapping, Optional
 
 
 class Events(BaseSDK):
-    def apps_api_rest_v0_event_list_events(
+    def list_events(
         self,
         *,
-        ordering: OptionalNullable[models.AppsAPIRestV0EventListEventsOrdering] = UNSET,
+        ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -42,7 +42,7 @@ class Events(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0EventListEventsRequest(
+        request = models.ListEventsRequest(
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -76,7 +76,7 @@ class Events(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_event_list_events",
+                operation_id="list_events",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -96,10 +96,10 @@ class Events(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_event_list_events_async(
+    async def list_events_async(
         self,
         *,
-        ordering: OptionalNullable[models.AppsAPIRestV0EventListEventsOrdering] = UNSET,
+        ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -129,7 +129,7 @@ class Events(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0EventListEventsRequest(
+        request = models.ListEventsRequest(
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -163,7 +163,7 @@ class Events(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_event_list_events",
+                operation_id="list_events",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
