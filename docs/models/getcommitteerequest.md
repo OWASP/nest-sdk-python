@@ -1,8 +1,8 @@
-# AppsAPIRestV0MemberGetMemberRequest
+# GetCommitteeRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `member_id`        | *str*              | :heavy_check_mark: | N/A                | OWASP              |
+| `committee_id`     | *str*              | :heavy_check_mark: | N/A                | project            |

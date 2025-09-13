@@ -9,14 +9,12 @@ from typing import Any, Mapping, Optional
 
 
 class Chapters(BaseSDK):
-    def apps_api_rest_v0_chapter_list_chapters(
+    def list_chapters(
         self,
         *,
         country: OptionalNullable[str] = UNSET,
         region: OptionalNullable[str] = UNSET,
-        ordering: OptionalNullable[
-            models.AppsAPIRestV0ChapterListChaptersOrdering
-        ] = UNSET,
+        ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -48,7 +46,7 @@ class Chapters(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ChapterListChaptersRequest(
+        request = models.ListChaptersRequest(
             country=country,
             region=region,
             ordering=ordering,
@@ -84,7 +82,7 @@ class Chapters(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_chapter_list_chapters",
+                operation_id="list_chapters",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -104,14 +102,12 @@ class Chapters(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_chapter_list_chapters_async(
+    async def list_chapters_async(
         self,
         *,
         country: OptionalNullable[str] = UNSET,
         region: OptionalNullable[str] = UNSET,
-        ordering: OptionalNullable[
-            models.AppsAPIRestV0ChapterListChaptersOrdering
-        ] = UNSET,
+        ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -143,7 +139,7 @@ class Chapters(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ChapterListChaptersRequest(
+        request = models.ListChaptersRequest(
             country=country,
             region=region,
             ordering=ordering,
@@ -179,7 +175,7 @@ class Chapters(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_chapter_list_chapters",
+                operation_id="list_chapters",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -199,7 +195,7 @@ class Chapters(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    def apps_api_rest_v0_chapter_get_chapter(
+    def get_chapter(
         self,
         *,
         chapter_id: str,
@@ -228,7 +224,7 @@ class Chapters(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ChapterGetChapterRequest(
+        request = models.GetChapterRequest(
             chapter_id=chapter_id,
         )
 
@@ -260,7 +256,7 @@ class Chapters(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_chapter_get_chapter",
+                operation_id="get_chapter",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -286,7 +282,7 @@ class Chapters(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_chapter_get_chapter_async(
+    async def get_chapter_async(
         self,
         *,
         chapter_id: str,
@@ -315,7 +311,7 @@ class Chapters(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ChapterGetChapterRequest(
+        request = models.GetChapterRequest(
             chapter_id=chapter_id,
         )
 
@@ -347,7 +343,7 @@ class Chapters(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_chapter_get_chapter",
+                operation_id="get_chapter",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),

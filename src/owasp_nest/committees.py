@@ -183,7 +183,7 @@ class Committees(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    def apps_api_rest_v0_committee_get_chapter(
+    def get_committee(
         self,
         *,
         committee_id: str,
@@ -212,7 +212,7 @@ class Committees(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0CommitteeGetChapterRequest(
+        request = models.GetCommitteeRequest(
             committee_id=committee_id,
         )
 
@@ -244,7 +244,7 @@ class Committees(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_committee_get_chapter",
+                operation_id="get_committee",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -270,7 +270,7 @@ class Committees(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_committee_get_chapter_async(
+    async def get_committee_async(
         self,
         *,
         committee_id: str,
@@ -299,7 +299,7 @@ class Committees(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0CommitteeGetChapterRequest(
+        request = models.GetCommitteeRequest(
             committee_id=committee_id,
         )
 
@@ -331,7 +331,7 @@ class Committees(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_committee_get_chapter",
+                operation_id="get_committee",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),

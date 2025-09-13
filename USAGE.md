@@ -5,10 +5,10 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1)
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
     # Handle response
     print(res)
@@ -25,10 +25,10 @@ from owasp_nest import Nest
 async def main():
 
     async with Nest(
-        api_key_header="<YOUR_API_KEY_HERE>",
+        api_key="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.chapters.apps_api_rest_v0_chapter_list_chapters_async(page=1)
+        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
 
         # Handle response
         print(res)

@@ -123,10 +123,10 @@ from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1)
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
     # Handle response
     print(res)
@@ -143,10 +143,10 @@ from owasp_nest import Nest
 async def main():
 
     async with Nest(
-        api_key_header="<YOUR_API_KEY_HERE>",
+        api_key="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.chapters.apps_api_rest_v0_chapter_list_chapters_async(page=1)
+        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
 
         # Handle response
         print(res)
@@ -162,20 +162,20 @@ asyncio.run(main())
 
 This SDK supports the following security scheme globally:
 
-| Name             | Type   | Scheme  |
-| ---------------- | ------ | ------- |
-| `api_key_header` | apiKey | API key |
+| Name      | Type   | Scheme  |
+| --------- | ------ | ------- |
+| `api_key` | apiKey | API key |
 
-To authenticate with the API the `api_key_header` parameter must be set when initializing the SDK client instance. For example:
+To authenticate with the API the `api_key` parameter must be set when initializing the SDK client instance. For example:
 ```python
 from owasp_nest import Nest
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1)
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
     # Handle response
     print(res)
@@ -191,24 +191,24 @@ with Nest(
 
 ### [chapters](docs/sdks/chapters/README.md)
 
-* [apps_api_rest_v0_chapter_list_chapters](docs/sdks/chapters/README.md#apps_api_rest_v0_chapter_list_chapters) - List chapters
-* [apps_api_rest_v0_chapter_get_chapter](docs/sdks/chapters/README.md#apps_api_rest_v0_chapter_get_chapter) - Get chapter
+* [list_chapters](docs/sdks/chapters/README.md#list_chapters) - List chapters
+* [get_chapter](docs/sdks/chapters/README.md#get_chapter) - Get chapter
 
 ### [committees](docs/sdks/committees/README.md)
 
 * [list_committees](docs/sdks/committees/README.md#list_committees) - List committees
-* [apps_api_rest_v0_committee_get_chapter](docs/sdks/committees/README.md#apps_api_rest_v0_committee_get_chapter) - Get committee
+* [get_committee](docs/sdks/committees/README.md#get_committee) - Get committee
 
 ### [community](docs/sdks/community/README.md)
 
 * [list_members](docs/sdks/community/README.md#list_members) - List members
-* [apps_api_rest_v0_member_get_member](docs/sdks/community/README.md#apps_api_rest_v0_member_get_member) - Get member
-* [apps_api_rest_v0_organization_list_organization](docs/sdks/community/README.md#apps_api_rest_v0_organization_list_organization) - List organizations
-* [apps_api_rest_v0_organization_get_organization](docs/sdks/community/README.md#apps_api_rest_v0_organization_get_organization) - Get organization
+* [get_member](docs/sdks/community/README.md#get_member) - Get member
+* [list_organizations](docs/sdks/community/README.md#list_organizations) - List organizations
+* [get_organization](docs/sdks/community/README.md#get_organization) - Get organization
 
 ### [events](docs/sdks/events/README.md)
 
-* [apps_api_rest_v0_event_list_events](docs/sdks/events/README.md#apps_api_rest_v0_event_list_events) - List events
+* [list_events](docs/sdks/events/README.md#list_events) - List events
 
 ### [issues](docs/sdks/issues/README.md)
 
@@ -217,8 +217,8 @@ with Nest(
 
 ### [projects](docs/sdks/projects/README.md)
 
-* [apps_api_rest_v0_project_list_projects](docs/sdks/projects/README.md#apps_api_rest_v0_project_list_projects) - List projects
-* [apps_api_rest_v0_project_get_project](docs/sdks/projects/README.md#apps_api_rest_v0_project_get_project) - Get project
+* [list_projects](docs/sdks/projects/README.md#list_projects) - List projects
+* [get_project](docs/sdks/projects/README.md#get_project) - Get project
 
 ### [releases](docs/sdks/releases/README.md)
 
@@ -243,10 +243,10 @@ from owasp_nest.utils import BackoffStrategy, RetryConfig
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1,
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -262,10 +262,10 @@ from owasp_nest.utils import BackoffStrategy, RetryConfig
 
 with Nest(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1)
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
     # Handle response
     print(res)
@@ -293,12 +293,12 @@ from owasp_nest import Nest, models
 
 
 with Nest(
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
     res = None
     try:
 
-        res = nest.chapters.apps_api_rest_v0_chapter_get_chapter(chapter_id="London")
+        res = nest.chapters.get_chapter(chapter_id="London")
 
         # Handle response
         print(res)
@@ -356,10 +356,10 @@ from owasp_nest import Nest
 
 with Nest(
     server_url="https://nest.owasp.dev",
-    api_key_header="<YOUR_API_KEY_HERE>",
+    api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.apps_api_rest_v0_chapter_list_chapters(page=1)
+    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
 
     # Handle response
     print(res)
@@ -460,7 +460,7 @@ from owasp_nest import Nest
 def main():
 
     with Nest(
-        api_key_header="<YOUR_API_KEY_HERE>",
+        api_key="<YOUR_API_KEY_HERE>",
     ) as nest:
         # Rest of application here...
 
@@ -469,7 +469,7 @@ def main():
 async def amain():
 
     async with Nest(
-        api_key_header="<YOUR_API_KEY_HERE>",
+        api_key="<YOUR_API_KEY_HERE>",
     ) as nest:
         # Rest of application here...
 ```

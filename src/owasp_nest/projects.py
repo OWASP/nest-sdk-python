@@ -9,13 +9,11 @@ from typing import Any, Mapping, Optional
 
 
 class Projects(BaseSDK):
-    def apps_api_rest_v0_project_list_projects(
+    def list_projects(
         self,
         *,
         level: OptionalNullable[models.ProjectLevel] = UNSET,
-        ordering: OptionalNullable[
-            models.AppsAPIRestV0ProjectListProjectsOrdering
-        ] = UNSET,
+        ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -46,7 +44,7 @@ class Projects(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ProjectListProjectsRequest(
+        request = models.ListProjectsRequest(
             level=level,
             ordering=ordering,
             page=page,
@@ -81,7 +79,7 @@ class Projects(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_project_list_projects",
+                operation_id="list_projects",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -101,13 +99,11 @@ class Projects(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_project_list_projects_async(
+    async def list_projects_async(
         self,
         *,
         level: OptionalNullable[models.ProjectLevel] = UNSET,
-        ordering: OptionalNullable[
-            models.AppsAPIRestV0ProjectListProjectsOrdering
-        ] = UNSET,
+        ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -138,7 +134,7 @@ class Projects(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ProjectListProjectsRequest(
+        request = models.ListProjectsRequest(
             level=level,
             ordering=ordering,
             page=page,
@@ -173,7 +169,7 @@ class Projects(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_project_list_projects",
+                operation_id="list_projects",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -193,7 +189,7 @@ class Projects(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    def apps_api_rest_v0_project_get_project(
+    def get_project(
         self,
         *,
         project_id: str,
@@ -222,7 +218,7 @@ class Projects(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ProjectGetProjectRequest(
+        request = models.GetProjectRequest(
             project_id=project_id,
         )
 
@@ -254,7 +250,7 @@ class Projects(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_project_get_project",
+                operation_id="get_project",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -280,7 +276,7 @@ class Projects(BaseSDK):
 
         raise models.NestAPIError("Unexpected response received", http_res)
 
-    async def apps_api_rest_v0_project_get_project_async(
+    async def get_project_async(
         self,
         *,
         project_id: str,
@@ -309,7 +305,7 @@ class Projects(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AppsAPIRestV0ProjectGetProjectRequest(
+        request = models.GetProjectRequest(
             project_id=project_id,
         )
 
@@ -341,7 +337,7 @@ class Projects(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="apps_api_rest_v0_project_get_project",
+                operation_id="get_project",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
