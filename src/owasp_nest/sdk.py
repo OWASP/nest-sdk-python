@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from owasp_nest.projects import Projects
     from owasp_nest.releases import Releases
     from owasp_nest.repositories import Repositories
+    from owasp_nest.sponsors import Sponsors
 
 
 class Nest(BaseSDK):
@@ -36,6 +37,7 @@ class Nest(BaseSDK):
     projects: "Projects"
     releases: "Releases"
     repositories: "Repositories"
+    sponsors: "Sponsors"
     _sub_sdk_map = {
         "chapters": ("owasp_nest.chapters", "Chapters"),
         "committees": ("owasp_nest.committees", "Committees"),
@@ -45,6 +47,7 @@ class Nest(BaseSDK):
         "projects": ("owasp_nest.projects", "Projects"),
         "releases": ("owasp_nest.releases", "Releases"),
         "repositories": ("owasp_nest.repositories", "Repositories"),
+        "sponsors": ("owasp_nest.sponsors", "Sponsors"),
     }
 
     def __init__(

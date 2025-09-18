@@ -228,6 +228,11 @@ with Nest(
 
 * [list_repositories](docs/sdks/repositories/README.md#list_repositories) - List repositories
 
+### [sponsors](docs/sdks/sponsors/README.md)
+
+* [list_sponsors](docs/sdks/sponsors/README.md#list_sponsors) - List sponsors
+* [get_sponsor](docs/sdks/sponsors/README.md#get_sponsor) - Get sponsor
+
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -321,7 +326,7 @@ with Nest(
 **Primary error:**
 * [`NestError`](./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
-<details><summary>Less common errors (10)</summary>
+<details><summary>Less common errors (11)</summary>
 
 <br />
 
@@ -332,11 +337,12 @@ with Nest(
 
 
 **Inherit from [`NestError`](./src/owasp_nest/models/nesterror.py)**:
-* [`ChapterErrorResponse`](./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`CommitteeErrorResponse`](./src/owasp_nest/models/committeeerrorresponse.py): Committee error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`MemberErrorResponse`](./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`OrganizationErrorResponse`](./src/owasp_nest/models/organizationerrorresponse.py): Organization error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`ProjectErrorResponse`](./src/owasp_nest/models/projecterrorresponse.py): Project error response schema. Status code `404`. Applicable to 1 of 14 methods.*
+* [`ChapterErrorResponse`](./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`CommitteeErrorResponse`](./src/owasp_nest/models/committeeerrorresponse.py): Committee error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`MemberErrorResponse`](./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`OrganizationErrorResponse`](./src/owasp_nest/models/organizationerrorresponse.py): Organization error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`ProjectErrorResponse`](./src/owasp_nest/models/projecterrorresponse.py): Project error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`SponsorErrorResponse`](./src/owasp_nest/models/sponsorerrorresponse.py): Sponsor error response schema. Status code `404`. Applicable to 1 of 16 methods.*
 * [`ResponseValidationError`](./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
