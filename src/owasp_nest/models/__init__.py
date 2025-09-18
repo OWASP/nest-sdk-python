@@ -23,6 +23,7 @@ if TYPE_CHECKING:
         GetOrganizationRequestTypedDict,
     )
     from .get_projectop import GetProjectRequest, GetProjectRequestTypedDict
+    from .get_sponsorop import GetSponsorRequest, GetSponsorRequestTypedDict
     from .issueschema import IssueSchema, IssueSchemaTypedDict
     from .list_chaptersop import (
         ListChaptersOrdering,
@@ -69,8 +70,14 @@ if TYPE_CHECKING:
         ListRepositoriesRequest,
         ListRepositoriesRequestTypedDict,
     )
+    from .list_sponsorsop import (
+        ListSponsorsOrdering,
+        ListSponsorsRequest,
+        ListSponsorsRequestTypedDict,
+    )
     from .membererrorresponse import MemberErrorResponse, MemberErrorResponseData
     from .memberschema import MemberSchema, MemberSchemaTypedDict
+    from .membertype import MemberType
     from .nestapierror import NestAPIError
     from .no_response_error import NoResponseError
     from .organizationerrorresponse import (
@@ -96,6 +103,7 @@ if TYPE_CHECKING:
         PagedRepositorySchema,
         PagedRepositorySchemaTypedDict,
     )
+    from .pagedsponsorschema import PagedSponsorSchema, PagedSponsorSchemaTypedDict
     from .projecterrorresponse import ProjectErrorResponse, ProjectErrorResponseData
     from .projectlevel import ProjectLevel
     from .projectschema import ProjectSchema, ProjectSchemaTypedDict
@@ -103,6 +111,8 @@ if TYPE_CHECKING:
     from .repositoryschema import RepositorySchema, RepositorySchemaTypedDict
     from .responsevalidationerror import ResponseValidationError
     from .security import Security, SecurityTypedDict
+    from .sponsorerrorresponse import SponsorErrorResponse, SponsorErrorResponseData
+    from .sponsorschema import SponsorSchema, SponsorSchemaTypedDict
     from .state import State
 
 __all__ = [
@@ -126,6 +136,8 @@ __all__ = [
     "GetOrganizationRequestTypedDict",
     "GetProjectRequest",
     "GetProjectRequestTypedDict",
+    "GetSponsorRequest",
+    "GetSponsorRequestTypedDict",
     "IssueSchema",
     "IssueSchemaTypedDict",
     "ListChaptersOrdering",
@@ -155,10 +167,14 @@ __all__ = [
     "ListRepositoriesOrdering",
     "ListRepositoriesRequest",
     "ListRepositoriesRequestTypedDict",
+    "ListSponsorsOrdering",
+    "ListSponsorsRequest",
+    "ListSponsorsRequestTypedDict",
     "MemberErrorResponse",
     "MemberErrorResponseData",
     "MemberSchema",
     "MemberSchemaTypedDict",
+    "MemberType",
     "NestAPIError",
     "NestError",
     "NoResponseError",
@@ -184,6 +200,8 @@ __all__ = [
     "PagedReleaseSchemaTypedDict",
     "PagedRepositorySchema",
     "PagedRepositorySchemaTypedDict",
+    "PagedSponsorSchema",
+    "PagedSponsorSchemaTypedDict",
     "ProjectErrorResponse",
     "ProjectErrorResponseData",
     "ProjectLevel",
@@ -196,6 +214,10 @@ __all__ = [
     "ResponseValidationError",
     "Security",
     "SecurityTypedDict",
+    "SponsorErrorResponse",
+    "SponsorErrorResponseData",
+    "SponsorSchema",
+    "SponsorSchemaTypedDict",
     "State",
 ]
 
@@ -220,6 +242,8 @@ _dynamic_imports: dict[str, str] = {
     "GetOrganizationRequestTypedDict": ".get_organizationop",
     "GetProjectRequest": ".get_projectop",
     "GetProjectRequestTypedDict": ".get_projectop",
+    "GetSponsorRequest": ".get_sponsorop",
+    "GetSponsorRequestTypedDict": ".get_sponsorop",
     "IssueSchema": ".issueschema",
     "IssueSchemaTypedDict": ".issueschema",
     "ListChaptersOrdering": ".list_chaptersop",
@@ -249,10 +273,14 @@ _dynamic_imports: dict[str, str] = {
     "ListRepositoriesOrdering": ".list_repositoriesop",
     "ListRepositoriesRequest": ".list_repositoriesop",
     "ListRepositoriesRequestTypedDict": ".list_repositoriesop",
+    "ListSponsorsOrdering": ".list_sponsorsop",
+    "ListSponsorsRequest": ".list_sponsorsop",
+    "ListSponsorsRequestTypedDict": ".list_sponsorsop",
     "MemberErrorResponse": ".membererrorresponse",
     "MemberErrorResponseData": ".membererrorresponse",
     "MemberSchema": ".memberschema",
     "MemberSchemaTypedDict": ".memberschema",
+    "MemberType": ".membertype",
     "NestAPIError": ".nestapierror",
     "NoResponseError": ".no_response_error",
     "OrganizationErrorResponse": ".organizationerrorresponse",
@@ -277,6 +305,8 @@ _dynamic_imports: dict[str, str] = {
     "PagedReleaseSchemaTypedDict": ".pagedreleaseschema",
     "PagedRepositorySchema": ".pagedrepositoryschema",
     "PagedRepositorySchemaTypedDict": ".pagedrepositoryschema",
+    "PagedSponsorSchema": ".pagedsponsorschema",
+    "PagedSponsorSchemaTypedDict": ".pagedsponsorschema",
     "ProjectErrorResponse": ".projecterrorresponse",
     "ProjectErrorResponseData": ".projecterrorresponse",
     "ProjectLevel": ".projectlevel",
@@ -289,6 +319,10 @@ _dynamic_imports: dict[str, str] = {
     "ResponseValidationError": ".responsevalidationerror",
     "Security": ".security",
     "SecurityTypedDict": ".security",
+    "SponsorErrorResponse": ".sponsorerrorresponse",
+    "SponsorErrorResponseData": ".sponsorerrorresponse",
+    "SponsorSchema": ".sponsorschema",
+    "SponsorSchemaTypedDict": ".sponsorschema",
     "State": ".state",
 }
 

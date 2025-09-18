@@ -1,13 +1,13 @@
-speakeasyVersion: 1.615.2
+speakeasyVersion: 1.620.0
 sources:
     nest-openapi:
         sourceNamespace: python-sdk
-        sourceRevisionDigest: sha256:5c39d0e0caff2cbc303140c75821e9ee77e6d5868421daa91704b6d9ca02d3d1
-        sourceBlobDigest: sha256:5fbbf57dba2c56c0e020b55161351338f1cce64b0fc90d493b47f17bdfdbdde2
+        sourceRevisionDigest: sha256:4a7f20e5fdc4f4cae587c6fde80b3bdaefeb6d61b20f76c67358c27eb23dc622
+        sourceBlobDigest: sha256:72fcdf944cc4573564e93a8c3702cbe4d47bdcd0d501f62e4d4c780eb02cf2e3
         tags:
             - latest
-            - speakeasy-sdk-regen-1757723378
-            - 0.2.1
+            - speakeasy-sdk-regen-1758228878
+            - 0.2.3
 targets:
     nest-api:
         source: nest-openapi
@@ -19,10 +19,10 @@ targets:
     nest-sdk-python:
         source: nest-openapi
         sourceNamespace: python-sdk
-        sourceRevisionDigest: sha256:5c39d0e0caff2cbc303140c75821e9ee77e6d5868421daa91704b6d9ca02d3d1
-        sourceBlobDigest: sha256:5fbbf57dba2c56c0e020b55161351338f1cce64b0fc90d493b47f17bdfdbdde2
+        sourceRevisionDigest: sha256:4a7f20e5fdc4f4cae587c6fde80b3bdaefeb6d61b20f76c67358c27eb23dc622
+        sourceBlobDigest: sha256:72fcdf944cc4573564e93a8c3702cbe4d47bdcd0d501f62e4d4c780eb02cf2e3
         codeSamplesNamespace: python-code-samples
-        codeSamplesRevisionDigest: sha256:556ca3f575beba8a5339a9da77d95d176a9010bc41aaf7434e1dca071cb97d55
+        codeSamplesRevisionDigest: sha256:bb79fa5cd589b99f85f2476b16eb67aab32ae234884dcf47214e607feb5e0bd1
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

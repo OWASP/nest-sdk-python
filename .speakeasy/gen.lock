@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 20c4e164cc76274c3efeec8c258eafc0
-  docVersion: 0.2.1
-  speakeasyVersion: 1.615.2
-  generationVersion: 2.698.4
-  releaseVersion: 0.2.2
-  configChecksum: f6e70e963599be579076d5e24b00b126
+  docChecksum: 4b41e03970ed2b5ffc483d860fa4d410
+  docVersion: 0.2.3
+  speakeasyVersion: 1.620.0
+  generationVersion: 2.706.1
+  releaseVersion: 0.2.3
+  configChecksum: 5ead54247fcc43704c6ec88bd5447c69
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -42,6 +42,7 @@ generatedFiles:
   - docs/models/getmemberrequest.md
   - docs/models/getorganizationrequest.md
   - docs/models/getprojectrequest.md
+  - docs/models/getsponsorrequest.md
   - docs/models/issueschema.md
   - docs/models/listchaptersordering.md
   - docs/models/listchaptersrequest.md
@@ -61,8 +62,11 @@ generatedFiles:
   - docs/models/listreleasesrequest.md
   - docs/models/listrepositoriesordering.md
   - docs/models/listrepositoriesrequest.md
+  - docs/models/listsponsorsordering.md
+  - docs/models/listsponsorsrequest.md
   - docs/models/membererrorresponse.md
   - docs/models/memberschema.md
+  - docs/models/membertype.md
   - docs/models/organizationerrorresponse.md
   - docs/models/organizationschema.md
   - docs/models/pagedchapterschema.md
@@ -74,12 +78,15 @@ generatedFiles:
   - docs/models/pagedprojectschema.md
   - docs/models/pagedreleaseschema.md
   - docs/models/pagedrepositoryschema.md
+  - docs/models/pagedsponsorschema.md
   - docs/models/projecterrorresponse.md
   - docs/models/projectlevel.md
   - docs/models/projectschema.md
   - docs/models/releaseschema.md
   - docs/models/repositoryschema.md
   - docs/models/security.md
+  - docs/models/sponsorerrorresponse.md
+  - docs/models/sponsorschema.md
   - docs/models/state.md
   - docs/models/utils/retryconfig.md
   - docs/sdks/chapters/README.md
@@ -91,6 +98,7 @@ generatedFiles:
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
+  - docs/sdks/sponsors/README.md
   - py.typed
   - pylintrc
   - pyproject.toml
@@ -119,6 +127,7 @@ generatedFiles:
   - src/owasp_nest/models/get_memberop.py
   - src/owasp_nest/models/get_organizationop.py
   - src/owasp_nest/models/get_projectop.py
+  - src/owasp_nest/models/get_sponsorop.py
   - src/owasp_nest/models/issueschema.py
   - src/owasp_nest/models/list_chaptersop.py
   - src/owasp_nest/models/list_committeesop.py
@@ -129,8 +138,10 @@ generatedFiles:
   - src/owasp_nest/models/list_projectsop.py
   - src/owasp_nest/models/list_releasesop.py
   - src/owasp_nest/models/list_repositoriesop.py
+  - src/owasp_nest/models/list_sponsorsop.py
   - src/owasp_nest/models/membererrorresponse.py
   - src/owasp_nest/models/memberschema.py
+  - src/owasp_nest/models/membertype.py
   - src/owasp_nest/models/nestapierror.py
   - src/owasp_nest/models/nesterror.py
   - src/owasp_nest/models/no_response_error.py
@@ -145,6 +156,7 @@ generatedFiles:
   - src/owasp_nest/models/pagedprojectschema.py
   - src/owasp_nest/models/pagedreleaseschema.py
   - src/owasp_nest/models/pagedrepositoryschema.py
+  - src/owasp_nest/models/pagedsponsorschema.py
   - src/owasp_nest/models/projecterrorresponse.py
   - src/owasp_nest/models/projectlevel.py
   - src/owasp_nest/models/projectschema.py
@@ -152,6 +164,8 @@ generatedFiles:
   - src/owasp_nest/models/repositoryschema.py
   - src/owasp_nest/models/responsevalidationerror.py
   - src/owasp_nest/models/security.py
+  - src/owasp_nest/models/sponsorerrorresponse.py
+  - src/owasp_nest/models/sponsorschema.py
   - src/owasp_nest/models/state.py
   - src/owasp_nest/projects.py
   - src/owasp_nest/py.typed
@@ -159,6 +173,7 @@ generatedFiles:
   - src/owasp_nest/repositories.py
   - src/owasp_nest/sdk.py
   - src/owasp_nest/sdkconfiguration.py
+  - src/owasp_nest/sponsors.py
   - src/owasp_nest/types/__init__.py
   - src/owasp_nest/types/basemodel.py
   - src/owasp_nest/utils/__init__.py
@@ -422,24 +437,27 @@ examples:
           application/json: {"created_at": "2023-03-06T09:23:19.829Z", "description": "since limply gah consequently ugh petticoat wholly possible", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z"}
         "404":
           application/json: {"message": "<value>"}
+  list_sponsors:
+    speakeasy-default-list-sponsors:
+      parameters:
+        query:
+          sponsor_type: "Silver"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"description": "malfunction accomplished preheat", "image_url": "https://discrete-intervention.org/", "is_member": false, "job_url": "https://immediate-clamp.biz", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://crafty-settler.biz"}], "count": 49757}
+  get_sponsor:
+    speakeasy-default-get-sponsor:
+      parameters:
+        path:
+          sponsor_key: "adobe"
+      responses:
+        "200":
+          application/json: {"description": "freely blissfully ultimate huzzah instead along sometimes whale asset", "image_url": "https://enlightened-hunger.info", "is_member": false, "job_url": "https://every-horde.com", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://red-horde.net"}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Python SDK Changes Detected:
-  * `nest.chapters.list_chapters()`: **Added**
-  * `nest.chapters.get_chapter()`: **Added**
-  * `nest.committees.get_committee()`: **Added**
-  * `nest.community.get_member()`: **Added**
-  * `nest.community.list_organizations()`: **Added**
-  * `nest.community.get_organization()`: **Added**
-  * `nest.events.list_events()`: **Added**
-  * `nest.projects.list_projects()`: **Added**
-  * `nest.projects.get_project()`: **Added**
-  * `nest.chapters.apps_api_rest_v0_chapter_list_chapters()`: **Deleted** **Breaking** :warning:
-  * `nest.chapters.apps_api_rest_v0_chapter_get_chapter()`: **Deleted** **Breaking** :warning:
-  * `nest.committees.apps_api_rest_v0_committee_get_chapter()`: **Deleted** **Breaking** :warning:
-  * `nest.community.apps_api_rest_v0_member_get_member()`: **Deleted** **Breaking** :warning:
-  * `nest.community.apps_api_rest_v0_organization_list_organization()`: **Deleted** **Breaking** :warning:
-  * `nest.community.apps_api_rest_v0_organization_get_organization()`: **Deleted** **Breaking** :warning:
-  * `nest.events.apps_api_rest_v0_event_list_events()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.apps_api_rest_v0_project_list_projects()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.apps_api_rest_v0_project_get_project()`: **Deleted** **Breaking** :warning:
+  * `nest.sponsors.list_sponsors()`: **Added**
+  * `nest.sponsors.get_sponsor()`: **Added**
