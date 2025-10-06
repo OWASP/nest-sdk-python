@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 4b41e03970ed2b5ffc483d860fa4d410
-  docVersion: 0.2.3
-  speakeasyVersion: 1.620.0
-  generationVersion: 2.706.1
-  releaseVersion: 0.2.3
-  configChecksum: 5ead54247fcc43704c6ec88bd5447c69
+  docChecksum: 2db157ddb12d3123bb9aebbcacea1200
+  docVersion: 0.2.4
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 0.2.4
+  configChecksum: 5495289c81445adf4356a953bddb0d36
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.20.4
+    core: 5.22.1
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -32,18 +32,28 @@ generatedFiles:
   - .gitattributes
   - .vscode/settings.json
   - USAGE.md
-  - docs/models/chaptererrorresponse.md
-  - docs/models/chapterschema.md
-  - docs/models/committeeerrorresponse.md
-  - docs/models/committeeschema.md
-  - docs/models/eventschema.md
+  - docs/models/chapter.md
+  - docs/models/chapterdetail.md
+  - docs/models/chaptererror.md
+  - docs/models/committee.md
+  - docs/models/committeedetail.md
+  - docs/models/committeeerror.md
+  - docs/models/event.md
+  - docs/models/eventdetail.md
+  - docs/models/eventerror.md
   - docs/models/getchapterrequest.md
   - docs/models/getcommitteerequest.md
+  - docs/models/geteventrequest.md
+  - docs/models/getissuerequest.md
   - docs/models/getmemberrequest.md
   - docs/models/getorganizationrequest.md
   - docs/models/getprojectrequest.md
+  - docs/models/getreleaserequest.md
+  - docs/models/getrepositoryrequest.md
   - docs/models/getsponsorrequest.md
-  - docs/models/issueschema.md
+  - docs/models/issue.md
+  - docs/models/issuedetail.md
+  - docs/models/issueerror.md
   - docs/models/listchaptersordering.md
   - docs/models/listchaptersrequest.md
   - docs/models/listcommitteesordering.md
@@ -64,29 +74,37 @@ generatedFiles:
   - docs/models/listrepositoriesrequest.md
   - docs/models/listsponsorsordering.md
   - docs/models/listsponsorsrequest.md
-  - docs/models/membererrorresponse.md
-  - docs/models/memberschema.md
+  - docs/models/member.md
+  - docs/models/memberdetail.md
+  - docs/models/membererror.md
   - docs/models/membertype.md
-  - docs/models/organizationerrorresponse.md
-  - docs/models/organizationschema.md
-  - docs/models/pagedchapterschema.md
-  - docs/models/pagedcommitteeschema.md
-  - docs/models/pagedeventschema.md
-  - docs/models/pagedissueschema.md
-  - docs/models/pagedmemberschema.md
-  - docs/models/pagedorganizationschema.md
-  - docs/models/pagedprojectschema.md
-  - docs/models/pagedreleaseschema.md
-  - docs/models/pagedrepositoryschema.md
-  - docs/models/pagedsponsorschema.md
-  - docs/models/projecterrorresponse.md
+  - docs/models/organization.md
+  - docs/models/organizationdetail.md
+  - docs/models/organizationerror.md
+  - docs/models/pagedchapter.md
+  - docs/models/pagedcommittee.md
+  - docs/models/pagedevent.md
+  - docs/models/pagedissue.md
+  - docs/models/pagedmember.md
+  - docs/models/pagedorganization.md
+  - docs/models/pagedproject.md
+  - docs/models/pagedrelease.md
+  - docs/models/pagedrepository.md
+  - docs/models/pagedsponsor.md
+  - docs/models/project.md
+  - docs/models/projectdetail.md
+  - docs/models/projecterror.md
   - docs/models/projectlevel.md
-  - docs/models/projectschema.md
-  - docs/models/releaseschema.md
-  - docs/models/repositoryschema.md
+  - docs/models/release.md
+  - docs/models/releasedetail.md
+  - docs/models/releaseerror.md
+  - docs/models/repository.md
+  - docs/models/repositorydetail.md
+  - docs/models/repositoryerror.md
   - docs/models/security.md
-  - docs/models/sponsorerrorresponse.md
-  - docs/models/sponsorschema.md
+  - docs/models/sponsor.md
+  - docs/models/sponsordetail.md
+  - docs/models/sponsorerror.md
   - docs/models/state.md
   - docs/models/utils/retryconfig.md
   - docs/sdks/chapters/README.md
@@ -117,18 +135,28 @@ generatedFiles:
   - src/owasp_nest/httpclient.py
   - src/owasp_nest/issues.py
   - src/owasp_nest/models/__init__.py
-  - src/owasp_nest/models/chaptererrorresponse.py
-  - src/owasp_nest/models/chapterschema.py
-  - src/owasp_nest/models/committeeerrorresponse.py
-  - src/owasp_nest/models/committeeschema.py
-  - src/owasp_nest/models/eventschema.py
+  - src/owasp_nest/models/chapter.py
+  - src/owasp_nest/models/chapterdetail.py
+  - src/owasp_nest/models/chaptererror.py
+  - src/owasp_nest/models/committee.py
+  - src/owasp_nest/models/committeedetail.py
+  - src/owasp_nest/models/committeeerror.py
+  - src/owasp_nest/models/event.py
+  - src/owasp_nest/models/eventdetail.py
+  - src/owasp_nest/models/eventerror.py
   - src/owasp_nest/models/get_chapterop.py
   - src/owasp_nest/models/get_committeeop.py
+  - src/owasp_nest/models/get_eventop.py
+  - src/owasp_nest/models/get_issueop.py
   - src/owasp_nest/models/get_memberop.py
   - src/owasp_nest/models/get_organizationop.py
   - src/owasp_nest/models/get_projectop.py
+  - src/owasp_nest/models/get_releaseop.py
+  - src/owasp_nest/models/get_repositoryop.py
   - src/owasp_nest/models/get_sponsorop.py
-  - src/owasp_nest/models/issueschema.py
+  - src/owasp_nest/models/issue.py
+  - src/owasp_nest/models/issuedetail.py
+  - src/owasp_nest/models/issueerror.py
   - src/owasp_nest/models/list_chaptersop.py
   - src/owasp_nest/models/list_committeesop.py
   - src/owasp_nest/models/list_eventsop.py
@@ -139,33 +167,41 @@ generatedFiles:
   - src/owasp_nest/models/list_releasesop.py
   - src/owasp_nest/models/list_repositoriesop.py
   - src/owasp_nest/models/list_sponsorsop.py
-  - src/owasp_nest/models/membererrorresponse.py
-  - src/owasp_nest/models/memberschema.py
+  - src/owasp_nest/models/member.py
+  - src/owasp_nest/models/memberdetail.py
+  - src/owasp_nest/models/membererror.py
   - src/owasp_nest/models/membertype.py
   - src/owasp_nest/models/nestapierror.py
   - src/owasp_nest/models/nesterror.py
   - src/owasp_nest/models/no_response_error.py
-  - src/owasp_nest/models/organizationerrorresponse.py
-  - src/owasp_nest/models/organizationschema.py
-  - src/owasp_nest/models/pagedchapterschema.py
-  - src/owasp_nest/models/pagedcommitteeschema.py
-  - src/owasp_nest/models/pagedeventschema.py
-  - src/owasp_nest/models/pagedissueschema.py
-  - src/owasp_nest/models/pagedmemberschema.py
-  - src/owasp_nest/models/pagedorganizationschema.py
-  - src/owasp_nest/models/pagedprojectschema.py
-  - src/owasp_nest/models/pagedreleaseschema.py
-  - src/owasp_nest/models/pagedrepositoryschema.py
-  - src/owasp_nest/models/pagedsponsorschema.py
-  - src/owasp_nest/models/projecterrorresponse.py
+  - src/owasp_nest/models/organization.py
+  - src/owasp_nest/models/organizationdetail.py
+  - src/owasp_nest/models/organizationerror.py
+  - src/owasp_nest/models/pagedchapter.py
+  - src/owasp_nest/models/pagedcommittee.py
+  - src/owasp_nest/models/pagedevent.py
+  - src/owasp_nest/models/pagedissue.py
+  - src/owasp_nest/models/pagedmember.py
+  - src/owasp_nest/models/pagedorganization.py
+  - src/owasp_nest/models/pagedproject.py
+  - src/owasp_nest/models/pagedrelease.py
+  - src/owasp_nest/models/pagedrepository.py
+  - src/owasp_nest/models/pagedsponsor.py
+  - src/owasp_nest/models/project.py
+  - src/owasp_nest/models/projectdetail.py
+  - src/owasp_nest/models/projecterror.py
   - src/owasp_nest/models/projectlevel.py
-  - src/owasp_nest/models/projectschema.py
-  - src/owasp_nest/models/releaseschema.py
-  - src/owasp_nest/models/repositoryschema.py
+  - src/owasp_nest/models/release.py
+  - src/owasp_nest/models/releasedetail.py
+  - src/owasp_nest/models/releaseerror.py
+  - src/owasp_nest/models/repository.py
+  - src/owasp_nest/models/repositorydetail.py
+  - src/owasp_nest/models/repositoryerror.py
   - src/owasp_nest/models/responsevalidationerror.py
   - src/owasp_nest/models/security.py
-  - src/owasp_nest/models/sponsorerrorresponse.py
-  - src/owasp_nest/models/sponsorschema.py
+  - src/owasp_nest/models/sponsor.py
+  - src/owasp_nest/models/sponsordetail.py
+  - src/owasp_nest/models/sponsorerror.py
   - src/owasp_nest/models/state.py
   - src/owasp_nest/projects.py
   - src/owasp_nest/py.typed
@@ -201,42 +237,49 @@ examples:
           country: "India"
           region: "Asia"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"country": "Slovenia", "created_at": "2025-04-17T12:05:02.463Z", "name": "<value>", "region": "<value>", "updated_at": "2023-05-06T16:21:25.155Z"}], "count": 769051}
+          application/json: {"current_page": 816774, "has_next": false, "has_previous": false, "items": [{"created_at": "2025-04-17T12:05:02.463Z", "key": "<key>", "name": "<value>", "updated_at": "2023-05-06T16:21:25.155Z"}], "total_count": 114673, "total_pages": 769051}
   list_committees:
     speakeasy-default-list-committees:
       parameters:
         query:
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"name": "<value>", "description": "boo per while sunbathe likewise yeast quizzically expansion eek", "created_at": "2025-03-16T20:29:18.773Z", "updated_at": "2023-06-13T22:21:50.847Z"}], "count": 288373}
+          application/json: {"current_page": 742813, "has_next": false, "has_previous": false, "items": [{"created_at": "2025-03-16T20:29:18.773Z", "key": "<key>", "name": "<value>", "updated_at": "2023-06-13T22:21:50.847Z"}], "total_count": 133051, "total_pages": 849699}
   list_events:
     speakeasy-default-list-events:
       parameters:
         query:
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 957493}
+          application/json: {"current_page": 106909, "has_next": false, "has_previous": true, "items": [], "total_count": 286372, "total_pages": 191713}
   list_projects:
     speakeasy-default-list-projects:
       parameters:
         query:
           page: 1
           ordering: "-created_at"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 820243}
+          application/json: {"current_page": 114958, "has_next": false, "has_previous": false, "items": [], "total_count": 161835, "total_pages": 836183}
   list_issues:
     speakeasy-default-list-issues:
       parameters:
         query:
           page: 1
+          organization: "OWASP"
+          repository: "Nest"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"body": "<value>", "created_at": "2025-07-18T12:46:15.645Z", "title": "<value>", "state": "closed", "updated_at": "2023-02-19T06:46:47.973Z", "url": "https://victorious-glider.info"}], "count": 209946}
+          application/json: {"current_page": 951229, "has_next": false, "has_previous": false, "items": [{"created_at": "2025-07-18T12:46:15.645Z", "state": "closed", "title": "<value>", "updated_at": "2023-02-19T06:46:47.973Z", "url": "https://victorious-glider.info"}], "total_count": 44965, "total_pages": 988954}
   list_labels:
     speakeasy-default-list-labels:
       parameters:
@@ -252,26 +295,32 @@ examples:
         query:
           location: "United States of America"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"company": "Grady LLC", "created_at": "2025-12-31T23:31:01.740Z", "location": "<value>", "login": "Rosina11", "name": "<value>", "updated_at": "2024-09-05T17:30:42.265Z"}], "count": 150206}
+          application/json: {"current_page": 991769, "has_next": false, "has_previous": true, "items": [{"created_at": "2025-12-31T23:31:01.740Z", "login": "Rosina11", "name": "<value>", "updated_at": "2024-09-05T17:30:42.265Z"}], "total_count": 734125, "total_pages": 999982}
   list_releases:
     speakeasy-default-list-releases:
       parameters:
         query:
-          tag_name: "v1.0.0"
+          tag_name: "0.2.10"
           page: 1
+          organization: "OWASP"
+          repository: "Nest"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 732904}
+          application/json: {"current_page": 44000, "has_next": false, "has_previous": false, "items": [], "total_count": 929674, "total_pages": 152001}
   list_repositories:
     speakeasy-default-list-repositories:
       parameters:
         query:
           page: 1
+          organization_id: "OWASP"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 331323}
+          application/json: {"current_page": 189078, "has_next": true, "has_previous": true, "items": [], "total_count": 519035, "total_pages": 490901}
   list_users:
     speakeasy-default-list-users:
       parameters:
@@ -300,7 +349,7 @@ examples:
           chapter_id: "London"
       responses:
         "200":
-          application/json: {"country": "Hungary", "created_at": "2024-10-15T07:48:29.830Z", "name": "<value>", "region": "<value>", "updated_at": "2023-12-24T21:08:33.483Z"}
+          application/json: {"created_at": "2024-10-15T07:48:29.830Z", "key": "<key>", "name": "<value>", "updated_at": "2023-12-24T21:08:33.483Z", "country": "Hungary", "region": "<value>"}
         "404":
           application/json: {"message": "<value>"}
   list_members:
@@ -309,9 +358,10 @@ examples:
         query:
           location: "India"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"avatar_url": "https://noxious-promise.info", "bio": "<value>", "company": "Schmeler and Sons", "created_at": "2023-10-11T15:28:15.365Z", "followers_count": 650853, "following_count": 788452, "location": "<value>", "login": "Emie.Jenkins79", "name": "<value>", "public_repositories_count": 740999, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-03-27T20:40:12.982Z", "url": "https://old-fashioned-provider.biz/"}], "count": 381744}
+          application/json: {"current_page": 778300, "has_next": false, "has_previous": false, "items": [{"avatar_url": "https://noxious-promise.info", "created_at": "2023-10-11T15:28:15.365Z", "login": "Emie.Jenkins79", "name": "<value>", "updated_at": "2023-03-27T20:40:12.982Z", "url": "https://old-fashioned-provider.biz/"}], "total_count": 712133, "total_pages": 432343}
   get_member:
     speakeasy-default-get-member:
       parameters:
@@ -320,7 +370,7 @@ examples:
           member_id: "OWASP"
       responses:
         "200":
-          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
+          application/json: {"avatar_url": "https://winged-help.net", "created_at": "2024-03-25T14:53:31.200Z", "login": "Rodolfo.Lindgren", "name": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org", "bio": "<value>", "company": "Jacobson and Sons", "followers_count": 877273, "following_count": 836968, "location": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>"}
         "404":
           application/json: {"message": "<value>"}
   apps_api_rest_v0_chapter_list_chapters:
@@ -414,7 +464,7 @@ examples:
           committee_id: "project"
       responses:
         "200":
-          application/json: {"name": "<value>", "description": "phew regal hoarse what tedious pharmacopoeia stealthily disadvantage emergent at", "created_at": "2024-10-26T15:58:22.888Z", "updated_at": "2024-10-23T09:23:37.658Z"}
+          application/json: {"created_at": "2024-10-26T15:58:22.888Z", "key": "<key>", "name": "<value>", "updated_at": "2024-10-23T09:23:37.658Z", "description": "phew regal hoarse what tedious pharmacopoeia stealthily disadvantage emergent at"}
         "404":
           application/json: {"message": "<value>"}
   get_organization:
@@ -424,7 +474,7 @@ examples:
           organization_id: "OWASP"
       responses:
         "200":
-          application/json: {"company": "Padberg - Hettinger", "created_at": "2025-12-12T04:28:03.547Z", "location": "<value>", "login": "Alessandra_Beer", "name": "<value>", "updated_at": "2023-07-11T13:29:35.567Z"}
+          application/json: {"created_at": "2025-12-12T04:28:03.547Z", "login": "Alessandra_Beer", "name": "<value>", "updated_at": "2023-07-11T13:29:35.567Z", "company": "Padberg - Hettinger", "location": "<value>"}
         "404":
           application/json: {"message": "<value>"}
   get_project:
@@ -434,7 +484,7 @@ examples:
           project_id: "Nest"
       responses:
         "200":
-          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "description": "since limply gah consequently ugh petticoat wholly possible", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z"}
+          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "key": "<key>", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z", "description": "since limply gah consequently ugh petticoat wholly possible"}
         "404":
           application/json: {"message": "<value>"}
   list_sponsors:
@@ -443,21 +493,65 @@ examples:
         query:
           sponsor_type: "Silver"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"description": "malfunction accomplished preheat", "image_url": "https://discrete-intervention.org/", "is_member": false, "job_url": "https://immediate-clamp.biz", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://crafty-settler.biz"}], "count": 49757}
+          application/json: {"current_page": 515427, "has_next": true, "has_previous": false, "items": [{"image_url": "https://discrete-intervention.org/", "key": "<key>", "name": "<value>", "sponsor_type": "<value>", "url": "https://crafty-settler.biz"}], "total_count": 116871, "total_pages": 461791}
   get_sponsor:
     speakeasy-default-get-sponsor:
       parameters:
         path:
           sponsor_key: "adobe"
+          sponsor_id: "adobe"
       responses:
         "200":
-          application/json: {"description": "freely blissfully ultimate huzzah instead along sometimes whale asset", "image_url": "https://enlightened-hunger.info", "is_member": false, "job_url": "https://every-horde.com", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://red-horde.net"}
+          application/json: {"image_url": "https://enlightened-hunger.info", "key": "<key>", "name": "<value>", "sponsor_type": "<value>", "url": "https://red-horde.net", "description": "freely blissfully ultimate huzzah instead along sometimes whale asset", "is_member": false, "job_url": "https://every-horde.com", "member_type": "<value>"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_event:
+    speakeasy-default-get-event:
+      parameters:
+        path:
+          event_id: "owasp-global-appsec-usa-2025-washington-dc"
+      responses:
+        "200":
+          application/json: {"key": "<key>", "name": "<value>", "start_date": "2025-03-27T08:42:01.834Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_issue:
+    speakeasy-default-get-issue:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          issue_id: 1234
+      responses:
+        "200":
+          application/json: {"created_at": "2023-01-06T05:13:46.833Z", "state": "closed", "title": "<value>", "updated_at": "2025-07-15T09:16:08.428Z", "url": "https://unaware-intent.net/", "body": "<value>"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_release:
+    speakeasy-default-get-release:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          release_id: "0.2.10"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-02-28T19:12:54.485Z", "name": "<value>", "tag_name": "<value>", "description": "zowie beside endow ah"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_repository:
+    speakeasy-default-get-repository:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
         "404":
           application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `nest.sponsors.list_sponsors()`: **Added**
-  * `nest.sponsors.get_sponsor()`: **Added**
+releaseNotes: "## Python SDK Changes Detected:\n* `nest.community.list_members()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.issues.list_issues()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.sponsors.get_sponsor()`:  `request` **Changed** **Breaking** :warning:\n* `nest.sponsors.list_sponsors()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.chapters.list_chapters()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.repositories.list_repositories()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.committees.list_committees()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.releases.list_releases()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.projects.list_projects()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.events.list_events()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.community.list_organizations()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.chapters.get_chapter()`:  `response.key` **Added**\n* `nest.issues.get_issue()`: **Added**\n* `nest.projects.get_project()`:  `response.key` **Added**\n* `nest.committees.get_committee()`:  `response.key` **Added**\n* `nest.events.get_event()`: **Added**\n* `nest.repositories.get_repository()`: **Added**\n* `nest.releases.get_release()`: **Added**\n"

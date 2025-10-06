@@ -26,13 +26,14 @@ generation:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.2.3
+  version: 0.2.4
   additionalDependencies:
     dev: {}
     main: {}
   allowedRedefinedBuiltins:
     - id
     - object
+  asyncMode: both
   authors:
     - Arkadii Yakovets
   baseErrorName: NestError
@@ -55,6 +56,7 @@ python:
       shared: ""
       webhooks: ""
   inputModelSuffix: input
+  legacyPyright: true
   maxMethodParams: 20
   methodArguments: infer-optional-args
   moduleName: ""

@@ -15,20 +15,20 @@ class Projects(BaseSDK):
         level: OptionalNullable[models.ProjectLevel] = UNSET,
         ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedProjectSchema:
+    ) -> models.PagedProject:
         r"""List projects
 
         Retrieve a paginated list of OWASP projects.
 
         :param level: Level of the project
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -89,7 +89,7 @@ class Projects(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedProjectSchema, http_res)
+            return unmarshal_json_response(models.PagedProject, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -105,20 +105,20 @@ class Projects(BaseSDK):
         level: OptionalNullable[models.ProjectLevel] = UNSET,
         ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedProjectSchema:
+    ) -> models.PagedProject:
         r"""List projects
 
         Retrieve a paginated list of OWASP projects.
 
         :param level: Level of the project
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -179,7 +179,7 @@ class Projects(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedProjectSchema, http_res)
+            return unmarshal_json_response(models.PagedProject, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -197,7 +197,7 @@ class Projects(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ProjectSchema:
+    ) -> models.ProjectDetail:
         r"""Get project
 
         Retrieve project details.
@@ -261,12 +261,10 @@ class Projects(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ProjectSchema, http_res)
+            return unmarshal_json_response(models.ProjectDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.ProjectErrorResponseData, http_res
-            )
-            raise models.ProjectErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.ProjectErrorData, http_res)
+            raise models.ProjectError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -284,7 +282,7 @@ class Projects(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ProjectSchema:
+    ) -> models.ProjectDetail:
         r"""Get project
 
         Retrieve project details.
@@ -348,12 +346,10 @@ class Projects(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ProjectSchema, http_res)
+            return unmarshal_json_response(models.ProjectDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.ProjectErrorResponseData, http_res
-            )
-            raise models.ProjectErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.ProjectErrorData, http_res)
+            raise models.ProjectError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)

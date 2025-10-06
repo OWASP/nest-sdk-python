@@ -14,19 +14,19 @@ class Committees(BaseSDK):
         *,
         ordering: OptionalNullable[models.ListCommitteesOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedCommitteeSchema:
+    ) -> models.PagedCommittee:
         r"""List committees
 
         Retrieve a paginated list of OWASP committees.
 
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -86,7 +86,7 @@ class Committees(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedCommitteeSchema, http_res)
+            return unmarshal_json_response(models.PagedCommittee, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -101,19 +101,19 @@ class Committees(BaseSDK):
         *,
         ordering: OptionalNullable[models.ListCommitteesOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedCommitteeSchema:
+    ) -> models.PagedCommittee:
         r"""List committees
 
         Retrieve a paginated list of OWASP committees.
 
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -173,7 +173,7 @@ class Committees(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedCommitteeSchema, http_res)
+            return unmarshal_json_response(models.PagedCommittee, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -191,7 +191,7 @@ class Committees(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CommitteeSchema:
+    ) -> models.CommitteeDetail:
         r"""Get committee
 
         Retrieve committee details.
@@ -255,12 +255,10 @@ class Committees(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.CommitteeSchema, http_res)
+            return unmarshal_json_response(models.CommitteeDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.CommitteeErrorResponseData, http_res
-            )
-            raise models.CommitteeErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.CommitteeErrorData, http_res)
+            raise models.CommitteeError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -278,7 +276,7 @@ class Committees(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CommitteeSchema:
+    ) -> models.CommitteeDetail:
         r"""Get committee
 
         Retrieve committee details.
@@ -342,12 +340,10 @@ class Committees(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.CommitteeSchema, http_res)
+            return unmarshal_json_response(models.CommitteeDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.CommitteeErrorResponseData, http_res
-            )
-            raise models.CommitteeErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.CommitteeErrorData, http_res)
+            raise models.CommitteeError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)

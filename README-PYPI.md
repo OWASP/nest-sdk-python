@@ -126,7 +126,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -135,6 +135,7 @@ with Nest(
 </br>
 
 The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -146,7 +147,7 @@ async def main():
         api_key="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
+        res = await nest.chapters.list_chapters_async(country="India", page=1, page_size=100)
 
         # Handle response
         print(res)
@@ -175,7 +176,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -209,10 +210,12 @@ with Nest(
 ### [events](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md)
 
 * [list_events](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md#list_events) - List events
+* [get_event](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md#get_event) - Get event
 
 ### [issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md)
 
 * [list_issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#list_issues) - List issues
+* [get_issue](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#get_issue) - Get issue
 
 
 ### [projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md)
@@ -223,10 +226,12 @@ with Nest(
 ### [releases](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md)
 
 * [list_releases](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md#list_releases) - List releases
+* [get_release](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md#get_release) - Get release
 
 ### [repositories](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md)
 
 * [list_repositories](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md#list_repositories) - List repositories
+* [get_repository](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md#get_repository) - Get repository
 
 ### [sponsors](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/sponsors/README.md)
 
@@ -251,7 +256,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1,
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -270,7 +275,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -318,7 +323,7 @@ with Nest(
         print(e.raw_response)
 
         # Depending on the method different errors may be thrown
-        if isinstance(e, models.ChapterErrorResponse):
+        if isinstance(e, models.ChapterError):
             print(e.data.message)  # str
 ```
 
@@ -326,7 +331,7 @@ with Nest(
 **Primary error:**
 * [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
-<details><summary>Less common errors (11)</summary>
+<details><summary>Less common errors (15)</summary>
 
 <br />
 
@@ -337,12 +342,16 @@ with Nest(
 
 
 **Inherit from [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py)**:
-* [`ChapterErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererrorresponse.py): Chapter error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`CommitteeErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/committeeerrorresponse.py): Committee error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`MemberErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererrorresponse.py): Member error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`OrganizationErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/organizationerrorresponse.py): Organization error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`ProjectErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/projecterrorresponse.py): Project error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`SponsorErrorResponse`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/sponsorerrorresponse.py): Sponsor error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`ChapterError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererror.py): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`CommitteeError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/committeeerror.py): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`MemberError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`OrganizationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`EventError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/eventerror.py): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`IssueError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/issueerror.py): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`ProjectError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/projecterror.py): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`ReleaseError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/releaseerror.py): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`RepositoryError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/repositoryerror.py): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`SponsorError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/sponsorerror.py): Sponsor error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ResponseValidationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -365,7 +374,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100)
 
     # Handle response
     print(res)

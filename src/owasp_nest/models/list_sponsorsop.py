@@ -33,7 +33,9 @@ class ListSponsorsRequestTypedDict(TypedDict):
     ordering: NotRequired[Nullable[ListSponsorsOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
-    page_size: NotRequired[Nullable[int]]
+    r"""Page number"""
+    page_size: NotRequired[int]
+    r"""Number of items per page"""
 
 
 class ListSponsorsRequest(BaseModel):
@@ -65,11 +67,13 @@ class ListSponsorsRequest(BaseModel):
         Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 1
+    r"""Page number"""
 
     page_size: Annotated[
-        OptionalNullable[int],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = UNSET
+    ] = 100
+    r"""Number of items per page"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -81,13 +85,7 @@ class ListSponsorsRequest(BaseModel):
             "page",
             "page_size",
         ]
-        nullable_fields = [
-            "is_member",
-            "member_type",
-            "sponsor_type",
-            "ordering",
-            "page_size",
-        ]
+        nullable_fields = ["is_member", "member_type", "sponsor_type", "ordering"]
         null_default_fields = []
 
         serialized = handler(self)

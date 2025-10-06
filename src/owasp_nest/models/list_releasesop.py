@@ -25,15 +25,33 @@ class ListReleasesOrdering(str, Enum):
 
 
 class ListReleasesRequestTypedDict(TypedDict):
+    organization: NotRequired[Nullable[str]]
+    r"""Organization that releases belong to (filtered by repository owner)"""
+    repository: NotRequired[Nullable[str]]
+    r"""Repository that releases belong to"""
     tag_name: NotRequired[Nullable[str]]
     r"""Tag name of the release"""
     ordering: NotRequired[Nullable[ListReleasesOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
-    page_size: NotRequired[Nullable[int]]
+    r"""Page number"""
+    page_size: NotRequired[int]
+    r"""Number of items per page"""
 
 
 class ListReleasesRequest(BaseModel):
+    organization: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Organization that releases belong to (filtered by repository owner)"""
+
+    repository: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Repository that releases belong to"""
+
     tag_name: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -50,16 +68,25 @@ class ListReleasesRequest(BaseModel):
         Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 1
+    r"""Page number"""
 
     page_size: Annotated[
-        OptionalNullable[int],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = UNSET
+    ] = 100
+    r"""Number of items per page"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["tag_name", "ordering", "page", "page_size"]
-        nullable_fields = ["tag_name", "ordering", "page_size"]
+        optional_fields = [
+            "organization",
+            "repository",
+            "tag_name",
+            "ordering",
+            "page",
+            "page_size",
+        ]
+        nullable_fields = ["organization", "repository", "tag_name", "ordering"]
         null_default_fields = []
 
         serialized = handler(self)
