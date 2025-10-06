@@ -16,12 +16,12 @@ class Community(BaseSDK):
         location: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListMembersOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedMemberSchema:
+    ) -> models.PagedMember:
         r"""List members
 
         Retrieve a paginated list of OWASP community members.
@@ -29,8 +29,8 @@ class Community(BaseSDK):
         :param company: Company of the user
         :param location: Location of the member
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -92,7 +92,7 @@ class Community(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedMemberSchema, http_res)
+            return unmarshal_json_response(models.PagedMember, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -109,12 +109,12 @@ class Community(BaseSDK):
         location: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListMembersOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedMemberSchema:
+    ) -> models.PagedMember:
         r"""List members
 
         Retrieve a paginated list of OWASP community members.
@@ -122,8 +122,8 @@ class Community(BaseSDK):
         :param company: Company of the user
         :param location: Location of the member
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -185,7 +185,7 @@ class Community(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedMemberSchema, http_res)
+            return unmarshal_json_response(models.PagedMember, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -203,7 +203,7 @@ class Community(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MemberSchema:
+    ) -> models.MemberDetail:
         r"""Get member
 
         Retrieve member details.
@@ -267,12 +267,10 @@ class Community(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.MemberSchema, http_res)
+            return unmarshal_json_response(models.MemberDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.MemberErrorResponseData, http_res
-            )
-            raise models.MemberErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.MemberErrorData, http_res)
+            raise models.MemberError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -290,7 +288,7 @@ class Community(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MemberSchema:
+    ) -> models.MemberDetail:
         r"""Get member
 
         Retrieve member details.
@@ -354,12 +352,10 @@ class Community(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.MemberSchema, http_res)
+            return unmarshal_json_response(models.MemberDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.MemberErrorResponseData, http_res
-            )
-            raise models.MemberErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.MemberErrorData, http_res)
+            raise models.MemberError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -375,20 +371,20 @@ class Community(BaseSDK):
         location: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListOrganizationsOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedOrganizationSchema:
+    ) -> models.PagedOrganization:
         r"""List organizations
 
         Retrieve a paginated list of GitHub organizations.
 
         :param location: Location of the organization
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -449,7 +445,7 @@ class Community(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedOrganizationSchema, http_res)
+            return unmarshal_json_response(models.PagedOrganization, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -465,20 +461,20 @@ class Community(BaseSDK):
         location: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListOrganizationsOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedOrganizationSchema:
+    ) -> models.PagedOrganization:
         r"""List organizations
 
         Retrieve a paginated list of GitHub organizations.
 
         :param location: Location of the organization
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -539,7 +535,7 @@ class Community(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedOrganizationSchema, http_res)
+            return unmarshal_json_response(models.PagedOrganization, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -557,7 +553,7 @@ class Community(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.OrganizationSchema:
+    ) -> models.OrganizationDetail:
         r"""Get organization
 
         Retrieve project details.
@@ -621,12 +617,12 @@ class Community(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.OrganizationSchema, http_res)
+            return unmarshal_json_response(models.OrganizationDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = unmarshal_json_response(
-                models.OrganizationErrorResponseData, http_res
+                models.OrganizationErrorData, http_res
             )
-            raise models.OrganizationErrorResponse(response_data, http_res)
+            raise models.OrganizationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -644,7 +640,7 @@ class Community(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.OrganizationSchema:
+    ) -> models.OrganizationDetail:
         r"""Get organization
 
         Retrieve project details.
@@ -708,12 +704,12 @@ class Community(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.OrganizationSchema, http_res)
+            return unmarshal_json_response(models.OrganizationDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = unmarshal_json_response(
-                models.OrganizationErrorResponseData, http_res
+                models.OrganizationErrorData, http_res
             )
-            raise models.OrganizationErrorResponse(response_data, http_res)
+            raise models.OrganizationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)

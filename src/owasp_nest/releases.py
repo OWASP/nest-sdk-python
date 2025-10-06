@@ -5,30 +5,34 @@ from owasp_nest import models, utils
 from owasp_nest._hooks import HookContext
 from owasp_nest.types import OptionalNullable, UNSET
 from owasp_nest.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
 class Releases(BaseSDK):
     def list_releases(
         self,
         *,
+        organization: OptionalNullable[str] = UNSET,
+        repository: OptionalNullable[str] = UNSET,
         tag_name: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListReleasesOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedReleaseSchema:
+    ) -> models.PagedRelease:
         r"""List releases
 
         Retrieve a paginated list of GitHub releases.
 
+        :param organization: Organization that releases belong to (filtered by repository owner)
+        :param repository: Repository that releases belong to
         :param tag_name: Tag name of the release
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -45,6 +49,8 @@ class Releases(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListReleasesRequest(
+            organization=organization,
+            repository=repository,
             tag_name=tag_name,
             ordering=ordering,
             page=page,
@@ -89,7 +95,7 @@ class Releases(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedReleaseSchema, http_res)
+            return unmarshal_json_response(models.PagedRelease, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -102,23 +108,27 @@ class Releases(BaseSDK):
     async def list_releases_async(
         self,
         *,
+        organization: OptionalNullable[str] = UNSET,
+        repository: OptionalNullable[str] = UNSET,
         tag_name: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListReleasesOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedReleaseSchema:
+    ) -> models.PagedRelease:
         r"""List releases
 
         Retrieve a paginated list of GitHub releases.
 
+        :param organization: Organization that releases belong to (filtered by repository owner)
+        :param repository: Repository that releases belong to
         :param tag_name: Tag name of the release
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -135,6 +145,8 @@ class Releases(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListReleasesRequest(
+            organization=organization,
+            repository=repository,
             tag_name=tag_name,
             ordering=ordering,
             page=page,
@@ -179,7 +191,189 @@ class Releases(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedReleaseSchema, http_res)
+            return unmarshal_json_response(models.PagedRelease, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
+
+        raise models.NestAPIError("Unexpected response received", http_res)
+
+    def get_release(
+        self,
+        *,
+        organization_id: str,
+        repository_id: str,
+        release_id: str,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ReleaseDetail:
+        r"""Get release
+
+        Retrieve a specific GitHub release by organization, repository, and tag name.
+
+        :param organization_id:
+        :param repository_id:
+        :param release_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.GetReleaseRequest(
+            organization_id=organization_id,
+            repository_id=repository_id,
+            release_id=release_id,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v0/releases/{organization_id}/{repository_id}/{release_id}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="get_release",
+                oauth2_scopes=[],
+                security_source=self.sdk_configuration.security,
+            ),
+            request=req,
+            error_status_codes=["404", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.ReleaseDetail, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(models.ReleaseErrorData, http_res)
+            raise models.ReleaseError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.NestAPIError("API error occurred", http_res, http_res_text)
+
+        raise models.NestAPIError("Unexpected response received", http_res)
+
+    async def get_release_async(
+        self,
+        *,
+        organization_id: str,
+        repository_id: str,
+        release_id: str,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ReleaseDetail:
+        r"""Get release
+
+        Retrieve a specific GitHub release by organization, repository, and tag name.
+
+        :param organization_id:
+        :param repository_id:
+        :param release_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.GetReleaseRequest(
+            organization_id=organization_id,
+            repository_id=repository_id,
+            release_id=release_id,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v0/releases/{organization_id}/{repository_id}/{release_id}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="get_release",
+                oauth2_scopes=[],
+                security_source=self.sdk_configuration.security,
+            ),
+            request=req,
+            error_status_codes=["404", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.ReleaseDetail, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(models.ReleaseErrorData, http_res)
+            raise models.ReleaseError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)

@@ -7,10 +7,10 @@ from typing_extensions import Annotated, TypedDict
 
 
 class GetSponsorRequestTypedDict(TypedDict):
-    sponsor_key: str
+    sponsor_id: str
 
 
 class GetSponsorRequest(BaseModel):
-    sponsor_key: Annotated[
+    sponsor_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]

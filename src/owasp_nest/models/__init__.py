@@ -7,24 +7,31 @@ import builtins
 import sys
 
 if TYPE_CHECKING:
-    from .chaptererrorresponse import ChapterErrorResponse, ChapterErrorResponseData
-    from .chapterschema import ChapterSchema, ChapterSchemaTypedDict
-    from .committeeerrorresponse import (
-        CommitteeErrorResponse,
-        CommitteeErrorResponseData,
-    )
-    from .committeeschema import CommitteeSchema, CommitteeSchemaTypedDict
-    from .eventschema import EventSchema, EventSchemaTypedDict
+    from .chapter import Chapter, ChapterTypedDict
+    from .chapterdetail import ChapterDetail, ChapterDetailTypedDict
+    from .chaptererror import ChapterError, ChapterErrorData
+    from .committee import Committee, CommitteeTypedDict
+    from .committeedetail import CommitteeDetail, CommitteeDetailTypedDict
+    from .committeeerror import CommitteeError, CommitteeErrorData
+    from .event import Event, EventTypedDict
+    from .eventdetail import EventDetail, EventDetailTypedDict
+    from .eventerror import EventError, EventErrorData
     from .get_chapterop import GetChapterRequest, GetChapterRequestTypedDict
     from .get_committeeop import GetCommitteeRequest, GetCommitteeRequestTypedDict
+    from .get_eventop import GetEventRequest, GetEventRequestTypedDict
+    from .get_issueop import GetIssueRequest, GetIssueRequestTypedDict
     from .get_memberop import GetMemberRequest, GetMemberRequestTypedDict
     from .get_organizationop import (
         GetOrganizationRequest,
         GetOrganizationRequestTypedDict,
     )
     from .get_projectop import GetProjectRequest, GetProjectRequestTypedDict
+    from .get_releaseop import GetReleaseRequest, GetReleaseRequestTypedDict
+    from .get_repositoryop import GetRepositoryRequest, GetRepositoryRequestTypedDict
     from .get_sponsorop import GetSponsorRequest, GetSponsorRequestTypedDict
-    from .issueschema import IssueSchema, IssueSchemaTypedDict
+    from .issue import Issue, IssueTypedDict
+    from .issuedetail import IssueDetail, IssueDetailTypedDict
+    from .issueerror import IssueError, IssueErrorData
     from .list_chaptersop import (
         ListChaptersOrdering,
         ListChaptersRequest,
@@ -75,71 +82,87 @@ if TYPE_CHECKING:
         ListSponsorsRequest,
         ListSponsorsRequestTypedDict,
     )
-    from .membererrorresponse import MemberErrorResponse, MemberErrorResponseData
-    from .memberschema import MemberSchema, MemberSchemaTypedDict
+    from .member import Member, MemberTypedDict
+    from .memberdetail import MemberDetail, MemberDetailTypedDict
+    from .membererror import MemberError, MemberErrorData
     from .membertype import MemberType
     from .nestapierror import NestAPIError
     from .no_response_error import NoResponseError
-    from .organizationerrorresponse import (
-        OrganizationErrorResponse,
-        OrganizationErrorResponseData,
-    )
-    from .organizationschema import OrganizationSchema, OrganizationSchemaTypedDict
-    from .pagedchapterschema import PagedChapterSchema, PagedChapterSchemaTypedDict
-    from .pagedcommitteeschema import (
-        PagedCommitteeSchema,
-        PagedCommitteeSchemaTypedDict,
-    )
-    from .pagedeventschema import PagedEventSchema, PagedEventSchemaTypedDict
-    from .pagedissueschema import PagedIssueSchema, PagedIssueSchemaTypedDict
-    from .pagedmemberschema import PagedMemberSchema, PagedMemberSchemaTypedDict
-    from .pagedorganizationschema import (
-        PagedOrganizationSchema,
-        PagedOrganizationSchemaTypedDict,
-    )
-    from .pagedprojectschema import PagedProjectSchema, PagedProjectSchemaTypedDict
-    from .pagedreleaseschema import PagedReleaseSchema, PagedReleaseSchemaTypedDict
-    from .pagedrepositoryschema import (
-        PagedRepositorySchema,
-        PagedRepositorySchemaTypedDict,
-    )
-    from .pagedsponsorschema import PagedSponsorSchema, PagedSponsorSchemaTypedDict
-    from .projecterrorresponse import ProjectErrorResponse, ProjectErrorResponseData
+    from .organization import Organization, OrganizationTypedDict
+    from .organizationdetail import OrganizationDetail, OrganizationDetailTypedDict
+    from .organizationerror import OrganizationError, OrganizationErrorData
+    from .pagedchapter import PagedChapter, PagedChapterTypedDict
+    from .pagedcommittee import PagedCommittee, PagedCommitteeTypedDict
+    from .pagedevent import PagedEvent, PagedEventTypedDict
+    from .pagedissue import PagedIssue, PagedIssueTypedDict
+    from .pagedmember import PagedMember, PagedMemberTypedDict
+    from .pagedorganization import PagedOrganization, PagedOrganizationTypedDict
+    from .pagedproject import PagedProject, PagedProjectTypedDict
+    from .pagedrelease import PagedRelease, PagedReleaseTypedDict
+    from .pagedrepository import PagedRepository, PagedRepositoryTypedDict
+    from .pagedsponsor import PagedSponsor, PagedSponsorTypedDict
+    from .project import Project, ProjectTypedDict
+    from .projectdetail import ProjectDetail, ProjectDetailTypedDict
+    from .projecterror import ProjectError, ProjectErrorData
     from .projectlevel import ProjectLevel
-    from .projectschema import ProjectSchema, ProjectSchemaTypedDict
-    from .releaseschema import ReleaseSchema, ReleaseSchemaTypedDict
-    from .repositoryschema import RepositorySchema, RepositorySchemaTypedDict
+    from .release import Release, ReleaseTypedDict
+    from .releasedetail import ReleaseDetail, ReleaseDetailTypedDict
+    from .releaseerror import ReleaseError, ReleaseErrorData
+    from .repository import Repository, RepositoryTypedDict
+    from .repositorydetail import RepositoryDetail, RepositoryDetailTypedDict
+    from .repositoryerror import RepositoryError, RepositoryErrorData
     from .responsevalidationerror import ResponseValidationError
     from .security import Security, SecurityTypedDict
-    from .sponsorerrorresponse import SponsorErrorResponse, SponsorErrorResponseData
-    from .sponsorschema import SponsorSchema, SponsorSchemaTypedDict
+    from .sponsor import Sponsor, SponsorTypedDict
+    from .sponsordetail import SponsorDetail, SponsorDetailTypedDict
+    from .sponsorerror import SponsorError, SponsorErrorData
     from .state import State
 
 __all__ = [
-    "ChapterErrorResponse",
-    "ChapterErrorResponseData",
-    "ChapterSchema",
-    "ChapterSchemaTypedDict",
-    "CommitteeErrorResponse",
-    "CommitteeErrorResponseData",
-    "CommitteeSchema",
-    "CommitteeSchemaTypedDict",
-    "EventSchema",
-    "EventSchemaTypedDict",
+    "Chapter",
+    "ChapterDetail",
+    "ChapterDetailTypedDict",
+    "ChapterError",
+    "ChapterErrorData",
+    "ChapterTypedDict",
+    "Committee",
+    "CommitteeDetail",
+    "CommitteeDetailTypedDict",
+    "CommitteeError",
+    "CommitteeErrorData",
+    "CommitteeTypedDict",
+    "Event",
+    "EventDetail",
+    "EventDetailTypedDict",
+    "EventError",
+    "EventErrorData",
+    "EventTypedDict",
     "GetChapterRequest",
     "GetChapterRequestTypedDict",
     "GetCommitteeRequest",
     "GetCommitteeRequestTypedDict",
+    "GetEventRequest",
+    "GetEventRequestTypedDict",
+    "GetIssueRequest",
+    "GetIssueRequestTypedDict",
     "GetMemberRequest",
     "GetMemberRequestTypedDict",
     "GetOrganizationRequest",
     "GetOrganizationRequestTypedDict",
     "GetProjectRequest",
     "GetProjectRequestTypedDict",
+    "GetReleaseRequest",
+    "GetReleaseRequestTypedDict",
+    "GetRepositoryRequest",
+    "GetRepositoryRequestTypedDict",
     "GetSponsorRequest",
     "GetSponsorRequestTypedDict",
-    "IssueSchema",
-    "IssueSchemaTypedDict",
+    "Issue",
+    "IssueDetail",
+    "IssueDetailTypedDict",
+    "IssueError",
+    "IssueErrorData",
+    "IssueTypedDict",
     "ListChaptersOrdering",
     "ListChaptersRequest",
     "ListChaptersRequestTypedDict",
@@ -170,82 +193,118 @@ __all__ = [
     "ListSponsorsOrdering",
     "ListSponsorsRequest",
     "ListSponsorsRequestTypedDict",
-    "MemberErrorResponse",
-    "MemberErrorResponseData",
-    "MemberSchema",
-    "MemberSchemaTypedDict",
+    "Member",
+    "MemberDetail",
+    "MemberDetailTypedDict",
+    "MemberError",
+    "MemberErrorData",
     "MemberType",
+    "MemberTypedDict",
     "NestAPIError",
     "NestError",
     "NoResponseError",
-    "OrganizationErrorResponse",
-    "OrganizationErrorResponseData",
-    "OrganizationSchema",
-    "OrganizationSchemaTypedDict",
-    "PagedChapterSchema",
-    "PagedChapterSchemaTypedDict",
-    "PagedCommitteeSchema",
-    "PagedCommitteeSchemaTypedDict",
-    "PagedEventSchema",
-    "PagedEventSchemaTypedDict",
-    "PagedIssueSchema",
-    "PagedIssueSchemaTypedDict",
-    "PagedMemberSchema",
-    "PagedMemberSchemaTypedDict",
-    "PagedOrganizationSchema",
-    "PagedOrganizationSchemaTypedDict",
-    "PagedProjectSchema",
-    "PagedProjectSchemaTypedDict",
-    "PagedReleaseSchema",
-    "PagedReleaseSchemaTypedDict",
-    "PagedRepositorySchema",
-    "PagedRepositorySchemaTypedDict",
-    "PagedSponsorSchema",
-    "PagedSponsorSchemaTypedDict",
-    "ProjectErrorResponse",
-    "ProjectErrorResponseData",
+    "Organization",
+    "OrganizationDetail",
+    "OrganizationDetailTypedDict",
+    "OrganizationError",
+    "OrganizationErrorData",
+    "OrganizationTypedDict",
+    "PagedChapter",
+    "PagedChapterTypedDict",
+    "PagedCommittee",
+    "PagedCommitteeTypedDict",
+    "PagedEvent",
+    "PagedEventTypedDict",
+    "PagedIssue",
+    "PagedIssueTypedDict",
+    "PagedMember",
+    "PagedMemberTypedDict",
+    "PagedOrganization",
+    "PagedOrganizationTypedDict",
+    "PagedProject",
+    "PagedProjectTypedDict",
+    "PagedRelease",
+    "PagedReleaseTypedDict",
+    "PagedRepository",
+    "PagedRepositoryTypedDict",
+    "PagedSponsor",
+    "PagedSponsorTypedDict",
+    "Project",
+    "ProjectDetail",
+    "ProjectDetailTypedDict",
+    "ProjectError",
+    "ProjectErrorData",
     "ProjectLevel",
-    "ProjectSchema",
-    "ProjectSchemaTypedDict",
-    "ReleaseSchema",
-    "ReleaseSchemaTypedDict",
-    "RepositorySchema",
-    "RepositorySchemaTypedDict",
+    "ProjectTypedDict",
+    "Release",
+    "ReleaseDetail",
+    "ReleaseDetailTypedDict",
+    "ReleaseError",
+    "ReleaseErrorData",
+    "ReleaseTypedDict",
+    "Repository",
+    "RepositoryDetail",
+    "RepositoryDetailTypedDict",
+    "RepositoryError",
+    "RepositoryErrorData",
+    "RepositoryTypedDict",
     "ResponseValidationError",
     "Security",
     "SecurityTypedDict",
-    "SponsorErrorResponse",
-    "SponsorErrorResponseData",
-    "SponsorSchema",
-    "SponsorSchemaTypedDict",
+    "Sponsor",
+    "SponsorDetail",
+    "SponsorDetailTypedDict",
+    "SponsorError",
+    "SponsorErrorData",
+    "SponsorTypedDict",
     "State",
 ]
 
 _dynamic_imports: dict[str, str] = {
-    "ChapterErrorResponse": ".chaptererrorresponse",
-    "ChapterErrorResponseData": ".chaptererrorresponse",
-    "ChapterSchema": ".chapterschema",
-    "ChapterSchemaTypedDict": ".chapterschema",
-    "CommitteeErrorResponse": ".committeeerrorresponse",
-    "CommitteeErrorResponseData": ".committeeerrorresponse",
-    "CommitteeSchema": ".committeeschema",
-    "CommitteeSchemaTypedDict": ".committeeschema",
-    "EventSchema": ".eventschema",
-    "EventSchemaTypedDict": ".eventschema",
+    "Chapter": ".chapter",
+    "ChapterTypedDict": ".chapter",
+    "ChapterDetail": ".chapterdetail",
+    "ChapterDetailTypedDict": ".chapterdetail",
+    "ChapterError": ".chaptererror",
+    "ChapterErrorData": ".chaptererror",
+    "Committee": ".committee",
+    "CommitteeTypedDict": ".committee",
+    "CommitteeDetail": ".committeedetail",
+    "CommitteeDetailTypedDict": ".committeedetail",
+    "CommitteeError": ".committeeerror",
+    "CommitteeErrorData": ".committeeerror",
+    "Event": ".event",
+    "EventTypedDict": ".event",
+    "EventDetail": ".eventdetail",
+    "EventDetailTypedDict": ".eventdetail",
+    "EventError": ".eventerror",
+    "EventErrorData": ".eventerror",
     "GetChapterRequest": ".get_chapterop",
     "GetChapterRequestTypedDict": ".get_chapterop",
     "GetCommitteeRequest": ".get_committeeop",
     "GetCommitteeRequestTypedDict": ".get_committeeop",
+    "GetEventRequest": ".get_eventop",
+    "GetEventRequestTypedDict": ".get_eventop",
+    "GetIssueRequest": ".get_issueop",
+    "GetIssueRequestTypedDict": ".get_issueop",
     "GetMemberRequest": ".get_memberop",
     "GetMemberRequestTypedDict": ".get_memberop",
     "GetOrganizationRequest": ".get_organizationop",
     "GetOrganizationRequestTypedDict": ".get_organizationop",
     "GetProjectRequest": ".get_projectop",
     "GetProjectRequestTypedDict": ".get_projectop",
+    "GetReleaseRequest": ".get_releaseop",
+    "GetReleaseRequestTypedDict": ".get_releaseop",
+    "GetRepositoryRequest": ".get_repositoryop",
+    "GetRepositoryRequestTypedDict": ".get_repositoryop",
     "GetSponsorRequest": ".get_sponsorop",
     "GetSponsorRequestTypedDict": ".get_sponsorop",
-    "IssueSchema": ".issueschema",
-    "IssueSchemaTypedDict": ".issueschema",
+    "Issue": ".issue",
+    "IssueTypedDict": ".issue",
+    "IssueDetail": ".issuedetail",
+    "IssueDetailTypedDict": ".issuedetail",
+    "IssueError": ".issueerror",
+    "IssueErrorData": ".issueerror",
     "ListChaptersOrdering": ".list_chaptersop",
     "ListChaptersRequest": ".list_chaptersop",
     "ListChaptersRequestTypedDict": ".list_chaptersop",
@@ -276,53 +335,69 @@ _dynamic_imports: dict[str, str] = {
     "ListSponsorsOrdering": ".list_sponsorsop",
     "ListSponsorsRequest": ".list_sponsorsop",
     "ListSponsorsRequestTypedDict": ".list_sponsorsop",
-    "MemberErrorResponse": ".membererrorresponse",
-    "MemberErrorResponseData": ".membererrorresponse",
-    "MemberSchema": ".memberschema",
-    "MemberSchemaTypedDict": ".memberschema",
+    "Member": ".member",
+    "MemberTypedDict": ".member",
+    "MemberDetail": ".memberdetail",
+    "MemberDetailTypedDict": ".memberdetail",
+    "MemberError": ".membererror",
+    "MemberErrorData": ".membererror",
     "MemberType": ".membertype",
     "NestAPIError": ".nestapierror",
     "NoResponseError": ".no_response_error",
-    "OrganizationErrorResponse": ".organizationerrorresponse",
-    "OrganizationErrorResponseData": ".organizationerrorresponse",
-    "OrganizationSchema": ".organizationschema",
-    "OrganizationSchemaTypedDict": ".organizationschema",
-    "PagedChapterSchema": ".pagedchapterschema",
-    "PagedChapterSchemaTypedDict": ".pagedchapterschema",
-    "PagedCommitteeSchema": ".pagedcommitteeschema",
-    "PagedCommitteeSchemaTypedDict": ".pagedcommitteeschema",
-    "PagedEventSchema": ".pagedeventschema",
-    "PagedEventSchemaTypedDict": ".pagedeventschema",
-    "PagedIssueSchema": ".pagedissueschema",
-    "PagedIssueSchemaTypedDict": ".pagedissueschema",
-    "PagedMemberSchema": ".pagedmemberschema",
-    "PagedMemberSchemaTypedDict": ".pagedmemberschema",
-    "PagedOrganizationSchema": ".pagedorganizationschema",
-    "PagedOrganizationSchemaTypedDict": ".pagedorganizationschema",
-    "PagedProjectSchema": ".pagedprojectschema",
-    "PagedProjectSchemaTypedDict": ".pagedprojectschema",
-    "PagedReleaseSchema": ".pagedreleaseschema",
-    "PagedReleaseSchemaTypedDict": ".pagedreleaseschema",
-    "PagedRepositorySchema": ".pagedrepositoryschema",
-    "PagedRepositorySchemaTypedDict": ".pagedrepositoryschema",
-    "PagedSponsorSchema": ".pagedsponsorschema",
-    "PagedSponsorSchemaTypedDict": ".pagedsponsorschema",
-    "ProjectErrorResponse": ".projecterrorresponse",
-    "ProjectErrorResponseData": ".projecterrorresponse",
+    "Organization": ".organization",
+    "OrganizationTypedDict": ".organization",
+    "OrganizationDetail": ".organizationdetail",
+    "OrganizationDetailTypedDict": ".organizationdetail",
+    "OrganizationError": ".organizationerror",
+    "OrganizationErrorData": ".organizationerror",
+    "PagedChapter": ".pagedchapter",
+    "PagedChapterTypedDict": ".pagedchapter",
+    "PagedCommittee": ".pagedcommittee",
+    "PagedCommitteeTypedDict": ".pagedcommittee",
+    "PagedEvent": ".pagedevent",
+    "PagedEventTypedDict": ".pagedevent",
+    "PagedIssue": ".pagedissue",
+    "PagedIssueTypedDict": ".pagedissue",
+    "PagedMember": ".pagedmember",
+    "PagedMemberTypedDict": ".pagedmember",
+    "PagedOrganization": ".pagedorganization",
+    "PagedOrganizationTypedDict": ".pagedorganization",
+    "PagedProject": ".pagedproject",
+    "PagedProjectTypedDict": ".pagedproject",
+    "PagedRelease": ".pagedrelease",
+    "PagedReleaseTypedDict": ".pagedrelease",
+    "PagedRepository": ".pagedrepository",
+    "PagedRepositoryTypedDict": ".pagedrepository",
+    "PagedSponsor": ".pagedsponsor",
+    "PagedSponsorTypedDict": ".pagedsponsor",
+    "Project": ".project",
+    "ProjectTypedDict": ".project",
+    "ProjectDetail": ".projectdetail",
+    "ProjectDetailTypedDict": ".projectdetail",
+    "ProjectError": ".projecterror",
+    "ProjectErrorData": ".projecterror",
     "ProjectLevel": ".projectlevel",
-    "ProjectSchema": ".projectschema",
-    "ProjectSchemaTypedDict": ".projectschema",
-    "ReleaseSchema": ".releaseschema",
-    "ReleaseSchemaTypedDict": ".releaseschema",
-    "RepositorySchema": ".repositoryschema",
-    "RepositorySchemaTypedDict": ".repositoryschema",
+    "Release": ".release",
+    "ReleaseTypedDict": ".release",
+    "ReleaseDetail": ".releasedetail",
+    "ReleaseDetailTypedDict": ".releasedetail",
+    "ReleaseError": ".releaseerror",
+    "ReleaseErrorData": ".releaseerror",
+    "Repository": ".repository",
+    "RepositoryTypedDict": ".repository",
+    "RepositoryDetail": ".repositorydetail",
+    "RepositoryDetailTypedDict": ".repositorydetail",
+    "RepositoryError": ".repositoryerror",
+    "RepositoryErrorData": ".repositoryerror",
     "ResponseValidationError": ".responsevalidationerror",
     "Security": ".security",
     "SecurityTypedDict": ".security",
-    "SponsorErrorResponse": ".sponsorerrorresponse",
-    "SponsorErrorResponseData": ".sponsorerrorresponse",
-    "SponsorSchema": ".sponsorschema",
-    "SponsorSchemaTypedDict": ".sponsorschema",
+    "Sponsor": ".sponsor",
+    "SponsorTypedDict": ".sponsor",
+    "SponsorDetail": ".sponsordetail",
+    "SponsorDetailTypedDict": ".sponsordetail",
+    "SponsorError": ".sponsorerror",
+    "SponsorErrorData": ".sponsorerror",
     "State": ".state",
 }
 

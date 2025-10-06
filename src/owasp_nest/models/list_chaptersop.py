@@ -27,12 +27,12 @@ class ListChaptersOrdering(str, Enum):
 class ListChaptersRequestTypedDict(TypedDict):
     country: NotRequired[Nullable[str]]
     r"""Country of the chapter"""
-    region: NotRequired[Nullable[str]]
-    r"""Region of the chapter"""
     ordering: NotRequired[Nullable[ListChaptersOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
-    page_size: NotRequired[Nullable[int]]
+    r"""Page number"""
+    page_size: NotRequired[int]
+    r"""Number of items per page"""
 
 
 class ListChaptersRequest(BaseModel):
@@ -41,12 +41,6 @@ class ListChaptersRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Country of the chapter"""
-
-    region: Annotated[
-        OptionalNullable[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = UNSET
-    r"""Region of the chapter"""
 
     ordering: Annotated[
         OptionalNullable[ListChaptersOrdering],
@@ -58,16 +52,18 @@ class ListChaptersRequest(BaseModel):
         Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 1
+    r"""Page number"""
 
     page_size: Annotated[
-        OptionalNullable[int],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = UNSET
+    ] = 100
+    r"""Number of items per page"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["country", "region", "ordering", "page", "page_size"]
-        nullable_fields = ["country", "region", "ordering", "page_size"]
+        optional_fields = ["country", "ordering", "page", "page_size"]
+        nullable_fields = ["country", "ordering"]
         null_default_fields = []
 
         serialized = handler(self)

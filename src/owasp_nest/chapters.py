@@ -13,24 +13,22 @@ class Chapters(BaseSDK):
         self,
         *,
         country: OptionalNullable[str] = UNSET,
-        region: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedChapterSchema:
+    ) -> models.PagedChapter:
         r"""List chapters
 
         Retrieve a paginated list of OWASP chapters.
 
         :param country: Country of the chapter
-        :param region: Region of the chapter
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -48,7 +46,6 @@ class Chapters(BaseSDK):
 
         request = models.ListChaptersRequest(
             country=country,
-            region=region,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -92,7 +89,7 @@ class Chapters(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedChapterSchema, http_res)
+            return unmarshal_json_response(models.PagedChapter, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -106,24 +103,22 @@ class Chapters(BaseSDK):
         self,
         *,
         country: OptionalNullable[str] = UNSET,
-        region: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedChapterSchema:
+    ) -> models.PagedChapter:
         r"""List chapters
 
         Retrieve a paginated list of OWASP chapters.
 
         :param country: Country of the chapter
-        :param region: Region of the chapter
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -141,7 +136,6 @@ class Chapters(BaseSDK):
 
         request = models.ListChaptersRequest(
             country=country,
-            region=region,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -185,7 +179,7 @@ class Chapters(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedChapterSchema, http_res)
+            return unmarshal_json_response(models.PagedChapter, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -203,7 +197,7 @@ class Chapters(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ChapterSchema:
+    ) -> models.ChapterDetail:
         r"""Get chapter
 
         Retrieve chapter details.
@@ -267,12 +261,10 @@ class Chapters(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ChapterSchema, http_res)
+            return unmarshal_json_response(models.ChapterDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.ChapterErrorResponseData, http_res
-            )
-            raise models.ChapterErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.ChapterErrorData, http_res)
+            raise models.ChapterError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -290,7 +282,7 @@ class Chapters(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ChapterSchema:
+    ) -> models.ChapterDetail:
         r"""Get chapter
 
         Retrieve chapter details.
@@ -354,12 +346,10 @@ class Chapters(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ChapterSchema, http_res)
+            return unmarshal_json_response(models.ChapterDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.ChapterErrorResponseData, http_res
-            )
-            raise models.ChapterErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.ChapterErrorData, http_res)
+            raise models.ChapterError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)

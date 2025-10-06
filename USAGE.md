@@ -8,7 +8,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -17,6 +17,7 @@ with Nest(
 </br>
 
 The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -28,7 +29,7 @@ async def main():
         api_key="<YOUR_API_KEY_HERE>",
     ) as nest:
 
-        res = await nest.chapters.list_chapters_async(country="India", region="Asia", page=1)
+        res = await nest.chapters.list_chapters_async(country="India", page=1, page_size=100)
 
         # Handle response
         print(res)

@@ -23,7 +23,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.chapters.list_chapters(country="India", region="Asia", page=1)
+    res = nest.chapters.list_chapters(country="India", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -35,15 +35,14 @@ with Nest(
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `country`                                                                             | *OptionalNullable[str]*                                                               | :heavy_minus_sign:                                                                    | Country of the chapter                                                                |
-| `region`                                                                              | *OptionalNullable[str]*                                                               | :heavy_minus_sign:                                                                    | Region of the chapter                                                                 |
 | `ordering`                                                                            | [OptionalNullable[models.ListChaptersOrdering]](../../models/listchaptersordering.md) | :heavy_minus_sign:                                                                    | Ordering field                                                                        |
-| `page`                                                                                | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | N/A                                                                                   |
-| `page_size`                                                                           | *OptionalNullable[int]*                                                               | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `page`                                                                                | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | Page number                                                                           |
+| `page_size`                                                                           | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | Number of items per page                                                              |
 | `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |
 
 ### Response
 
-**[models.PagedChapterSchema](../../models/pagedchapterschema.md)**
+**[models.PagedChapter](../../models/pagedchapter.md)**
 
 ### Errors
 
@@ -82,11 +81,11 @@ with Nest(
 
 ### Response
 
-**[models.ChapterSchema](../../models/chapterschema.md)**
+**[models.ChapterDetail](../../models/chapterdetail.md)**
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models.ChapterErrorResponse | 404                         | application/json            |
-| models.NestAPIError         | 4XX, 5XX                    | \*/\*                       |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.ChapterError | 404                 | application/json    |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |

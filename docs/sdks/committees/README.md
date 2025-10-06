@@ -23,7 +23,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.committees.list_committees(page=1)
+    res = nest.committees.list_committees(page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -35,13 +35,13 @@ with Nest(
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `ordering`                                                                                | [OptionalNullable[models.ListCommitteesOrdering]](../../models/listcommitteesordering.md) | :heavy_minus_sign:                                                                        | Ordering field                                                                            |
-| `page`                                                                                    | *Optional[int]*                                                                           | :heavy_minus_sign:                                                                        | N/A                                                                                       |
-| `page_size`                                                                               | *OptionalNullable[int]*                                                                   | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `page`                                                                                    | *Optional[int]*                                                                           | :heavy_minus_sign:                                                                        | Page number                                                                               |
+| `page_size`                                                                               | *Optional[int]*                                                                           | :heavy_minus_sign:                                                                        | Number of items per page                                                                  |
 | `retries`                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                          | :heavy_minus_sign:                                                                        | Configuration to override the default retry behavior of the client.                       |
 
 ### Response
 
-**[models.PagedCommitteeSchema](../../models/pagedcommitteeschema.md)**
+**[models.PagedCommittee](../../models/pagedcommittee.md)**
 
 ### Errors
 
@@ -80,11 +80,11 @@ with Nest(
 
 ### Response
 
-**[models.CommitteeSchema](../../models/committeeschema.md)**
+**[models.CommitteeDetail](../../models/committeedetail.md)**
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.CommitteeErrorResponse | 404                           | application/json              |
-| models.NestAPIError           | 4XX, 5XX                      | \*/\*                         |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models.CommitteeError | 404                   | application/json      |
+| models.NestAPIError   | 4XX, 5XX              | \*/\*                 |
