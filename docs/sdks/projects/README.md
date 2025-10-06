@@ -24,7 +24,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.projects.list_projects(ordering=owasp_nest.ListProjectsOrdering.MINUS_CREATED_AT, page=1)
+    res = nest.projects.list_projects(ordering=owasp_nest.ListProjectsOrdering.MINUS_CREATED_AT, page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -37,13 +37,13 @@ with Nest(
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `level`                                                                               | [OptionalNullable[models.ProjectLevel]](../../models/projectlevel.md)                 | :heavy_minus_sign:                                                                    | Level of the project                                                                  |                                                                                       |
 | `ordering`                                                                            | [OptionalNullable[models.ListProjectsOrdering]](../../models/listprojectsordering.md) | :heavy_minus_sign:                                                                    | Ordering field                                                                        | -created_at                                                                           |
-| `page`                                                                                | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | N/A                                                                                   |                                                                                       |
-| `page_size`                                                                           | *OptionalNullable[int]*                                                               | :heavy_minus_sign:                                                                    | N/A                                                                                   |                                                                                       |
+| `page`                                                                                | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | Page number                                                                           |                                                                                       |
+| `page_size`                                                                           | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | Number of items per page                                                              |                                                                                       |
 | `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |                                                                                       |
 
 ### Response
 
-**[models.PagedProjectSchema](../../models/pagedprojectschema.md)**
+**[models.PagedProject](../../models/pagedproject.md)**
 
 ### Errors
 
@@ -82,11 +82,11 @@ with Nest(
 
 ### Response
 
-**[models.ProjectSchema](../../models/projectschema.md)**
+**[models.ProjectDetail](../../models/projectdetail.md)**
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models.ProjectErrorResponse | 404                         | application/json            |
-| models.NestAPIError         | 4XX, 5XX                    | \*/\*                       |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.ProjectError | 404                 | application/json    |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |

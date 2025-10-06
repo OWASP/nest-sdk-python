@@ -17,12 +17,12 @@ class Sponsors(BaseSDK):
         sponsor_type: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListSponsorsOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedSponsorSchema:
+    ) -> models.PagedSponsor:
         r"""List sponsors
 
         Retrieve a paginated list of OWASP sponsors.
@@ -31,8 +31,8 @@ class Sponsors(BaseSDK):
         :param member_type: Member type of the sponsor
         :param sponsor_type: Filter by the type of sponsorship (e.g., Gold, Silver, Platinum).
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -95,7 +95,7 @@ class Sponsors(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedSponsorSchema, http_res)
+            return unmarshal_json_response(models.PagedSponsor, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -113,12 +113,12 @@ class Sponsors(BaseSDK):
         sponsor_type: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListSponsorsOrdering] = UNSET,
         page: Optional[int] = 1,
-        page_size: OptionalNullable[int] = UNSET,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PagedSponsorSchema:
+    ) -> models.PagedSponsor:
         r"""List sponsors
 
         Retrieve a paginated list of OWASP sponsors.
@@ -127,8 +127,8 @@ class Sponsors(BaseSDK):
         :param member_type: Member type of the sponsor
         :param sponsor_type: Filter by the type of sponsorship (e.g., Gold, Silver, Platinum).
         :param ordering: Ordering field
-        :param page:
-        :param page_size:
+        :param page: Page number
+        :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -191,7 +191,7 @@ class Sponsors(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PagedSponsorSchema, http_res)
+            return unmarshal_json_response(models.PagedSponsor, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -204,17 +204,17 @@ class Sponsors(BaseSDK):
     def get_sponsor(
         self,
         *,
-        sponsor_key: str,
+        sponsor_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SponsorSchema:
+    ) -> models.SponsorDetail:
         r"""Get sponsor
 
         Retrieve a sponsor details.
 
-        :param sponsor_key:
+        :param sponsor_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -231,12 +231,12 @@ class Sponsors(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetSponsorRequest(
-            sponsor_key=sponsor_key,
+            sponsor_id=sponsor_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/api/v0/sponsors/{sponsor_key}",
+            path="/api/v0/sponsors/{sponsor_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -273,12 +273,10 @@ class Sponsors(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.SponsorSchema, http_res)
+            return unmarshal_json_response(models.SponsorDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.SponsorErrorResponseData, http_res
-            )
-            raise models.SponsorErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.SponsorErrorData, http_res)
+            raise models.SponsorError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)
@@ -291,17 +289,17 @@ class Sponsors(BaseSDK):
     async def get_sponsor_async(
         self,
         *,
-        sponsor_key: str,
+        sponsor_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SponsorSchema:
+    ) -> models.SponsorDetail:
         r"""Get sponsor
 
         Retrieve a sponsor details.
 
-        :param sponsor_key:
+        :param sponsor_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -318,12 +316,12 @@ class Sponsors(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetSponsorRequest(
-            sponsor_key=sponsor_key,
+            sponsor_id=sponsor_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v0/sponsors/{sponsor_key}",
+            path="/api/v0/sponsors/{sponsor_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -360,12 +358,10 @@ class Sponsors(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.SponsorSchema, http_res)
+            return unmarshal_json_response(models.SponsorDetail, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(
-                models.SponsorErrorResponseData, http_res
-            )
-            raise models.SponsorErrorResponse(response_data, http_res)
+            response_data = unmarshal_json_response(models.SponsorErrorData, http_res)
+            raise models.SponsorError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.NestAPIError("API error occurred", http_res, http_res_text)

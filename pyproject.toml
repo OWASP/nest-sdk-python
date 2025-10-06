@@ -1,6 +1,6 @@
 [project]
 name = "owasp-nest"
-version = "0.2.3"
+version = "0.3.0"
 description = "OWASP Nest Python SDK"
 authors = [{ name = "Arkadii Yakovets" },]
 readme = "README-PYPI.md"

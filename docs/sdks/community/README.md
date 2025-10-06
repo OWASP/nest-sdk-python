@@ -25,7 +25,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.community.list_members(location="India", page=1)
+    res = nest.community.list_members(location="India", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -39,13 +39,13 @@ with Nest(
 | `company`                                                                           | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | Company of the user                                                                 |
 | `location`                                                                          | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | Location of the member                                                              |
 | `ordering`                                                                          | [OptionalNullable[models.ListMembersOrdering]](../../models/listmembersordering.md) | :heavy_minus_sign:                                                                  | Ordering field                                                                      |
-| `page`                                                                              | *Optional[int]*                                                                     | :heavy_minus_sign:                                                                  | N/A                                                                                 |
-| `page_size`                                                                         | *OptionalNullable[int]*                                                             | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `page`                                                                              | *Optional[int]*                                                                     | :heavy_minus_sign:                                                                  | Page number                                                                         |
+| `page_size`                                                                         | *Optional[int]*                                                                     | :heavy_minus_sign:                                                                  | Number of items per page                                                            |
 | `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
 ### Response
 
-**[models.PagedMemberSchema](../../models/pagedmemberschema.md)**
+**[models.PagedMember](../../models/pagedmember.md)**
 
 ### Errors
 
@@ -84,14 +84,14 @@ with Nest(
 
 ### Response
 
-**[models.MemberSchema](../../models/memberschema.md)**
+**[models.MemberDetail](../../models/memberdetail.md)**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.MemberErrorResponse | 404                        | application/json           |
-| models.NestAPIError        | 4XX, 5XX                   | \*/\*                      |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.MemberError  | 404                 | application/json    |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
 
 ## list_organizations
 
@@ -108,7 +108,7 @@ with Nest(
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
-    res = nest.community.list_organizations(location="United States of America", page=1)
+    res = nest.community.list_organizations(location="United States of America", page=1, page_size=100)
 
     # Handle response
     print(res)
@@ -121,13 +121,13 @@ with Nest(
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `location`                                                                                      | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | Location of the organization                                                                    | United States of America                                                                        |
 | `ordering`                                                                                      | [OptionalNullable[models.ListOrganizationsOrdering]](../../models/listorganizationsordering.md) | :heavy_minus_sign:                                                                              | Ordering field                                                                                  |                                                                                                 |
-| `page`                                                                                          | *Optional[int]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
-| `page_size`                                                                                     | *OptionalNullable[int]*                                                                         | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
+| `page`                                                                                          | *Optional[int]*                                                                                 | :heavy_minus_sign:                                                                              | Page number                                                                                     |                                                                                                 |
+| `page_size`                                                                                     | *Optional[int]*                                                                                 | :heavy_minus_sign:                                                                              | Number of items per page                                                                        |                                                                                                 |
 | `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |                                                                                                 |
 
 ### Response
 
-**[models.PagedOrganizationSchema](../../models/pagedorganizationschema.md)**
+**[models.PagedOrganization](../../models/pagedorganization.md)**
 
 ### Errors
 
@@ -166,11 +166,11 @@ with Nest(
 
 ### Response
 
-**[models.OrganizationSchema](../../models/organizationschema.md)**
+**[models.OrganizationDetail](../../models/organizationdetail.md)**
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| models.OrganizationErrorResponse | 404                              | application/json                 |
-| models.NestAPIError              | 4XX, 5XX                         | \*/\*                            |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| models.OrganizationError | 404                      | application/json         |
+| models.NestAPIError      | 4XX, 5XX                 | \*/\*                    |
