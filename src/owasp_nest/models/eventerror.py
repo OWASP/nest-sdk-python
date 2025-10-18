@@ -12,7 +12,7 @@ class EventErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class EventError(NestError):
     r"""Event error schema."""
 

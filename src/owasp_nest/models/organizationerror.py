@@ -12,7 +12,7 @@ class OrganizationErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class OrganizationError(NestError):
     r"""Organization error schema."""
 

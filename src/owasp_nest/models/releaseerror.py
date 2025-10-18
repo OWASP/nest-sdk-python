@@ -12,7 +12,7 @@ class ReleaseErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ReleaseError(NestError):
     r"""Release error schema."""
 

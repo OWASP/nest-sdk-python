@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 2db157ddb12d3123bb9aebbcacea1200
-  docVersion: 0.2.4
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 0.2.4
-  configChecksum: 5495289c81445adf4356a953bddb0d36
+  docChecksum: 6f456eaf13d39fb6a18ce0c5695231bc
+  docVersion: 0.2.5
+  speakeasyVersion: 1.637.0
+  generationVersion: 2.727.4
+  releaseVersion: 0.2.5
+  configChecksum: 335f9d368f75faf152311f7456e4ff15
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.22.1
+    core: 5.23.0
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -112,7 +112,6 @@ generatedFiles:
   - docs/sdks/community/README.md
   - docs/sdks/events/README.md
   - docs/sdks/issues/README.md
-  - docs/sdks/nest/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
@@ -554,4 +553,3 @@ examples:
         "404":
           application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes Detected:\n* `nest.community.list_members()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.issues.list_issues()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.sponsors.get_sponsor()`:  `request` **Changed** **Breaking** :warning:\n* `nest.sponsors.list_sponsors()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.chapters.list_chapters()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.repositories.list_repositories()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.committees.list_committees()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.releases.list_releases()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.projects.list_projects()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.events.list_events()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.community.list_organizations()`: \n  *  `request.page_size` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.chapters.get_chapter()`:  `response.key` **Added**\n* `nest.issues.get_issue()`: **Added**\n* `nest.projects.get_project()`:  `response.key` **Added**\n* `nest.committees.get_committee()`:  `response.key` **Added**\n* `nest.events.get_event()`: **Added**\n* `nest.repositories.get_repository()`: **Added**\n* `nest.releases.get_release()`: **Added**\n"

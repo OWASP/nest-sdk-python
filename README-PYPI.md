@@ -217,7 +217,6 @@ with Nest(
 * [list_issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#list_issues) - List issues
 * [get_issue](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#get_issue) - Get issue
 
-
 ### [projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md)
 
 * [list_projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md#list_projects) - List projects
@@ -344,10 +343,10 @@ with Nest(
 **Inherit from [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py)**:
 * [`ChapterError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererror.py): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`CommitteeError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/committeeerror.py): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`MemberError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`OrganizationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`EventError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/eventerror.py): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`IssueError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/issueerror.py): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`MemberError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`OrganizationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ProjectError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/projecterror.py): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ReleaseError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/releaseerror.py): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`RepositoryError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/repositoryerror.py): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*

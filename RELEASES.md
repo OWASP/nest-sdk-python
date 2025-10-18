@@ -97,3 +97,13 @@ Based on:
 - [python v0.2.4] .
 ### Releases
 - [PyPI v0.2.4] https://pypi.org/project/owasp-nest/0.2.4 - .
+
+## 2025-10-18 16:21:38
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.637.0 (2.727.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.2.5] .
+### Releases
+- [PyPI v0.2.5] https://pypi.org/project/owasp-nest/0.2.5 - .

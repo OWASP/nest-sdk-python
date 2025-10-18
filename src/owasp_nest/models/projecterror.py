@@ -12,7 +12,7 @@ class ProjectErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ProjectError(NestError):
     r"""Project error schema."""
 

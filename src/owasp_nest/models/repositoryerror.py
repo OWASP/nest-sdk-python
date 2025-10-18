@@ -12,7 +12,7 @@ class RepositoryErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class RepositoryError(NestError):
     r"""Repository error schema."""
 

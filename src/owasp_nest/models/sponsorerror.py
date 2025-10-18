@@ -12,7 +12,7 @@ class SponsorErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class SponsorError(NestError):
     r"""Sponsor error schema."""
 

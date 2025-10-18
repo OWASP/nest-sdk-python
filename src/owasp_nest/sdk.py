@@ -31,9 +31,9 @@ class Nest(BaseSDK):
 
     chapters: "Chapters"
     committees: "Committees"
-    community: "Community"
     events: "Events"
     issues: "Issues"
+    community: "Community"
     projects: "Projects"
     releases: "Releases"
     repositories: "Repositories"
@@ -41,9 +41,9 @@ class Nest(BaseSDK):
     _sub_sdk_map = {
         "chapters": ("owasp_nest.chapters", "Chapters"),
         "committees": ("owasp_nest.committees", "Committees"),
-        "community": ("owasp_nest.community", "Community"),
         "events": ("owasp_nest.events", "Events"),
         "issues": ("owasp_nest.issues", "Issues"),
+        "community": ("owasp_nest.community", "Community"),
         "projects": ("owasp_nest.projects", "Projects"),
         "releases": ("owasp_nest.releases", "Releases"),
         "repositories": ("owasp_nest.repositories", "Repositories"),

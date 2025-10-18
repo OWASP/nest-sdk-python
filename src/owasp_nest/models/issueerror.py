@@ -12,7 +12,7 @@ class IssueErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class IssueError(NestError):
     r"""Issue error schema."""
 
