@@ -217,7 +217,6 @@ with Nest(
 * [list_issues](docs/sdks/issues/README.md#list_issues) - List issues
 * [get_issue](docs/sdks/issues/README.md#get_issue) - Get issue
 
-
 ### [projects](docs/sdks/projects/README.md)
 
 * [list_projects](docs/sdks/projects/README.md#list_projects) - List projects
@@ -344,10 +343,10 @@ with Nest(
 **Inherit from [`NestError`](./src/owasp_nest/models/nesterror.py)**:
 * [`ChapterError`](./src/owasp_nest/models/chaptererror.py): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`CommitteeError`](./src/owasp_nest/models/committeeerror.py): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`MemberError`](./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`OrganizationError`](./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`EventError`](./src/owasp_nest/models/eventerror.py): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`IssueError`](./src/owasp_nest/models/issueerror.py): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`MemberError`](./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`OrganizationError`](./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ProjectError`](./src/owasp_nest/models/projecterror.py): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ReleaseError`](./src/owasp_nest/models/releaseerror.py): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`RepositoryError`](./src/owasp_nest/models/repositoryerror.py): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*

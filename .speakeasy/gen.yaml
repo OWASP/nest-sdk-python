@@ -18,6 +18,8 @@ generation:
     oAuth2PasswordEnabled: false
     hoistGlobalSecurity: true
   sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
   tests:
     generateTests: false
     generateNewTests: true
@@ -26,7 +28,7 @@ generation:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.2.4
+  version: 0.2.5
   additionalDependencies:
     dev: {}
     main: {}

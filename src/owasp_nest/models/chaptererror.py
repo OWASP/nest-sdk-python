@@ -12,7 +12,7 @@ class ChapterErrorData(BaseModel):
     message: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ChapterError(NestError):
     r"""Chapter error schema."""
 
