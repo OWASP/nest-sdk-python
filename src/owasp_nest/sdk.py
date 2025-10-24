@@ -20,6 +20,7 @@ if TYPE_CHECKING:
     from owasp_nest.community import Community
     from owasp_nest.events import Events
     from owasp_nest.issues import Issues
+    from owasp_nest.milestones import Milestones
     from owasp_nest.projects import Projects
     from owasp_nest.releases import Releases
     from owasp_nest.repositories import Repositories
@@ -34,6 +35,7 @@ class Nest(BaseSDK):
     events: "Events"
     issues: "Issues"
     community: "Community"
+    milestones: "Milestones"
     projects: "Projects"
     releases: "Releases"
     repositories: "Repositories"
@@ -44,6 +46,7 @@ class Nest(BaseSDK):
         "events": ("owasp_nest.events", "Events"),
         "issues": ("owasp_nest.issues", "Issues"),
         "community": ("owasp_nest.community", "Community"),
+        "milestones": ("owasp_nest.milestones", "Milestones"),
         "projects": ("owasp_nest.projects", "Projects"),
         "releases": ("owasp_nest.releases", "Releases"),
         "repositories": ("owasp_nest.repositories", "Repositories"),

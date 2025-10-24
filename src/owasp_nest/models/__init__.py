@@ -21,6 +21,7 @@ if TYPE_CHECKING:
     from .get_eventop import GetEventRequest, GetEventRequestTypedDict
     from .get_issueop import GetIssueRequest, GetIssueRequestTypedDict
     from .get_memberop import GetMemberRequest, GetMemberRequestTypedDict
+    from .get_milestoneop import GetMilestoneRequest, GetMilestoneRequestTypedDict
     from .get_organizationop import (
         GetOrganizationRequest,
         GetOrganizationRequestTypedDict,
@@ -57,6 +58,11 @@ if TYPE_CHECKING:
         ListMembersRequest,
         ListMembersRequestTypedDict,
     )
+    from .list_milestonesop import (
+        ListMilestonesOrdering,
+        ListMilestonesRequest,
+        ListMilestonesRequestTypedDict,
+    )
     from .list_organizationsop import (
         ListOrganizationsOrdering,
         ListOrganizationsRequest,
@@ -86,6 +92,9 @@ if TYPE_CHECKING:
     from .memberdetail import MemberDetail, MemberDetailTypedDict
     from .membererror import MemberError, MemberErrorData
     from .membertype import MemberType
+    from .milestone import Milestone, MilestoneTypedDict
+    from .milestonedetail import MilestoneDetail, MilestoneDetailTypedDict
+    from .milestoneerror import MilestoneError, MilestoneErrorData
     from .nestapierror import NestAPIError
     from .no_response_error import NoResponseError
     from .organization import Organization, OrganizationTypedDict
@@ -96,6 +105,7 @@ if TYPE_CHECKING:
     from .pagedevent import PagedEvent, PagedEventTypedDict
     from .pagedissue import PagedIssue, PagedIssueTypedDict
     from .pagedmember import PagedMember, PagedMemberTypedDict
+    from .pagedmilestone import PagedMilestone, PagedMilestoneTypedDict
     from .pagedorganization import PagedOrganization, PagedOrganizationTypedDict
     from .pagedproject import PagedProject, PagedProjectTypedDict
     from .pagedrelease import PagedRelease, PagedReleaseTypedDict
@@ -147,6 +157,8 @@ __all__ = [
     "GetIssueRequestTypedDict",
     "GetMemberRequest",
     "GetMemberRequestTypedDict",
+    "GetMilestoneRequest",
+    "GetMilestoneRequestTypedDict",
     "GetOrganizationRequest",
     "GetOrganizationRequestTypedDict",
     "GetProjectRequest",
@@ -178,6 +190,9 @@ __all__ = [
     "ListMembersOrdering",
     "ListMembersRequest",
     "ListMembersRequestTypedDict",
+    "ListMilestonesOrdering",
+    "ListMilestonesRequest",
+    "ListMilestonesRequestTypedDict",
     "ListOrganizationsOrdering",
     "ListOrganizationsRequest",
     "ListOrganizationsRequestTypedDict",
@@ -200,6 +215,12 @@ __all__ = [
     "MemberErrorData",
     "MemberType",
     "MemberTypedDict",
+    "Milestone",
+    "MilestoneDetail",
+    "MilestoneDetailTypedDict",
+    "MilestoneError",
+    "MilestoneErrorData",
+    "MilestoneTypedDict",
     "NestAPIError",
     "NestError",
     "NoResponseError",
@@ -219,6 +240,8 @@ __all__ = [
     "PagedIssueTypedDict",
     "PagedMember",
     "PagedMemberTypedDict",
+    "PagedMilestone",
+    "PagedMilestoneTypedDict",
     "PagedOrganization",
     "PagedOrganizationTypedDict",
     "PagedProject",
@@ -289,6 +312,8 @@ _dynamic_imports: dict[str, str] = {
     "GetIssueRequestTypedDict": ".get_issueop",
     "GetMemberRequest": ".get_memberop",
     "GetMemberRequestTypedDict": ".get_memberop",
+    "GetMilestoneRequest": ".get_milestoneop",
+    "GetMilestoneRequestTypedDict": ".get_milestoneop",
     "GetOrganizationRequest": ".get_organizationop",
     "GetOrganizationRequestTypedDict": ".get_organizationop",
     "GetProjectRequest": ".get_projectop",
@@ -320,6 +345,9 @@ _dynamic_imports: dict[str, str] = {
     "ListMembersOrdering": ".list_membersop",
     "ListMembersRequest": ".list_membersop",
     "ListMembersRequestTypedDict": ".list_membersop",
+    "ListMilestonesOrdering": ".list_milestonesop",
+    "ListMilestonesRequest": ".list_milestonesop",
+    "ListMilestonesRequestTypedDict": ".list_milestonesop",
     "ListOrganizationsOrdering": ".list_organizationsop",
     "ListOrganizationsRequest": ".list_organizationsop",
     "ListOrganizationsRequestTypedDict": ".list_organizationsop",
@@ -342,6 +370,12 @@ _dynamic_imports: dict[str, str] = {
     "MemberError": ".membererror",
     "MemberErrorData": ".membererror",
     "MemberType": ".membertype",
+    "Milestone": ".milestone",
+    "MilestoneTypedDict": ".milestone",
+    "MilestoneDetail": ".milestonedetail",
+    "MilestoneDetailTypedDict": ".milestonedetail",
+    "MilestoneError": ".milestoneerror",
+    "MilestoneErrorData": ".milestoneerror",
     "NestAPIError": ".nestapierror",
     "NoResponseError": ".no_response_error",
     "Organization": ".organization",
@@ -360,6 +394,8 @@ _dynamic_imports: dict[str, str] = {
     "PagedIssueTypedDict": ".pagedissue",
     "PagedMember": ".pagedmember",
     "PagedMemberTypedDict": ".pagedmember",
+    "PagedMilestone": ".pagedmilestone",
+    "PagedMilestoneTypedDict": ".pagedmilestone",
     "PagedOrganization": ".pagedorganization",
     "PagedOrganizationTypedDict": ".pagedorganization",
     "PagedProject": ".pagedproject",
