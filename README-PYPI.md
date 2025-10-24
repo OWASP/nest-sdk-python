@@ -217,6 +217,11 @@ with Nest(
 * [list_issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#list_issues) - List issues
 * [get_issue](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#get_issue) - Get issue
 
+### [milestones](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md)
+
+* [list_milestones](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md#list_milestones) - List milestones
+* [get_milestone](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md#get_milestone) - Get milestone
+
 ### [projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md)
 
 * [list_projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md#list_projects) - List projects
@@ -330,7 +335,7 @@ with Nest(
 **Primary error:**
 * [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
-<details><summary>Less common errors (15)</summary>
+<details><summary>Less common errors (16)</summary>
 
 <br />
 
@@ -341,16 +346,17 @@ with Nest(
 
 
 **Inherit from [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py)**:
-* [`ChapterError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererror.py): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`CommitteeError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/committeeerror.py): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`EventError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/eventerror.py): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`IssueError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/issueerror.py): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`MemberError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`OrganizationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`ProjectError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/projecterror.py): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`ReleaseError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/releaseerror.py): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`RepositoryError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/repositoryerror.py): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`SponsorError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/sponsorerror.py): Sponsor error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`ChapterError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererror.py): Chapter error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`CommitteeError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/committeeerror.py): Committee error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`EventError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/eventerror.py): Event error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`IssueError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/issueerror.py): Issue error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`MemberError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/membererror.py): Member error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`OrganizationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/organizationerror.py): Organization error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`MilestoneError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/milestoneerror.py): Milestone error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`ProjectError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/projecterror.py): Project error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`ReleaseError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/releaseerror.py): Release error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`RepositoryError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/repositoryerror.py): Repository error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`SponsorError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/sponsorerror.py): Sponsor error schema. Status code `404`. Applicable to 1 of 22 methods.*
 * [`ResponseValidationError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

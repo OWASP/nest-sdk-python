@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 6f456eaf13d39fb6a18ce0c5695231bc
+  docChecksum: 916b73430d8fd9147bc94f84e8f2eba7
   docVersion: 0.2.5
-  speakeasyVersion: 1.637.0
-  generationVersion: 2.727.4
-  releaseVersion: 0.2.5
-  configChecksum: 335f9d368f75faf152311f7456e4ff15
+  speakeasyVersion: 1.639.1
+  generationVersion: 2.730.0
+  releaseVersion: 0.2.6
+  configChecksum: 9b7256b3f7418189156c20a8fba21457
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -46,6 +46,7 @@ generatedFiles:
   - docs/models/geteventrequest.md
   - docs/models/getissuerequest.md
   - docs/models/getmemberrequest.md
+  - docs/models/getmilestonerequest.md
   - docs/models/getorganizationrequest.md
   - docs/models/getprojectrequest.md
   - docs/models/getreleaserequest.md
@@ -64,6 +65,8 @@ generatedFiles:
   - docs/models/listissuesrequest.md
   - docs/models/listmembersordering.md
   - docs/models/listmembersrequest.md
+  - docs/models/listmilestonesordering.md
+  - docs/models/listmilestonesrequest.md
   - docs/models/listorganizationsordering.md
   - docs/models/listorganizationsrequest.md
   - docs/models/listprojectsordering.md
@@ -78,6 +81,9 @@ generatedFiles:
   - docs/models/memberdetail.md
   - docs/models/membererror.md
   - docs/models/membertype.md
+  - docs/models/milestone.md
+  - docs/models/milestonedetail.md
+  - docs/models/milestoneerror.md
   - docs/models/organization.md
   - docs/models/organizationdetail.md
   - docs/models/organizationerror.md
@@ -86,6 +92,7 @@ generatedFiles:
   - docs/models/pagedevent.md
   - docs/models/pagedissue.md
   - docs/models/pagedmember.md
+  - docs/models/pagedmilestone.md
   - docs/models/pagedorganization.md
   - docs/models/pagedproject.md
   - docs/models/pagedrelease.md
@@ -112,6 +119,7 @@ generatedFiles:
   - docs/sdks/community/README.md
   - docs/sdks/events/README.md
   - docs/sdks/issues/README.md
+  - docs/sdks/milestones/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
@@ -133,6 +141,7 @@ generatedFiles:
   - src/owasp_nest/events.py
   - src/owasp_nest/httpclient.py
   - src/owasp_nest/issues.py
+  - src/owasp_nest/milestones.py
   - src/owasp_nest/models/__init__.py
   - src/owasp_nest/models/chapter.py
   - src/owasp_nest/models/chapterdetail.py
@@ -148,6 +157,7 @@ generatedFiles:
   - src/owasp_nest/models/get_eventop.py
   - src/owasp_nest/models/get_issueop.py
   - src/owasp_nest/models/get_memberop.py
+  - src/owasp_nest/models/get_milestoneop.py
   - src/owasp_nest/models/get_organizationop.py
   - src/owasp_nest/models/get_projectop.py
   - src/owasp_nest/models/get_releaseop.py
@@ -161,6 +171,7 @@ generatedFiles:
   - src/owasp_nest/models/list_eventsop.py
   - src/owasp_nest/models/list_issuesop.py
   - src/owasp_nest/models/list_membersop.py
+  - src/owasp_nest/models/list_milestonesop.py
   - src/owasp_nest/models/list_organizationsop.py
   - src/owasp_nest/models/list_projectsop.py
   - src/owasp_nest/models/list_releasesop.py
@@ -170,6 +181,9 @@ generatedFiles:
   - src/owasp_nest/models/memberdetail.py
   - src/owasp_nest/models/membererror.py
   - src/owasp_nest/models/membertype.py
+  - src/owasp_nest/models/milestone.py
+  - src/owasp_nest/models/milestonedetail.py
+  - src/owasp_nest/models/milestoneerror.py
   - src/owasp_nest/models/nestapierror.py
   - src/owasp_nest/models/nesterror.py
   - src/owasp_nest/models/no_response_error.py
@@ -181,6 +195,7 @@ generatedFiles:
   - src/owasp_nest/models/pagedevent.py
   - src/owasp_nest/models/pagedissue.py
   - src/owasp_nest/models/pagedmember.py
+  - src/owasp_nest/models/pagedmilestone.py
   - src/owasp_nest/models/pagedorganization.py
   - src/owasp_nest/models/pagedproject.py
   - src/owasp_nest/models/pagedrelease.py
@@ -552,4 +567,31 @@ examples:
           application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
         "404":
           application/json: {"message": "<value>"}
+  list_milestones:
+    speakeasy-default-list-milestones:
+      parameters:
+        query:
+          organization: "OWASP"
+          repository: "Nest"
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 165375, "has_next": false, "has_previous": true, "items": [{"created_at": "2025-11-21T22:20:41.813Z", "number": 193241, "state": "closed", "title": "<value>", "updated_at": "2024-11-14T03:23:51.091Z", "url": "https://familiar-commodity.name"}], "total_count": 453892, "total_pages": 994947}
+  get_milestone:
+    speakeasy-default-get-milestone:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          milestone_id: 1
+      responses:
+        "200":
+          application/json: {"created_at": "2023-09-01T23:58:56.084Z", "number": 88227, "state": "open", "title": "<value>", "updated_at": "2023-09-20T07:01:10.505Z", "url": "https://impressive-configuration.name/", "body": "<value>", "closed_issues_count": 545798, "due_on": "2024-01-25T11:51:50.047Z", "open_issues_count": 564718}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `nest.milestones.list_milestones()`: **Added**
+  * `nest.milestones.get_milestone()`: **Added**
