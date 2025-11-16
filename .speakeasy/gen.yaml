@@ -24,11 +24,12 @@ generation:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
+  requestBodyFieldName: ""
   retries:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.2.6
+  version: 0.3.1
   additionalDependencies:
     dev: {}
     main: {}
@@ -59,6 +60,7 @@ python:
       webhooks: ""
   inputModelSuffix: input
   legacyPyright: true
+  license: ""
   maxMethodParams: 20
   methodArguments: infer-optional-args
   moduleName: ""

@@ -9,6 +9,13 @@
 * [get_member](#get_member) - Get member
 * [list_organizations](#list_organizations) - List organizations
 * [get_organization](#get_organization) - Get organization
+* [list_snapshots](#list_snapshots) - List snapshots
+* [get_snapshot](#get_snapshot) - Get snapshot
+* [list_snapshot_chapters](#list_snapshot_chapters) - List new chapters in snapshot
+* [list_snapshot_issues](#list_snapshot_issues) - List new issues in snapshot
+* [list_snapshot_members](#list_snapshot_members) - List new members in snapshot
+* [list_snapshot_projects](#list_snapshot_projects) - List new projects in snapshot
+* [list_snapshot_releases](#list_snapshot_releases) - List new releases in snapshot
 
 ## list_members
 
@@ -174,3 +181,294 @@ with Nest(
 | ------------------------ | ------------------------ | ------------------------ |
 | models.OrganizationError | 404                      | application/json         |
 | models.NestAPIError      | 4XX, 5XX                 | \*/\*                    |
+
+## list_snapshots
+
+Retrieve a paginated list of OWASP snapshots.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="list_snapshots" method="get" path="/api/v0/snapshots/" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.list_snapshots(page=1, page_size=100)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ordering`                                                                              | [OptionalNullable[models.ListSnapshotsOrdering]](../../models/listsnapshotsordering.md) | :heavy_minus_sign:                                                                      | Ordering field                                                                          |
+| `page`                                                                                  | *Optional[int]*                                                                         | :heavy_minus_sign:                                                                      | Page number                                                                             |
+| `page_size`                                                                             | *Optional[int]*                                                                         | :heavy_minus_sign:                                                                      | Number of items per page                                                                |
+| `retries`                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                        | :heavy_minus_sign:                                                                      | Configuration to override the default retry behavior of the client.                     |
+
+### Response
+
+**[models.PagedSnapshot](../../models/pagedsnapshot.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+
+## get_snapshot
+
+Retrieve snapshot details.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="get_snapshot" method="get" path="/api/v0/snapshots/{snapshot_id}" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.get_snapshot(snapshot_id="2025-02")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `snapshot_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 2025-02                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.SnapshotDetail](../../models/snapshotdetail.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.SnapshotError | 404                  | application/json     |
+| models.NestAPIError  | 4XX, 5XX             | \*/\*                |
+
+## list_snapshot_chapters
+
+Retrieve a paginated list of new chapters in a snapshot.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="list_snapshot_chapters" method="get" path="/api/v0/snapshots/{snapshot_id}/chapters/" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.list_snapshot_chapters(snapshot_id="2025-02", page=1, page_size=100)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           | Example                                                                                               |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `snapshot_id`                                                                                         | *str*                                                                                                 | :heavy_check_mark:                                                                                    | N/A                                                                                                   | 2025-02                                                                                               |
+| `ordering`                                                                                            | [OptionalNullable[models.ListSnapshotChaptersOrdering]](../../models/listsnapshotchaptersordering.md) | :heavy_minus_sign:                                                                                    | Ordering field                                                                                        |                                                                                                       |
+| `page`                                                                                                | *Optional[int]*                                                                                       | :heavy_minus_sign:                                                                                    | Page number                                                                                           |                                                                                                       |
+| `page_size`                                                                                           | *Optional[int]*                                                                                       | :heavy_minus_sign:                                                                                    | Number of items per page                                                                              |                                                                                                       |
+| `retries`                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                      | :heavy_minus_sign:                                                                                    | Configuration to override the default retry behavior of the client.                                   |                                                                                                       |
+
+### Response
+
+**[models.PagedChapter](../../models/pagedchapter.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+
+## list_snapshot_issues
+
+Retrieve a paginated list of new issues in a snapshot.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="list_snapshot_issues" method="get" path="/api/v0/snapshots/{snapshot_id}/issues/" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.list_snapshot_issues(snapshot_id="2025-02", page=1, page_size=100)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `snapshot_id`                                                                                     | *str*                                                                                             | :heavy_check_mark:                                                                                | N/A                                                                                               | 2025-02                                                                                           |
+| `ordering`                                                                                        | [OptionalNullable[models.ListSnapshotIssuesOrdering]](../../models/listsnapshotissuesordering.md) | :heavy_minus_sign:                                                                                | Ordering field                                                                                    |                                                                                                   |
+| `page`                                                                                            | *Optional[int]*                                                                                   | :heavy_minus_sign:                                                                                | Page number                                                                                       |                                                                                                   |
+| `page_size`                                                                                       | *Optional[int]*                                                                                   | :heavy_minus_sign:                                                                                | Number of items per page                                                                          |                                                                                                   |
+| `retries`                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                  | :heavy_minus_sign:                                                                                | Configuration to override the default retry behavior of the client.                               |                                                                                                   |
+
+### Response
+
+**[models.PagedSnapshotIssue](../../models/pagedsnapshotissue.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+
+## list_snapshot_members
+
+Retrieve a paginated list of new members in a snapshot.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="list_snapshot_members" method="get" path="/api/v0/snapshots/{snapshot_id}/members/" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.list_snapshot_members(snapshot_id="2025-02", page=1, page_size=100)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         | Example                                                                                             |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `snapshot_id`                                                                                       | *str*                                                                                               | :heavy_check_mark:                                                                                  | N/A                                                                                                 | 2025-02                                                                                             |
+| `ordering`                                                                                          | [OptionalNullable[models.ListSnapshotMembersOrdering]](../../models/listsnapshotmembersordering.md) | :heavy_minus_sign:                                                                                  | Ordering field                                                                                      |                                                                                                     |
+| `page`                                                                                              | *Optional[int]*                                                                                     | :heavy_minus_sign:                                                                                  | Page number                                                                                         |                                                                                                     |
+| `page_size`                                                                                         | *Optional[int]*                                                                                     | :heavy_minus_sign:                                                                                  | Number of items per page                                                                            |                                                                                                     |
+| `retries`                                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                    | :heavy_minus_sign:                                                                                  | Configuration to override the default retry behavior of the client.                                 |                                                                                                     |
+
+### Response
+
+**[models.PagedMember](../../models/pagedmember.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+
+## list_snapshot_projects
+
+Retrieve a paginated list of new projects in a snapshot.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="list_snapshot_projects" method="get" path="/api/v0/snapshots/{snapshot_id}/projects/" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.list_snapshot_projects(snapshot_id="2025-02", page=1, page_size=100)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           | Example                                                                                               |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `snapshot_id`                                                                                         | *str*                                                                                                 | :heavy_check_mark:                                                                                    | N/A                                                                                                   | 2025-02                                                                                               |
+| `ordering`                                                                                            | [OptionalNullable[models.ListSnapshotProjectsOrdering]](../../models/listsnapshotprojectsordering.md) | :heavy_minus_sign:                                                                                    | Ordering field                                                                                        |                                                                                                       |
+| `page`                                                                                                | *Optional[int]*                                                                                       | :heavy_minus_sign:                                                                                    | Page number                                                                                           |                                                                                                       |
+| `page_size`                                                                                           | *Optional[int]*                                                                                       | :heavy_minus_sign:                                                                                    | Number of items per page                                                                              |                                                                                                       |
+| `retries`                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                      | :heavy_minus_sign:                                                                                    | Configuration to override the default retry behavior of the client.                                   |                                                                                                       |
+
+### Response
+
+**[models.PagedProject](../../models/pagedproject.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+
+## list_snapshot_releases
+
+Retrieve a paginated list of new releases in a snapshot.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="list_snapshot_releases" method="get" path="/api/v0/snapshots/{snapshot_id}/releases/" -->
+```python
+from owasp_nest import Nest
+
+
+with Nest(
+    api_key="<YOUR_API_KEY_HERE>",
+) as nest:
+
+    res = nest.community.list_snapshot_releases(snapshot_id="2025-02", page=1, page_size=100)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           | Example                                                                                               |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `snapshot_id`                                                                                         | *str*                                                                                                 | :heavy_check_mark:                                                                                    | N/A                                                                                                   | 2025-02                                                                                               |
+| `ordering`                                                                                            | [OptionalNullable[models.ListSnapshotReleasesOrdering]](../../models/listsnapshotreleasesordering.md) | :heavy_minus_sign:                                                                                    | Ordering field                                                                                        |                                                                                                       |
+| `page`                                                                                                | *Optional[int]*                                                                                       | :heavy_minus_sign:                                                                                    | Page number                                                                                           |                                                                                                       |
+| `page_size`                                                                                           | *Optional[int]*                                                                                       | :heavy_minus_sign:                                                                                    | Number of items per page                                                                              |                                                                                                       |
+| `retries`                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                      | :heavy_minus_sign:                                                                                    | Configuration to override the default retry behavior of the client.                                   |                                                                                                       |
+
+### Response
+
+**[models.PagedSnapshotRelease](../../models/pagedsnapshotrelease.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| models.NestAPIError | 4XX, 5XX            | \*/\*               |
