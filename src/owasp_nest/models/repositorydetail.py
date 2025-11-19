@@ -19,6 +19,11 @@ class RepositoryDetailTypedDict(TypedDict):
     created_at: datetime
     name: str
     updated_at: datetime
+    commits_count: int
+    contributors_count: int
+    forks_count: int
+    open_issues_count: int
+    stars_count: int
     description: NotRequired[Nullable[str]]
 
 
@@ -30,6 +35,16 @@ class RepositoryDetail(BaseModel):
     name: str
 
     updated_at: datetime
+
+    commits_count: int
+
+    contributors_count: int
+
+    forks_count: int
+
+    open_issues_count: int
+
+    stars_count: int
 
     description: OptionalNullable[str] = UNSET
 

@@ -12,6 +12,10 @@ class Chapters(BaseSDK):
     def list_chapters(
         self,
         *,
+        latitude_gte: OptionalNullable[float] = UNSET,
+        latitude_lte: OptionalNullable[float] = UNSET,
+        longitude_gte: OptionalNullable[float] = UNSET,
+        longitude_lte: OptionalNullable[float] = UNSET,
         country: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
         page: Optional[int] = 1,
@@ -25,6 +29,10 @@ class Chapters(BaseSDK):
 
         Retrieve a paginated list of OWASP chapters.
 
+        :param latitude_gte: Latitude greater than or equal to
+        :param latitude_lte: Latitude less than or equal to
+        :param longitude_gte: Longitude greater than or equal to
+        :param longitude_lte: Longitude less than or equal to
         :param country: Country of the chapter
         :param ordering: Ordering field
         :param page: Page number
@@ -45,6 +53,10 @@ class Chapters(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListChaptersRequest(
+            latitude_gte=latitude_gte,
+            latitude_lte=latitude_lte,
+            longitude_gte=longitude_gte,
+            longitude_lte=longitude_lte,
             country=country,
             ordering=ordering,
             page=page,
@@ -102,6 +114,10 @@ class Chapters(BaseSDK):
     async def list_chapters_async(
         self,
         *,
+        latitude_gte: OptionalNullable[float] = UNSET,
+        latitude_lte: OptionalNullable[float] = UNSET,
+        longitude_gte: OptionalNullable[float] = UNSET,
+        longitude_lte: OptionalNullable[float] = UNSET,
         country: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListChaptersOrdering] = UNSET,
         page: Optional[int] = 1,
@@ -115,6 +131,10 @@ class Chapters(BaseSDK):
 
         Retrieve a paginated list of OWASP chapters.
 
+        :param latitude_gte: Latitude greater than or equal to
+        :param latitude_lte: Latitude less than or equal to
+        :param longitude_gte: Longitude greater than or equal to
+        :param longitude_lte: Longitude less than or equal to
         :param country: Country of the chapter
         :param ordering: Ordering field
         :param page: Page number
@@ -135,6 +155,10 @@ class Chapters(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListChaptersRequest(
+            latitude_gte=latitude_gte,
+            latitude_lte=latitude_lte,
+            longitude_gte=longitude_gte,
+            longitude_lte=longitude_lte,
             country=country,
             ordering=ordering,
             page=page,

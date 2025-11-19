@@ -29,6 +29,7 @@ if TYPE_CHECKING:
     from .get_projectop import GetProjectRequest, GetProjectRequestTypedDict
     from .get_releaseop import GetReleaseRequest, GetReleaseRequestTypedDict
     from .get_repositoryop import GetRepositoryRequest, GetRepositoryRequestTypedDict
+    from .get_snapshotop import GetSnapshotRequest, GetSnapshotRequestTypedDict
     from .get_sponsorop import GetSponsorRequest, GetSponsorRequestTypedDict
     from .issue import Issue, IssueTypedDict
     from .issuedetail import IssueDetail, IssueDetailTypedDict
@@ -83,6 +84,36 @@ if TYPE_CHECKING:
         ListRepositoriesRequest,
         ListRepositoriesRequestTypedDict,
     )
+    from .list_snapshot_chaptersop import (
+        ListSnapshotChaptersOrdering,
+        ListSnapshotChaptersRequest,
+        ListSnapshotChaptersRequestTypedDict,
+    )
+    from .list_snapshot_issuesop import (
+        ListSnapshotIssuesOrdering,
+        ListSnapshotIssuesRequest,
+        ListSnapshotIssuesRequestTypedDict,
+    )
+    from .list_snapshot_membersop import (
+        ListSnapshotMembersOrdering,
+        ListSnapshotMembersRequest,
+        ListSnapshotMembersRequestTypedDict,
+    )
+    from .list_snapshot_projectsop import (
+        ListSnapshotProjectsOrdering,
+        ListSnapshotProjectsRequest,
+        ListSnapshotProjectsRequestTypedDict,
+    )
+    from .list_snapshot_releasesop import (
+        ListSnapshotReleasesOrdering,
+        ListSnapshotReleasesRequest,
+        ListSnapshotReleasesRequestTypedDict,
+    )
+    from .list_snapshotsop import (
+        ListSnapshotsOrdering,
+        ListSnapshotsRequest,
+        ListSnapshotsRequestTypedDict,
+    )
     from .list_sponsorsop import (
         ListSponsorsOrdering,
         ListSponsorsRequest,
@@ -110,6 +141,12 @@ if TYPE_CHECKING:
     from .pagedproject import PagedProject, PagedProjectTypedDict
     from .pagedrelease import PagedRelease, PagedReleaseTypedDict
     from .pagedrepository import PagedRepository, PagedRepositoryTypedDict
+    from .pagedsnapshot import PagedSnapshot, PagedSnapshotTypedDict
+    from .pagedsnapshotissue import PagedSnapshotIssue, PagedSnapshotIssueTypedDict
+    from .pagedsnapshotrelease import (
+        PagedSnapshotRelease,
+        PagedSnapshotReleaseTypedDict,
+    )
     from .pagedsponsor import PagedSponsor, PagedSponsorTypedDict
     from .project import Project, ProjectTypedDict
     from .projectdetail import ProjectDetail, ProjectDetailTypedDict
@@ -123,6 +160,11 @@ if TYPE_CHECKING:
     from .repositoryerror import RepositoryError, RepositoryErrorData
     from .responsevalidationerror import ResponseValidationError
     from .security import Security, SecurityTypedDict
+    from .snapshot import Snapshot, SnapshotTypedDict
+    from .snapshotdetail import SnapshotDetail, SnapshotDetailTypedDict
+    from .snapshoterror import SnapshotError, SnapshotErrorData
+    from .snapshotissue import SnapshotIssue, SnapshotIssueTypedDict
+    from .snapshotrelease import SnapshotRelease, SnapshotReleaseTypedDict
     from .sponsor import Sponsor, SponsorTypedDict
     from .sponsordetail import SponsorDetail, SponsorDetailTypedDict
     from .sponsorerror import SponsorError, SponsorErrorData
@@ -167,6 +209,8 @@ __all__ = [
     "GetReleaseRequestTypedDict",
     "GetRepositoryRequest",
     "GetRepositoryRequestTypedDict",
+    "GetSnapshotRequest",
+    "GetSnapshotRequestTypedDict",
     "GetSponsorRequest",
     "GetSponsorRequestTypedDict",
     "Issue",
@@ -205,6 +249,24 @@ __all__ = [
     "ListRepositoriesOrdering",
     "ListRepositoriesRequest",
     "ListRepositoriesRequestTypedDict",
+    "ListSnapshotChaptersOrdering",
+    "ListSnapshotChaptersRequest",
+    "ListSnapshotChaptersRequestTypedDict",
+    "ListSnapshotIssuesOrdering",
+    "ListSnapshotIssuesRequest",
+    "ListSnapshotIssuesRequestTypedDict",
+    "ListSnapshotMembersOrdering",
+    "ListSnapshotMembersRequest",
+    "ListSnapshotMembersRequestTypedDict",
+    "ListSnapshotProjectsOrdering",
+    "ListSnapshotProjectsRequest",
+    "ListSnapshotProjectsRequestTypedDict",
+    "ListSnapshotReleasesOrdering",
+    "ListSnapshotReleasesRequest",
+    "ListSnapshotReleasesRequestTypedDict",
+    "ListSnapshotsOrdering",
+    "ListSnapshotsRequest",
+    "ListSnapshotsRequestTypedDict",
     "ListSponsorsOrdering",
     "ListSponsorsRequest",
     "ListSponsorsRequestTypedDict",
@@ -250,6 +312,12 @@ __all__ = [
     "PagedReleaseTypedDict",
     "PagedRepository",
     "PagedRepositoryTypedDict",
+    "PagedSnapshot",
+    "PagedSnapshotIssue",
+    "PagedSnapshotIssueTypedDict",
+    "PagedSnapshotRelease",
+    "PagedSnapshotReleaseTypedDict",
+    "PagedSnapshotTypedDict",
     "PagedSponsor",
     "PagedSponsorTypedDict",
     "Project",
@@ -274,6 +342,16 @@ __all__ = [
     "ResponseValidationError",
     "Security",
     "SecurityTypedDict",
+    "Snapshot",
+    "SnapshotDetail",
+    "SnapshotDetailTypedDict",
+    "SnapshotError",
+    "SnapshotErrorData",
+    "SnapshotIssue",
+    "SnapshotIssueTypedDict",
+    "SnapshotRelease",
+    "SnapshotReleaseTypedDict",
+    "SnapshotTypedDict",
     "Sponsor",
     "SponsorDetail",
     "SponsorDetailTypedDict",
@@ -322,6 +400,8 @@ _dynamic_imports: dict[str, str] = {
     "GetReleaseRequestTypedDict": ".get_releaseop",
     "GetRepositoryRequest": ".get_repositoryop",
     "GetRepositoryRequestTypedDict": ".get_repositoryop",
+    "GetSnapshotRequest": ".get_snapshotop",
+    "GetSnapshotRequestTypedDict": ".get_snapshotop",
     "GetSponsorRequest": ".get_sponsorop",
     "GetSponsorRequestTypedDict": ".get_sponsorop",
     "Issue": ".issue",
@@ -360,6 +440,24 @@ _dynamic_imports: dict[str, str] = {
     "ListRepositoriesOrdering": ".list_repositoriesop",
     "ListRepositoriesRequest": ".list_repositoriesop",
     "ListRepositoriesRequestTypedDict": ".list_repositoriesop",
+    "ListSnapshotChaptersOrdering": ".list_snapshot_chaptersop",
+    "ListSnapshotChaptersRequest": ".list_snapshot_chaptersop",
+    "ListSnapshotChaptersRequestTypedDict": ".list_snapshot_chaptersop",
+    "ListSnapshotIssuesOrdering": ".list_snapshot_issuesop",
+    "ListSnapshotIssuesRequest": ".list_snapshot_issuesop",
+    "ListSnapshotIssuesRequestTypedDict": ".list_snapshot_issuesop",
+    "ListSnapshotMembersOrdering": ".list_snapshot_membersop",
+    "ListSnapshotMembersRequest": ".list_snapshot_membersop",
+    "ListSnapshotMembersRequestTypedDict": ".list_snapshot_membersop",
+    "ListSnapshotProjectsOrdering": ".list_snapshot_projectsop",
+    "ListSnapshotProjectsRequest": ".list_snapshot_projectsop",
+    "ListSnapshotProjectsRequestTypedDict": ".list_snapshot_projectsop",
+    "ListSnapshotReleasesOrdering": ".list_snapshot_releasesop",
+    "ListSnapshotReleasesRequest": ".list_snapshot_releasesop",
+    "ListSnapshotReleasesRequestTypedDict": ".list_snapshot_releasesop",
+    "ListSnapshotsOrdering": ".list_snapshotsop",
+    "ListSnapshotsRequest": ".list_snapshotsop",
+    "ListSnapshotsRequestTypedDict": ".list_snapshotsop",
     "ListSponsorsOrdering": ".list_sponsorsop",
     "ListSponsorsRequest": ".list_sponsorsop",
     "ListSponsorsRequestTypedDict": ".list_sponsorsop",
@@ -404,6 +502,12 @@ _dynamic_imports: dict[str, str] = {
     "PagedReleaseTypedDict": ".pagedrelease",
     "PagedRepository": ".pagedrepository",
     "PagedRepositoryTypedDict": ".pagedrepository",
+    "PagedSnapshot": ".pagedsnapshot",
+    "PagedSnapshotTypedDict": ".pagedsnapshot",
+    "PagedSnapshotIssue": ".pagedsnapshotissue",
+    "PagedSnapshotIssueTypedDict": ".pagedsnapshotissue",
+    "PagedSnapshotRelease": ".pagedsnapshotrelease",
+    "PagedSnapshotReleaseTypedDict": ".pagedsnapshotrelease",
     "PagedSponsor": ".pagedsponsor",
     "PagedSponsorTypedDict": ".pagedsponsor",
     "Project": ".project",
@@ -428,6 +532,16 @@ _dynamic_imports: dict[str, str] = {
     "ResponseValidationError": ".responsevalidationerror",
     "Security": ".security",
     "SecurityTypedDict": ".security",
+    "Snapshot": ".snapshot",
+    "SnapshotTypedDict": ".snapshot",
+    "SnapshotDetail": ".snapshotdetail",
+    "SnapshotDetailTypedDict": ".snapshotdetail",
+    "SnapshotError": ".snapshoterror",
+    "SnapshotErrorData": ".snapshoterror",
+    "SnapshotIssue": ".snapshotissue",
+    "SnapshotIssueTypedDict": ".snapshotissue",
+    "SnapshotRelease": ".snapshotrelease",
+    "SnapshotReleaseTypedDict": ".snapshotrelease",
     "Sponsor": ".sponsor",
     "SponsorTypedDict": ".sponsor",
     "SponsorDetail": ".sponsordetail",

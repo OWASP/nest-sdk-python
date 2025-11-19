@@ -20,6 +20,8 @@ class EventDetailTypedDict(TypedDict):
     name: str
     start_date: datetime
     end_date: NotRequired[Nullable[datetime]]
+    latitude: NotRequired[Nullable[float]]
+    longitude: NotRequired[Nullable[float]]
     url: NotRequired[Nullable[str]]
     description: NotRequired[Nullable[str]]
 
@@ -35,14 +37,18 @@ class EventDetail(BaseModel):
 
     end_date: OptionalNullable[datetime] = UNSET
 
+    latitude: OptionalNullable[float] = UNSET
+
+    longitude: OptionalNullable[float] = UNSET
+
     url: OptionalNullable[str] = UNSET
 
     description: OptionalNullable[str] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["end_date", "url", "description"]
-        nullable_fields = ["end_date", "url", "description"]
+        optional_fields = ["end_date", "latitude", "longitude", "url", "description"]
+        nullable_fields = ["end_date", "latitude", "longitude", "url", "description"]
         null_default_fields = []
 
         serialized = handler(self)

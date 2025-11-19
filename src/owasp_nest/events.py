@@ -12,7 +12,12 @@ class Events(BaseSDK):
     def list_events(
         self,
         *,
+        latitude_gte: OptionalNullable[float] = UNSET,
+        latitude_lte: OptionalNullable[float] = UNSET,
+        longitude_gte: OptionalNullable[float] = UNSET,
+        longitude_lte: OptionalNullable[float] = UNSET,
         ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
+        is_upcoming: OptionalNullable[bool] = UNSET,
         page: Optional[int] = 1,
         page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -24,7 +29,12 @@ class Events(BaseSDK):
 
         Retrieve a paginated list of OWASP events.
 
+        :param latitude_gte: Latitude greater than or equal to
+        :param latitude_lte: Latitude less than or equal to
+        :param longitude_gte: Longitude greater than or equal to
+        :param longitude_lte: Longitude less than or equal to
         :param ordering: Ordering field
+        :param is_upcoming: Filter for upcoming events
         :param page: Page number
         :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
@@ -43,7 +53,12 @@ class Events(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListEventsRequest(
+            latitude_gte=latitude_gte,
+            latitude_lte=latitude_lte,
+            longitude_gte=longitude_gte,
+            longitude_lte=longitude_lte,
             ordering=ordering,
+            is_upcoming=is_upcoming,
             page=page,
             page_size=page_size,
         )
@@ -99,7 +114,12 @@ class Events(BaseSDK):
     async def list_events_async(
         self,
         *,
+        latitude_gte: OptionalNullable[float] = UNSET,
+        latitude_lte: OptionalNullable[float] = UNSET,
+        longitude_gte: OptionalNullable[float] = UNSET,
+        longitude_lte: OptionalNullable[float] = UNSET,
         ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
+        is_upcoming: OptionalNullable[bool] = UNSET,
         page: Optional[int] = 1,
         page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -111,7 +131,12 @@ class Events(BaseSDK):
 
         Retrieve a paginated list of OWASP events.
 
+        :param latitude_gte: Latitude greater than or equal to
+        :param latitude_lte: Latitude less than or equal to
+        :param longitude_gte: Longitude greater than or equal to
+        :param longitude_lte: Longitude less than or equal to
         :param ordering: Ordering field
+        :param is_upcoming: Filter for upcoming events
         :param page: Page number
         :param page_size: Number of items per page
         :param retries: Override the default retry configuration for this method
@@ -130,7 +155,12 @@ class Events(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListEventsRequest(
+            latitude_gte=latitude_gte,
+            latitude_lte=latitude_lte,
+            longitude_gte=longitude_gte,
+            longitude_lte=longitude_lte,
             ordering=ordering,
+            is_upcoming=is_upcoming,
             page=page,
             page_size=page_size,
         )

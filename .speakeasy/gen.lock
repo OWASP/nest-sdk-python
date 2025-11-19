@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 916b73430d8fd9147bc94f84e8f2eba7
-  docVersion: 0.2.5
-  speakeasyVersion: 1.639.1
-  generationVersion: 2.730.0
-  releaseVersion: 0.2.6
-  configChecksum: 9b7256b3f7418189156c20a8fba21457
+  docChecksum: fbed59f12e2b8e955709e3b126ad7ee5
+  docVersion: 0.3.1
+  speakeasyVersion: 1.658.2
+  generationVersion: 2.755.9
+  releaseVersion: 0.3.1
+  configChecksum: 3b72de25b0e40d5e38158a867c375a55
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.23.0
+    core: 5.23.9
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -22,7 +22,7 @@ features:
     globalSecurity: 3.0.4
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.1
+    globalServerURLs: 3.2.0
     methodArguments: 1.0.2
     nullables: 1.0.1
     responseFormat: 1.0.1
@@ -51,6 +51,7 @@ generatedFiles:
   - docs/models/getprojectrequest.md
   - docs/models/getreleaserequest.md
   - docs/models/getrepositoryrequest.md
+  - docs/models/getsnapshotrequest.md
   - docs/models/getsponsorrequest.md
   - docs/models/issue.md
   - docs/models/issuedetail.md
@@ -75,6 +76,18 @@ generatedFiles:
   - docs/models/listreleasesrequest.md
   - docs/models/listrepositoriesordering.md
   - docs/models/listrepositoriesrequest.md
+  - docs/models/listsnapshotchaptersordering.md
+  - docs/models/listsnapshotchaptersrequest.md
+  - docs/models/listsnapshotissuesordering.md
+  - docs/models/listsnapshotissuesrequest.md
+  - docs/models/listsnapshotmembersordering.md
+  - docs/models/listsnapshotmembersrequest.md
+  - docs/models/listsnapshotprojectsordering.md
+  - docs/models/listsnapshotprojectsrequest.md
+  - docs/models/listsnapshotreleasesordering.md
+  - docs/models/listsnapshotreleasesrequest.md
+  - docs/models/listsnapshotsordering.md
+  - docs/models/listsnapshotsrequest.md
   - docs/models/listsponsorsordering.md
   - docs/models/listsponsorsrequest.md
   - docs/models/member.md
@@ -97,6 +110,9 @@ generatedFiles:
   - docs/models/pagedproject.md
   - docs/models/pagedrelease.md
   - docs/models/pagedrepository.md
+  - docs/models/pagedsnapshot.md
+  - docs/models/pagedsnapshotissue.md
+  - docs/models/pagedsnapshotrelease.md
   - docs/models/pagedsponsor.md
   - docs/models/project.md
   - docs/models/projectdetail.md
@@ -109,6 +125,11 @@ generatedFiles:
   - docs/models/repositorydetail.md
   - docs/models/repositoryerror.md
   - docs/models/security.md
+  - docs/models/snapshot.md
+  - docs/models/snapshotdetail.md
+  - docs/models/snapshoterror.md
+  - docs/models/snapshotissue.md
+  - docs/models/snapshotrelease.md
   - docs/models/sponsor.md
   - docs/models/sponsordetail.md
   - docs/models/sponsorerror.md
@@ -162,6 +183,7 @@ generatedFiles:
   - src/owasp_nest/models/get_projectop.py
   - src/owasp_nest/models/get_releaseop.py
   - src/owasp_nest/models/get_repositoryop.py
+  - src/owasp_nest/models/get_snapshotop.py
   - src/owasp_nest/models/get_sponsorop.py
   - src/owasp_nest/models/issue.py
   - src/owasp_nest/models/issuedetail.py
@@ -176,6 +198,12 @@ generatedFiles:
   - src/owasp_nest/models/list_projectsop.py
   - src/owasp_nest/models/list_releasesop.py
   - src/owasp_nest/models/list_repositoriesop.py
+  - src/owasp_nest/models/list_snapshot_chaptersop.py
+  - src/owasp_nest/models/list_snapshot_issuesop.py
+  - src/owasp_nest/models/list_snapshot_membersop.py
+  - src/owasp_nest/models/list_snapshot_projectsop.py
+  - src/owasp_nest/models/list_snapshot_releasesop.py
+  - src/owasp_nest/models/list_snapshotsop.py
   - src/owasp_nest/models/list_sponsorsop.py
   - src/owasp_nest/models/member.py
   - src/owasp_nest/models/memberdetail.py
@@ -200,6 +228,9 @@ generatedFiles:
   - src/owasp_nest/models/pagedproject.py
   - src/owasp_nest/models/pagedrelease.py
   - src/owasp_nest/models/pagedrepository.py
+  - src/owasp_nest/models/pagedsnapshot.py
+  - src/owasp_nest/models/pagedsnapshotissue.py
+  - src/owasp_nest/models/pagedsnapshotrelease.py
   - src/owasp_nest/models/pagedsponsor.py
   - src/owasp_nest/models/project.py
   - src/owasp_nest/models/projectdetail.py
@@ -213,6 +244,11 @@ generatedFiles:
   - src/owasp_nest/models/repositoryerror.py
   - src/owasp_nest/models/responsevalidationerror.py
   - src/owasp_nest/models/security.py
+  - src/owasp_nest/models/snapshot.py
+  - src/owasp_nest/models/snapshotdetail.py
+  - src/owasp_nest/models/snapshoterror.py
+  - src/owasp_nest/models/snapshotissue.py
+  - src/owasp_nest/models/snapshotrelease.py
   - src/owasp_nest/models/sponsor.py
   - src/owasp_nest/models/sponsordetail.py
   - src/owasp_nest/models/sponsorerror.py
@@ -564,7 +600,7 @@ examples:
           repository_id: "Nest"
       responses:
         "200":
-          application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
+          application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z", "commits_count": 151332, "contributors_count": 474468, "forks_count": 777327, "open_issues_count": 454143, "stars_count": 733383}
         "404":
           application/json: {"message": "<value>"}
   list_milestones:
@@ -590,8 +626,79 @@ examples:
           application/json: {"created_at": "2023-09-01T23:58:56.084Z", "number": 88227, "state": "open", "title": "<value>", "updated_at": "2023-09-20T07:01:10.505Z", "url": "https://impressive-configuration.name/", "body": "<value>", "closed_issues_count": 545798, "due_on": "2024-01-25T11:51:50.047Z", "open_issues_count": 564718}
         "404":
           application/json: {"message": "<value>"}
+  list_snapshots:
+    speakeasy-default-list-snapshots:
+      parameters:
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 10683, "has_next": true, "has_previous": true, "items": [{"created_at": "2024-12-24T15:18:41.658Z", "end_at": "2023-03-26T12:40:48.423Z", "key": "<key>", "start_at": "2023-03-09T11:57:01.632Z", "title": "<value>", "updated_at": "2025-02-17T11:31:18.257Z"}], "total_count": 784067, "total_pages": 118187}
+  get_snapshot:
+    speakeasy-default-get-snapshot:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-04-06T05:40:07.635Z", "end_at": "2025-03-11T07:21:35.938Z", "key": "<key>", "start_at": "2025-08-24T22:14:42.145Z", "title": "<value>", "updated_at": "2025-02-23T14:51:34.958Z", "new_chapters_count": 496225, "new_issues_count": 881483, "new_projects_count": 374148, "new_releases_count": 709291, "new_users_count": 456156}
+        "404":
+          application/json: {"message": "<value>"}
+  list_snapshot_chapters:
+    speakeasy-default-list-snapshot-chapters:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 892683, "has_next": true, "has_previous": true, "items": [{"created_at": "2025-09-06T22:48:36.824Z", "key": "<key>", "name": "<value>", "updated_at": "2023-08-11T16:47:23.418Z"}], "total_count": 844258, "total_pages": 42840}
+  list_snapshot_issues:
+    speakeasy-default-list-snapshot-issues:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 385459, "has_next": true, "has_previous": true, "items": [], "total_count": 4709, "total_pages": 701917}
+  list_snapshot_members:
+    speakeasy-default-list-snapshot-members:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 140918, "has_next": false, "has_previous": false, "items": [{"avatar_url": "https://distorted-parade.org", "created_at": "2023-03-24T15:57:12.273Z", "login": "Reynold.Howell-Murazik63", "name": "<value>", "updated_at": "2023-07-22T05:31:50.748Z", "url": "https://sparse-gift.biz"}], "total_count": 867382, "total_pages": 578518}
+  list_snapshot_projects:
+    speakeasy-default-list-snapshot-projects:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 75898, "has_next": false, "has_previous": false, "items": [{"created_at": "2024-04-02T12:32:29.027Z", "key": "<key>", "level": "incubator", "name": "<value>", "updated_at": "2024-11-14T17:43:52.606Z"}], "total_count": 736300, "total_pages": 929862}
+  list_snapshot_releases:
+    speakeasy-default-list-snapshot-releases:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `nest.milestones.list_milestones()`: **Added**
-  * `nest.milestones.get_milestone()`: **Added**
+releaseNotes: "## Python SDK Changes Detected:\n* `nest.community.list_snapshots()`: **Added**\n* `nest.community.get_snapshot()`: **Added**\n* `nest.community.list_snapshot_chapters()`: **Added**\n* `nest.community.list_snapshot_issues()`: **Added**\n* `nest.community.list_snapshot_members()`: **Added**\n* `nest.community.list_snapshot_projects()`: **Added**\n* `nest.community.list_snapshot_releases()`: **Added**\n* `nest.chapters.list_chapters()`: \n  *  `request` **Changed**\n  *  `response.items.[]` **Changed**\n* `nest.chapters.get_chapter()`:  `response` **Changed**\n* `nest.events.list_events()`: \n  *  `request` **Changed**\n  *  `response.items.[]` **Changed**\n* `nest.events.get_event()`:  `response` **Changed**\n* `nest.repositories.get_repository()`:  `response` **Changed**\n"
