@@ -13,45 +13,36 @@ from pydantic import model_serializer
 from typing_extensions import NotRequired, TypedDict
 
 
-class RepositoryDetailTypedDict(TypedDict):
-    r"""Detail schema for Repository (used in single item endpoints)."""
+class SnapshotReleaseTypedDict(TypedDict):
+    r"""Schema for Snapshot Release (used in list endpoints)."""
 
     created_at: datetime
     name: str
-    updated_at: datetime
-    commits_count: int
-    contributors_count: int
-    forks_count: int
-    open_issues_count: int
-    stars_count: int
-    description: NotRequired[Nullable[str]]
+    tag_name: str
+    organization_login: Nullable[str]
+    repository_name: Nullable[str]
+    published_at: NotRequired[Nullable[datetime]]
 
 
-class RepositoryDetail(BaseModel):
-    r"""Detail schema for Repository (used in single item endpoints)."""
+class SnapshotRelease(BaseModel):
+    r"""Schema for Snapshot Release (used in list endpoints)."""
 
     created_at: datetime
 
     name: str
 
-    updated_at: datetime
+    tag_name: str
 
-    commits_count: int
+    organization_login: Nullable[str]
 
-    contributors_count: int
+    repository_name: Nullable[str]
 
-    forks_count: int
-
-    open_issues_count: int
-
-    stars_count: int
-
-    description: OptionalNullable[str] = UNSET
+    published_at: OptionalNullable[datetime] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["description"]
-        nullable_fields = ["description"]
+        optional_fields = ["published_at"]
+        nullable_fields = ["published_at", "organization_login", "repository_name"]
         null_default_fields = []
 
         serialized = handler(self)
