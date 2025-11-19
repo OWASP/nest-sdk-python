@@ -22,9 +22,21 @@ class ListChaptersOrdering(str, Enum):
     MINUS_CREATED_AT = "-created_at"
     UPDATED_AT = "updated_at"
     MINUS_UPDATED_AT = "-updated_at"
+    LATITUDE = "latitude"
+    MINUS_LATITUDE = "-latitude"
+    LONGITUDE = "longitude"
+    MINUS_LONGITUDE = "-longitude"
 
 
 class ListChaptersRequestTypedDict(TypedDict):
+    latitude_gte: NotRequired[Nullable[float]]
+    r"""Latitude greater than or equal to"""
+    latitude_lte: NotRequired[Nullable[float]]
+    r"""Latitude less than or equal to"""
+    longitude_gte: NotRequired[Nullable[float]]
+    r"""Longitude greater than or equal to"""
+    longitude_lte: NotRequired[Nullable[float]]
+    r"""Longitude less than or equal to"""
     country: NotRequired[Nullable[str]]
     r"""Country of the chapter"""
     ordering: NotRequired[Nullable[ListChaptersOrdering]]
@@ -36,6 +48,30 @@ class ListChaptersRequestTypedDict(TypedDict):
 
 
 class ListChaptersRequest(BaseModel):
+    latitude_gte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Latitude greater than or equal to"""
+
+    latitude_lte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Latitude less than or equal to"""
+
+    longitude_gte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Longitude greater than or equal to"""
+
+    longitude_lte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Longitude less than or equal to"""
+
     country: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -62,8 +98,24 @@ class ListChaptersRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["country", "ordering", "page", "page_size"]
-        nullable_fields = ["country", "ordering"]
+        optional_fields = [
+            "latitude_gte",
+            "latitude_lte",
+            "longitude_gte",
+            "longitude_lte",
+            "country",
+            "ordering",
+            "page",
+            "page_size",
+        ]
+        nullable_fields = [
+            "latitude_gte",
+            "latitude_lte",
+            "longitude_gte",
+            "longitude_lte",
+            "country",
+            "ordering",
+        ]
         null_default_fields = []
 
         serialized = handler(self)

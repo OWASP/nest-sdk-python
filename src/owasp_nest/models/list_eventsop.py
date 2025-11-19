@@ -22,11 +22,25 @@ class ListEventsOrdering(str, Enum):
     MINUS_START_DATE = "-start_date"
     END_DATE = "end_date"
     MINUS_END_DATE = "-end_date"
+    LATITUDE = "latitude"
+    MINUS_LATITUDE = "-latitude"
+    LONGITUDE = "longitude"
+    MINUS_LONGITUDE = "-longitude"
 
 
 class ListEventsRequestTypedDict(TypedDict):
+    latitude_gte: NotRequired[Nullable[float]]
+    r"""Latitude greater than or equal to"""
+    latitude_lte: NotRequired[Nullable[float]]
+    r"""Latitude less than or equal to"""
+    longitude_gte: NotRequired[Nullable[float]]
+    r"""Longitude greater than or equal to"""
+    longitude_lte: NotRequired[Nullable[float]]
+    r"""Longitude less than or equal to"""
     ordering: NotRequired[Nullable[ListEventsOrdering]]
     r"""Ordering field"""
+    is_upcoming: NotRequired[Nullable[bool]]
+    r"""Filter for upcoming events"""
     page: NotRequired[int]
     r"""Page number"""
     page_size: NotRequired[int]
@@ -34,11 +48,41 @@ class ListEventsRequestTypedDict(TypedDict):
 
 
 class ListEventsRequest(BaseModel):
+    latitude_gte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Latitude greater than or equal to"""
+
+    latitude_lte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Latitude less than or equal to"""
+
+    longitude_gte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Longitude greater than or equal to"""
+
+    longitude_lte: Annotated[
+        OptionalNullable[float],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Longitude less than or equal to"""
+
     ordering: Annotated[
         OptionalNullable[ListEventsOrdering],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Ordering field"""
+
+    is_upcoming: Annotated[
+        OptionalNullable[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filter for upcoming events"""
 
     page: Annotated[
         Optional[int],
@@ -54,8 +98,24 @@ class ListEventsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["ordering", "page", "page_size"]
-        nullable_fields = ["ordering"]
+        optional_fields = [
+            "latitude_gte",
+            "latitude_lte",
+            "longitude_gte",
+            "longitude_lte",
+            "ordering",
+            "is_upcoming",
+            "page",
+            "page_size",
+        ]
+        nullable_fields = [
+            "latitude_gte",
+            "latitude_lte",
+            "longitude_gte",
+            "longitude_lte",
+            "ordering",
+            "is_upcoming",
+        ]
         null_default_fields = []
 
         serialized = handler(self)
