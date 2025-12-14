@@ -1,5 +1,4 @@
 # Committees
-(*committees*)
 
 ## Overview
 

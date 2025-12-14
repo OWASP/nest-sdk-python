@@ -1,5 +1,4 @@
 # Sponsors
-(*sponsors*)
 
 ## Overview
 
