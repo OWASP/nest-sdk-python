@@ -21,6 +21,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: false
     generateNewTests: true
@@ -29,7 +30,7 @@ generation:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.3.1
+  version: 0.3.6
   additionalDependencies:
     dev: {}
     main: {}
@@ -41,6 +42,7 @@ python:
     - Arkadii Yakovets
   baseErrorName: NestError
   clientServerStatusCodesAsErrors: true
+  constFieldCasing: upper
   defaultErrorName: NestApiError
   description: OWASP Nest Python SDK
   enableCustomCodeRegions: false
@@ -58,15 +60,18 @@ python:
       operations: ""
       shared: ""
       webhooks: ""
+  inferUnionDiscriminators: true
   inputModelSuffix: input
   legacyPyright: true
   license: ""
   maxMethodParams: 20
   methodArguments: infer-optional-args
   moduleName: ""
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageManager: uv
   packageName: owasp-nest
+  preApplyUnionDiscriminators: false
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat

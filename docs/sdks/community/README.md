@@ -1,5 +1,4 @@
 # Community
-(*community*)
 
 ## Overview
 
