@@ -190,17 +190,17 @@ with Nest(
 <details open>
 <summary>Available methods</summary>
 
-### [chapters](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/chapters/README.md)
+### [Chapters](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/chapters/README.md)
 
 * [list_chapters](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/chapters/README.md#list_chapters) - List chapters
 * [get_chapter](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/chapters/README.md#get_chapter) - Get chapter
 
-### [committees](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/committees/README.md)
+### [Committees](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/committees/README.md)
 
 * [list_committees](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/committees/README.md#list_committees) - List committees
 * [get_committee](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/committees/README.md#get_committee) - Get committee
 
-### [community](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/community/README.md)
+### [Community](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/community/README.md)
 
 * [list_members](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/community/README.md#list_members) - List members
 * [get_member](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/community/README.md#get_member) - Get member
@@ -214,37 +214,37 @@ with Nest(
 * [list_snapshot_projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/community/README.md#list_snapshot_projects) - List new projects in snapshot
 * [list_snapshot_releases](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/community/README.md#list_snapshot_releases) - List new releases in snapshot
 
-### [events](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md)
+### [Events](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md)
 
 * [list_events](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md#list_events) - List events
 * [get_event](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/events/README.md#get_event) - Get event
 
-### [issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md)
+### [Issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md)
 
 * [list_issues](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#list_issues) - List issues
 * [get_issue](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/issues/README.md#get_issue) - Get issue
 
-### [milestones](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md)
+### [Milestones](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md)
 
 * [list_milestones](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md#list_milestones) - List milestones
 * [get_milestone](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/milestones/README.md#get_milestone) - Get milestone
 
-### [projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md)
+### [Projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md)
 
 * [list_projects](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md#list_projects) - List projects
 * [get_project](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/projects/README.md#get_project) - Get project
 
-### [releases](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md)
+### [Releases](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md)
 
 * [list_releases](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md#list_releases) - List releases
 * [get_release](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/releases/README.md#get_release) - Get release
 
-### [repositories](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md)
+### [Repositories](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md)
 
 * [list_repositories](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md#list_repositories) - List repositories
 * [get_repository](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/repositories/README.md#get_repository) - Get repository
 
-### [sponsors](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/sponsors/README.md)
+### [Sponsors](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/sponsors/README.md)
 
 * [list_sponsors](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/sponsors/README.md#list_sponsors) - List sponsors
 * [get_sponsor](https://github.com/OWASP/nest-sdk-python/blob/master/docs/sdks/sponsors/README.md#get_sponsor) - Get sponsor
@@ -383,7 +383,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    server_url="https://nest.owasp.dev",
+    server_url="https://nest.owasp.org",
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 

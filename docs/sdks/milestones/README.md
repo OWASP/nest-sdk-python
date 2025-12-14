@@ -1,5 +1,4 @@
 # Milestones
-(*milestones*)
 
 ## Overview
 

@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "owasp-nest"
-__version__: str = "0.3.1"
-__openapi_doc_version__: str = "0.3.1"
-__gen_version__: str = "2.755.9"
-__user_agent__: str = "speakeasy-sdk/python 0.3.1 2.755.9 0.3.1 owasp-nest"
+__version__: str = "0.4.0"
+__openapi_doc_version__: str = "0.3.6"
+__gen_version__: str = "2.781.2"
+__user_agent__: str = "speakeasy-sdk/python 0.4.0 2.781.2 0.3.6 owasp-nest"
 
 try:
     if __package__ is not None:

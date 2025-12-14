@@ -1,5 +1,4 @@
 # Chapters
-(*chapters*)
 
 ## Overview
 

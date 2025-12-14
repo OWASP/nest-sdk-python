@@ -190,17 +190,17 @@ with Nest(
 <details open>
 <summary>Available methods</summary>
 
-### [chapters](docs/sdks/chapters/README.md)
+### [Chapters](docs/sdks/chapters/README.md)
 
 * [list_chapters](docs/sdks/chapters/README.md#list_chapters) - List chapters
 * [get_chapter](docs/sdks/chapters/README.md#get_chapter) - Get chapter
 
-### [committees](docs/sdks/committees/README.md)
+### [Committees](docs/sdks/committees/README.md)
 
 * [list_committees](docs/sdks/committees/README.md#list_committees) - List committees
 * [get_committee](docs/sdks/committees/README.md#get_committee) - Get committee
 
-### [community](docs/sdks/community/README.md)
+### [Community](docs/sdks/community/README.md)
 
 * [list_members](docs/sdks/community/README.md#list_members) - List members
 * [get_member](docs/sdks/community/README.md#get_member) - Get member
@@ -214,37 +214,37 @@ with Nest(
 * [list_snapshot_projects](docs/sdks/community/README.md#list_snapshot_projects) - List new projects in snapshot
 * [list_snapshot_releases](docs/sdks/community/README.md#list_snapshot_releases) - List new releases in snapshot
 
-### [events](docs/sdks/events/README.md)
+### [Events](docs/sdks/events/README.md)
 
 * [list_events](docs/sdks/events/README.md#list_events) - List events
 * [get_event](docs/sdks/events/README.md#get_event) - Get event
 
-### [issues](docs/sdks/issues/README.md)
+### [Issues](docs/sdks/issues/README.md)
 
 * [list_issues](docs/sdks/issues/README.md#list_issues) - List issues
 * [get_issue](docs/sdks/issues/README.md#get_issue) - Get issue
 
-### [milestones](docs/sdks/milestones/README.md)
+### [Milestones](docs/sdks/milestones/README.md)
 
 * [list_milestones](docs/sdks/milestones/README.md#list_milestones) - List milestones
 * [get_milestone](docs/sdks/milestones/README.md#get_milestone) - Get milestone
 
-### [projects](docs/sdks/projects/README.md)
+### [Projects](docs/sdks/projects/README.md)
 
 * [list_projects](docs/sdks/projects/README.md#list_projects) - List projects
 * [get_project](docs/sdks/projects/README.md#get_project) - Get project
 
-### [releases](docs/sdks/releases/README.md)
+### [Releases](docs/sdks/releases/README.md)
 
 * [list_releases](docs/sdks/releases/README.md#list_releases) - List releases
 * [get_release](docs/sdks/releases/README.md#get_release) - Get release
 
-### [repositories](docs/sdks/repositories/README.md)
+### [Repositories](docs/sdks/repositories/README.md)
 
 * [list_repositories](docs/sdks/repositories/README.md#list_repositories) - List repositories
 * [get_repository](docs/sdks/repositories/README.md#get_repository) - Get repository
 
-### [sponsors](docs/sdks/sponsors/README.md)
+### [Sponsors](docs/sdks/sponsors/README.md)
 
 * [list_sponsors](docs/sdks/sponsors/README.md#list_sponsors) - List sponsors
 * [get_sponsor](docs/sdks/sponsors/README.md#get_sponsor) - Get sponsor
@@ -383,7 +383,7 @@ from owasp_nest import Nest
 
 
 with Nest(
-    server_url="https://nest.owasp.dev",
+    server_url="https://nest.owasp.org",
     api_key="<YOUR_API_KEY_HERE>",
 ) as nest:
 
