@@ -34,6 +34,7 @@ if TYPE_CHECKING:
     from .issue import Issue, IssueTypedDict
     from .issuedetail import IssueDetail, IssueDetailTypedDict
     from .issueerror import IssueError, IssueErrorData
+    from .leader import Leader, LeaderTypedDict
     from .list_chaptersop import (
         ListChaptersOrdering,
         ListChaptersRequest,
@@ -219,6 +220,8 @@ __all__ = [
     "IssueError",
     "IssueErrorData",
     "IssueTypedDict",
+    "Leader",
+    "LeaderTypedDict",
     "ListChaptersOrdering",
     "ListChaptersRequest",
     "ListChaptersRequestTypedDict",
@@ -410,6 +413,8 @@ _dynamic_imports: dict[str, str] = {
     "IssueDetailTypedDict": ".issuedetail",
     "IssueError": ".issueerror",
     "IssueErrorData": ".issueerror",
+    "Leader": ".leader",
+    "LeaderTypedDict": ".leader",
     "ListChaptersOrdering": ".list_chaptersop",
     "ListChaptersRequest": ".list_chaptersop",
     "ListChaptersRequestTypedDict": ".list_chaptersop",
