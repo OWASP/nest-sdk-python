@@ -30,7 +30,7 @@ generation:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.3.6
+  version: 0.3.7
   additionalDependencies:
     dev: {}
     main: {}
