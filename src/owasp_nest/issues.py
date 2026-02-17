@@ -276,13 +276,18 @@ class Issues(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["404", "4XX", "5XX"],
+            error_status_codes=["400", "404", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(models.IssueDetail, http_res)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                models.ValidationErrorSchemaData, http_res
+            )
+            raise models.ValidationErrorSchema(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = unmarshal_json_response(models.IssueErrorData, http_res)
             raise models.IssueError(response_data, http_res)
@@ -368,13 +373,18 @@ class Issues(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["404", "4XX", "5XX"],
+            error_status_codes=["400", "404", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(models.IssueDetail, http_res)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                models.ValidationErrorSchemaData, http_res
+            )
+            raise models.ValidationErrorSchema(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = unmarshal_json_response(models.IssueErrorData, http_res)
             raise models.IssueError(response_data, http_res)

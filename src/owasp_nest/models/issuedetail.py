@@ -12,6 +12,7 @@ class IssueDetailTypedDict(TypedDict):
 
     created_at: datetime
     state: State
+    r"""Issue state choices."""
     title: str
     updated_at: datetime
     url: str
@@ -24,6 +25,7 @@ class IssueDetail(BaseModel):
     created_at: datetime
 
     state: State
+    r"""Issue state choices."""
 
     title: str
 

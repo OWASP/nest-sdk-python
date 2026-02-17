@@ -1,5 +1,7 @@
 # MemberType
 
+Member type choices.
+
 
 ## Values
 

@@ -5,5 +5,7 @@ from enum import Enum
 
 
 class State(str, Enum):
+    r"""Issue state choices."""
+
     OPEN = "open"
     CLOSED = "closed"

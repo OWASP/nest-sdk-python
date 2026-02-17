@@ -13,6 +13,7 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
     sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
@@ -21,6 +22,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: false
@@ -30,7 +32,7 @@ generation:
     backoffStrategy: exponential
     maxRetries: 3
 python:
-  version: 0.3.7
+  version: 0.4.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -52,6 +54,8 @@ python:
   flattenGlobalSecurity: true
   flattenRequests: true
   flatteningOrder: parameters-first
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
   imports:
     option: openapi
     paths:
@@ -77,3 +81,4 @@ python:
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
+  useAsyncHooks: false

@@ -94,10 +94,11 @@ with Nest(
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| models.MemberError  | 404                 | application/json    |
-| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models.ValidationErrorSchema | 400                          | application/json             |
+| models.MemberError           | 404                          | application/json             |
+| models.NestAPIError          | 4XX, 5XX                     | \*/\*                        |
 
 ## list_organizations
 
@@ -176,10 +177,11 @@ with Nest(
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| models.OrganizationError | 404                      | application/json         |
-| models.NestAPIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models.ValidationErrorSchema | 400                          | application/json             |
+| models.OrganizationError     | 404                          | application/json             |
+| models.NestAPIError          | 4XX, 5XX                     | \*/\*                        |
 
 ## list_snapshots
 
@@ -257,10 +259,11 @@ with Nest(
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| models.SnapshotError | 404                  | application/json     |
-| models.NestAPIError  | 4XX, 5XX             | \*/\*                |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models.ValidationErrorSchema | 400                          | application/json             |
+| models.SnapshotError         | 404                          | application/json             |
+| models.NestAPIError          | 4XX, 5XX                     | \*/\*                        |
 
 ## list_snapshot_chapters
 

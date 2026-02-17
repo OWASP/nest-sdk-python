@@ -13,6 +13,7 @@ class MilestoneTypedDict(TypedDict):
     created_at: datetime
     number: int
     state: State
+    r"""Issue state choices."""
     title: str
     updated_at: datetime
     url: str
@@ -26,6 +27,7 @@ class Milestone(BaseModel):
     number: int
 
     state: State
+    r"""Issue state choices."""
 
     title: str
 

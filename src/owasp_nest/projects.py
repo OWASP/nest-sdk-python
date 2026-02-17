@@ -13,6 +13,7 @@ class Projects(BaseSDK):
         self,
         *,
         level: OptionalNullable[models.ProjectLevel] = UNSET,
+        q: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: Optional[int] = 100,
@@ -26,6 +27,7 @@ class Projects(BaseSDK):
         Retrieve a paginated list of OWASP projects.
 
         :param level: Level of the project
+        :param q: Structured search query (e.g. 'name:security stars:>100')
         :param ordering: Ordering field
         :param page: Page number
         :param page_size: Number of items per page
@@ -46,6 +48,7 @@ class Projects(BaseSDK):
 
         request = models.ListProjectsRequest(
             level=level,
+            q=q,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -104,6 +107,7 @@ class Projects(BaseSDK):
         self,
         *,
         level: OptionalNullable[models.ProjectLevel] = UNSET,
+        q: OptionalNullable[str] = UNSET,
         ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: Optional[int] = 100,
@@ -117,6 +121,7 @@ class Projects(BaseSDK):
         Retrieve a paginated list of OWASP projects.
 
         :param level: Level of the project
+        :param q: Structured search query (e.g. 'name:security stars:>100')
         :param ordering: Ordering field
         :param page: Page number
         :param page_size: Number of items per page
@@ -137,6 +142,7 @@ class Projects(BaseSDK):
 
         request = models.ListProjectsRequest(
             level=level,
+            q=q,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -258,13 +264,18 @@ class Projects(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["404", "4XX", "5XX"],
+            error_status_codes=["400", "404", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(models.ProjectDetail, http_res)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                models.ValidationErrorSchemaData, http_res
+            )
+            raise models.ValidationErrorSchema(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = unmarshal_json_response(models.ProjectErrorData, http_res)
             raise models.ProjectError(response_data, http_res)
@@ -344,13 +355,18 @@ class Projects(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["404", "4XX", "5XX"],
+            error_status_codes=["400", "404", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(models.ProjectDetail, http_res)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                models.ValidationErrorSchemaData, http_res
+            )
+            raise models.ValidationErrorSchema(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = unmarshal_json_response(models.ProjectErrorData, http_res)
             raise models.ProjectError(response_data, http_res)

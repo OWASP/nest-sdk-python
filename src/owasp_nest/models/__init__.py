@@ -170,6 +170,12 @@ if TYPE_CHECKING:
     from .sponsordetail import SponsorDetail, SponsorDetailTypedDict
     from .sponsorerror import SponsorError, SponsorErrorData
     from .state import State
+    from .validationerrorschema import (
+        Errors,
+        ErrorsTypedDict,
+        ValidationErrorSchema,
+        ValidationErrorSchemaData,
+    )
 
 __all__ = [
     "Chapter",
@@ -184,6 +190,8 @@ __all__ = [
     "CommitteeError",
     "CommitteeErrorData",
     "CommitteeTypedDict",
+    "Errors",
+    "ErrorsTypedDict",
     "Event",
     "EventDetail",
     "EventDetailTypedDict",
@@ -362,6 +370,8 @@ __all__ = [
     "SponsorErrorData",
     "SponsorTypedDict",
     "State",
+    "ValidationErrorSchema",
+    "ValidationErrorSchemaData",
 ]
 
 _dynamic_imports: dict[str, str] = {
@@ -554,6 +564,10 @@ _dynamic_imports: dict[str, str] = {
     "SponsorError": ".sponsorerror",
     "SponsorErrorData": ".sponsorerror",
     "State": ".state",
+    "Errors": ".validationerrorschema",
+    "ErrorsTypedDict": ".validationerrorschema",
+    "ValidationErrorSchema": ".validationerrorschema",
+    "ValidationErrorSchemaData": ".validationerrorschema",
 }
 
 
