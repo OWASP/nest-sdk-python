@@ -2,6 +2,14 @@
 
 Ordering field
 
+## Example Usage
+
+```python
+from owasp_nest.models import ListChaptersOrdering
+
+value = ListChaptersOrdering.CREATED_AT
+```
+
 
 ## Values
 

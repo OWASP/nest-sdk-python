@@ -4,6 +4,8 @@ from __future__ import annotations
 from enum import Enum
 
 
-class State(str, Enum):
+class IssueState(str, Enum):
+    r"""Issue state choices."""
+
     OPEN = "open"
     CLOSED = "closed"

@@ -83,7 +83,8 @@ with Nest(
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models.CommitteeError | 404                   | application/json      |
-| models.NestAPIError   | 4XX, 5XX              | \*/\*                 |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models.ValidationErrorSchema | 400                          | application/json             |
+| models.CommitteeError        | 404                          | application/json             |
+| models.NestAPIError          | 4XX, 5XX                     | \*/\*                        |
