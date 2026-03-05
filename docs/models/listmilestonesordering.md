@@ -1,5 +1,13 @@
 # ListMilestonesOrdering
 
+## Example Usage
+
+```python
+from owasp_nest.models import ListMilestonesOrdering
+
+value = ListMilestonesOrdering.CREATED_AT
+```
+
 
 ## Values
 

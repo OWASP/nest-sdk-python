@@ -2,6 +2,14 @@
 
 Ordering field
 
+## Example Usage
+
+```python
+from owasp_nest.models import ListReleasesOrdering
+
+value = ListReleasesOrdering.CREATED_AT
+```
+
 
 ## Values
 

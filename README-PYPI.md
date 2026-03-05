@@ -83,7 +83,7 @@ It's also possible to write a standalone Python script without needing to set up
 ```python
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "owasp-nest",
 # ]
@@ -310,6 +310,7 @@ with Nest(
 
 ### Example
 ```python
+import owasp_nest
 from owasp_nest import Nest, models
 
 
@@ -334,15 +335,16 @@ with Nest(
         print(e.raw_response)
 
         # Depending on the method different errors may be thrown
-        if isinstance(e, models.ChapterError):
+        if isinstance(e, models.ValidationErrorSchema):
             print(e.data.message)  # str
+            print(e.data.errors)  # OptionalNullable[owasp_nest.Errors]
 ```
 
 ### Error Classes
 **Primary error:**
 * [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py): The base class for HTTP error responses.
 
-<details><summary>Less common errors (17)</summary>
+<details><summary>Less common errors (18)</summary>
 
 <br />
 
@@ -353,6 +355,7 @@ with Nest(
 
 
 **Inherit from [`NestError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/nesterror.py)**:
+* [`ValidationErrorSchema`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/validationerrorschema.py): Schema for validation error. Status code `400`. Applicable to 12 of 29 methods.*
 * [`ChapterError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/chaptererror.py): Chapter error schema. Status code `404`. Applicable to 1 of 29 methods.*
 * [`CommitteeError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/committeeerror.py): Committee error schema. Status code `404`. Applicable to 1 of 29 methods.*
 * [`EventError`](https://github.com/OWASP/nest-sdk-python/blob/master/./src/owasp_nest/models/eventerror.py): Event error schema. Status code `404`. Applicable to 1 of 29 methods.*

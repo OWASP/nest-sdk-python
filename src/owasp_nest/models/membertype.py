@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class MemberType(str, Enum):
+    r"""Member type choices."""
+
     PLATINUM = "Platinum"
     GOLD = "Gold"
     SILVER = "Silver"

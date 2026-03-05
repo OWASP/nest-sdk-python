@@ -35,6 +35,7 @@ with Nest(
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `level`                                                                               | [OptionalNullable[models.ProjectLevel]](../../models/projectlevel.md)                 | :heavy_minus_sign:                                                                    | Level of the project                                                                  |
+| `q`                                                                                   | *OptionalNullable[str]*                                                               | :heavy_minus_sign:                                                                    | Structured search query (e.g. 'name:security stars:>100')                             |
 | `ordering`                                                                            | [OptionalNullable[models.ListProjectsOrdering]](../../models/listprojectsordering.md) | :heavy_minus_sign:                                                                    | Ordering field                                                                        |
 | `page`                                                                                | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | Page number                                                                           |
 | `page_size`                                                                           | *Optional[int]*                                                                       | :heavy_minus_sign:                                                                    | Number of items per page                                                              |
@@ -85,7 +86,8 @@ with Nest(
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| models.ProjectError | 404                 | application/json    |
-| models.NestAPIError | 4XX, 5XX            | \*/\*               |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models.ValidationErrorSchema | 400                          | application/json             |
+| models.ProjectError          | 404                          | application/json             |
+| models.NestAPIError          | 4XX, 5XX                     | \*/\*                        |
