@@ -6,6 +6,7 @@ from typing import Any, TYPE_CHECKING
 from owasp_nest.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
+    from .category import Category
     from .chapter import Chapter, ChapterTypedDict
     from .chapterdetail import ChapterDetail, ChapterDetailTypedDict
     from .chaptererror import ChapterError, ChapterErrorData
@@ -153,6 +154,7 @@ if TYPE_CHECKING:
     from .projectdetail import ProjectDetail, ProjectDetailTypedDict
     from .projecterror import ProjectError, ProjectErrorData
     from .projectlevel import ProjectLevel
+    from .projecttype import ProjectType
     from .release import Release, ReleaseTypedDict
     from .releasedetail import ReleaseDetail, ReleaseDetailTypedDict
     from .releaseerror import ReleaseError, ReleaseErrorData
@@ -177,6 +179,7 @@ if TYPE_CHECKING:
     )
 
 __all__ = [
+    "Category",
     "Chapter",
     "ChapterDetail",
     "ChapterDetailTypedDict",
@@ -337,6 +340,7 @@ __all__ = [
     "ProjectError",
     "ProjectErrorData",
     "ProjectLevel",
+    "ProjectType",
     "ProjectTypedDict",
     "Release",
     "ReleaseDetail",
@@ -374,6 +378,7 @@ __all__ = [
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "Category": ".category",
     "Chapter": ".chapter",
     "ChapterTypedDict": ".chapter",
     "ChapterDetail": ".chapterdetail",
@@ -532,6 +537,7 @@ _dynamic_imports: dict[str, str] = {
     "ProjectError": ".projecterror",
     "ProjectErrorData": ".projecterror",
     "ProjectLevel": ".projectlevel",
+    "ProjectType": ".projecttype",
     "Release": ".release",
     "ReleaseTypedDict": ".release",
     "ReleaseDetail": ".releasedetail",

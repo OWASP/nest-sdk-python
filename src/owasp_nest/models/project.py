@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .projectlevel import ProjectLevel
+from .projecttype import ProjectType
 from datetime import datetime
 from owasp_nest.types import BaseModel
 from typing_extensions import TypedDict
@@ -15,6 +16,8 @@ class ProjectTypedDict(TypedDict):
     level: ProjectLevel
     r"""Enum for OWASP project levels."""
     name: str
+    type: ProjectType
+    r"""Enum for OWASP project types."""
     updated_at: datetime
 
 
@@ -29,5 +32,8 @@ class Project(BaseModel):
     r"""Enum for OWASP project levels."""
 
     name: str
+
+    type: ProjectType
+    r"""Enum for OWASP project types."""
 
     updated_at: datetime

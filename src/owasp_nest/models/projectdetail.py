@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .leader import Leader, LeaderTypedDict
 from .projectlevel import ProjectLevel
+from .projecttype import ProjectType
 from datetime import datetime
 from owasp_nest.types import BaseModel
 from typing import List
@@ -17,6 +18,8 @@ class ProjectDetailTypedDict(TypedDict):
     level: ProjectLevel
     r"""Enum for OWASP project levels."""
     name: str
+    type: ProjectType
+    r"""Enum for OWASP project types."""
     updated_at: datetime
     description: str
     leaders: List[LeaderTypedDict]
@@ -33,6 +36,9 @@ class ProjectDetail(BaseModel):
     r"""Enum for OWASP project levels."""
 
     name: str
+
+    type: ProjectType
+    r"""Enum for OWASP project types."""
 
     updated_at: datetime
 
