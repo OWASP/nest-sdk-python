@@ -5,7 +5,7 @@ from owasp_nest import models, utils
 from owasp_nest._hooks import HookContext
 from owasp_nest.types import OptionalNullable, UNSET
 from owasp_nest.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Mapping, Optional
+from typing import Any, List, Mapping, Optional
 
 
 class Events(BaseSDK):
@@ -16,6 +16,7 @@ class Events(BaseSDK):
         latitude_lte: OptionalNullable[float] = UNSET,
         longitude_gte: OptionalNullable[float] = UNSET,
         longitude_lte: OptionalNullable[float] = UNSET,
+        category: OptionalNullable[List[models.Category]] = UNSET,
         ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
         is_upcoming: OptionalNullable[bool] = UNSET,
         page: Optional[int] = 1,
@@ -33,6 +34,7 @@ class Events(BaseSDK):
         :param latitude_lte: Latitude less than or equal to
         :param longitude_gte: Longitude greater than or equal to
         :param longitude_lte: Longitude less than or equal to
+        :param category: Filter events by category
         :param ordering: Ordering field
         :param is_upcoming: Filter for upcoming events
         :param page: Page number
@@ -57,6 +59,7 @@ class Events(BaseSDK):
             latitude_lte=latitude_lte,
             longitude_gte=longitude_gte,
             longitude_lte=longitude_lte,
+            category=category,
             ordering=ordering,
             is_upcoming=is_upcoming,
             page=page,
@@ -119,6 +122,7 @@ class Events(BaseSDK):
         latitude_lte: OptionalNullable[float] = UNSET,
         longitude_gte: OptionalNullable[float] = UNSET,
         longitude_lte: OptionalNullable[float] = UNSET,
+        category: OptionalNullable[List[models.Category]] = UNSET,
         ordering: OptionalNullable[models.ListEventsOrdering] = UNSET,
         is_upcoming: OptionalNullable[bool] = UNSET,
         page: Optional[int] = 1,
@@ -136,6 +140,7 @@ class Events(BaseSDK):
         :param latitude_lte: Latitude less than or equal to
         :param longitude_gte: Longitude greater than or equal to
         :param longitude_lte: Longitude less than or equal to
+        :param category: Filter events by category
         :param ordering: Ordering field
         :param is_upcoming: Filter for upcoming events
         :param page: Page number
@@ -160,6 +165,7 @@ class Events(BaseSDK):
             latitude_lte=latitude_lte,
             longitude_gte=longitude_gte,
             longitude_lte=longitude_lte,
+            category=category,
             ordering=ordering,
             is_upcoming=is_upcoming,
             page=page,

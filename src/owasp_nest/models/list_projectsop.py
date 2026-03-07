@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .projectlevel import ProjectLevel
+from .projecttype import ProjectType
 from enum import Enum
 from owasp_nest.types import (
     BaseModel,
@@ -12,7 +13,7 @@ from owasp_nest.types import (
 )
 from owasp_nest.utils import FieldMetadata, QueryParamMetadata
 from pydantic import model_serializer
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -30,6 +31,8 @@ class ListProjectsRequestTypedDict(TypedDict):
     r"""Level of the project"""
     q: NotRequired[Nullable[str]]
     r"""Structured search query (e.g. 'name:security stars:>100')"""
+    type: NotRequired[Nullable[List[ProjectType]]]
+    r"""Type of the project"""
     ordering: NotRequired[Nullable[ListProjectsOrdering]]
     r"""Ordering field"""
     page: NotRequired[int]
@@ -51,6 +54,12 @@ class ListProjectsRequest(BaseModel):
     ] = UNSET
     r"""Structured search query (e.g. 'name:security stars:>100')"""
 
+    type: Annotated[
+        OptionalNullable[List[ProjectType]],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Type of the project"""
+
     ordering: Annotated[
         OptionalNullable[ListProjectsOrdering],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -71,14 +80,14 @@ class ListProjectsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["level", "q", "ordering", "page", "page_size"])
-        nullable_fields = set(["level", "q", "ordering"])
+        optional_fields = set(["level", "q", "type", "ordering", "page", "page_size"])
+        nullable_fields = set(["level", "q", "type", "ordering"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

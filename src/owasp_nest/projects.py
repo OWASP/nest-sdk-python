@@ -5,7 +5,7 @@ from owasp_nest import models, utils
 from owasp_nest._hooks import HookContext
 from owasp_nest.types import OptionalNullable, UNSET
 from owasp_nest.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Mapping, Optional
+from typing import Any, List, Mapping, Optional
 
 
 class Projects(BaseSDK):
@@ -14,6 +14,7 @@ class Projects(BaseSDK):
         *,
         level: OptionalNullable[models.ProjectLevel] = UNSET,
         q: OptionalNullable[str] = UNSET,
+        type_: OptionalNullable[List[models.ProjectType]] = UNSET,
         ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: Optional[int] = 100,
@@ -28,6 +29,7 @@ class Projects(BaseSDK):
 
         :param level: Level of the project
         :param q: Structured search query (e.g. 'name:security stars:>100')
+        :param type: Type of the project
         :param ordering: Ordering field
         :param page: Page number
         :param page_size: Number of items per page
@@ -49,6 +51,7 @@ class Projects(BaseSDK):
         request = models.ListProjectsRequest(
             level=level,
             q=q,
+            type=type_,
             ordering=ordering,
             page=page,
             page_size=page_size,
@@ -108,6 +111,7 @@ class Projects(BaseSDK):
         *,
         level: OptionalNullable[models.ProjectLevel] = UNSET,
         q: OptionalNullable[str] = UNSET,
+        type_: OptionalNullable[List[models.ProjectType]] = UNSET,
         ordering: OptionalNullable[models.ListProjectsOrdering] = UNSET,
         page: Optional[int] = 1,
         page_size: Optional[int] = 100,
@@ -122,6 +126,7 @@ class Projects(BaseSDK):
 
         :param level: Level of the project
         :param q: Structured search query (e.g. 'name:security stars:>100')
+        :param type: Type of the project
         :param ordering: Ordering field
         :param page: Page number
         :param page_size: Number of items per page
@@ -143,6 +148,7 @@ class Projects(BaseSDK):
         request = models.ListProjectsRequest(
             level=level,
             q=q,
+            type=type_,
             ordering=ordering,
             page=page,
             page_size=page_size,

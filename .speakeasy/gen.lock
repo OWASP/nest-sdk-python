@@ -1,26 +1,26 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: a9b147951449d587ef2ff6217f651d92
+  docChecksum: 545c12547e303fe6942e0edb12cf45ac
   docVersion: 0.3.6
-  speakeasyVersion: 1.741.4
-  generationVersion: 2.849.7
-  releaseVersion: 0.4.0
-  configChecksum: 30a80835ce4cfdab15cb00a4999bbea9
+  speakeasyVersion: 1.748.0
+  generationVersion: 2.852.1
+  releaseVersion: 0.4.1
+  configChecksum: 2995829a2c4fd82605fc71768c3fd84b
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 9c0a628c-b353-4737-b8f1-1c83b64d7358
-  pristine_commit_hash: ce825fa39c1f9627a1f56b0907b6baa52ee62ebd
-  pristine_tree_hash: c85d5ed3fc1269c391b624501f00f0ebd43575d7
+  generation_id: 6732eaac-1d4f-4217-9887-f504bfb23d7c
+  pristine_commit_hash: 712596139227c7edea0e67ec281158f2997c742c
+  pristine_tree_hash: 29fc8b24c0a1be321b9ed8a386222f2231b17e29
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.7
-    core: 6.0.15
+    core: 6.0.16
     defaultEnabledRetries: 0.2.0
-    enumUnions: 0.1.0
+    enumUnions: 0.1.1
     envVarSecurityUsage: 0.3.2
     flattening: 3.1.1
     globalSecurity: 3.0.5
@@ -46,6 +46,10 @@ trackedFiles:
     id: 3aed33ce6e6f
     last_write_checksum: sha1:1f5e65de95bbcdc0890ca8237ea3caaf6263395b
     pristine_git_object: b4f0ba14fb55468c98224c9efdb6a89742c46cf7
+  docs/models/category.md:
+    id: 61e7fe02a3f6
+    last_write_checksum: sha1:739d42cf1d78d72495f7500a4fb56950890fca16
+    pristine_git_object: 880b95c167666cc91f45596c49ee0d5d4dc8e216
   docs/models/chapter.md:
     id: 3ca12c9dff10
     last_write_checksum: sha1:7cb67581d95aa6c86f8113714eca5899f2f0b76f
@@ -176,8 +180,8 @@ trackedFiles:
     pristine_git_object: 0d55d8aaae6a2fbb64606b03965ed135a5f4e025
   docs/models/listeventsrequest.md:
     id: 176d9b992537
-    last_write_checksum: sha1:88539251ad2555cf967b47e7d91da5ebe1089307
-    pristine_git_object: 2a0aad0cb223633d79f1217693a7eb57b2d0a654
+    last_write_checksum: sha1:e52ece2780ce701a9e2b0177c844105a53fb92ad
+    pristine_git_object: a725075211279c353c9c4993f970c835cffc0b58
   docs/models/listissuesordering.md:
     id: 3152a068a372
     last_write_checksum: sha1:4399a1853594fef2c6affbebc7ecbe3c19b0cc8f
@@ -216,8 +220,8 @@ trackedFiles:
     pristine_git_object: 9f5244ce2c9cf405eae1d7e0c94d55364fee367a
   docs/models/listprojectsrequest.md:
     id: 733f20d8500a
-    last_write_checksum: sha1:a7d200b94b8202741c5f42bdd8f023eb9f9b8595
-    pristine_git_object: bfc08309549d51b8c12a2879d7196c4d726c0e83
+    last_write_checksum: sha1:a8959fc7cc64f1eb3960897b3d6153235539b577
+    pristine_git_object: 955533432ce50a0338d836af2a1d38389bab56e9
   docs/models/listreleasesordering.md:
     id: 41412692fbee
     last_write_checksum: sha1:2e89263039edd20367049fe69b3ae38d9ee325fa
@@ -388,12 +392,12 @@ trackedFiles:
     pristine_git_object: dae3769de09a3e848023dcb363939e236ac815b5
   docs/models/project.md:
     id: 90bdd121a0a9
-    last_write_checksum: sha1:8c2ea7dbb6a779fae078fe2e717d639ce253c03c
-    pristine_git_object: bd62c01d1e198f88b18e7adf386786909fe9a39b
+    last_write_checksum: sha1:1839df8de503d888548f3cdbe3ff2011cc139502
+    pristine_git_object: 8767daa150b5e6651989e50ffd028f4f3b541e7f
   docs/models/projectdetail.md:
     id: b5ff4565a1e4
-    last_write_checksum: sha1:b08731179c59bfe870a6e2fcec352dbf9babb652
-    pristine_git_object: ef48347502260257e842a0081a27ebcc001e2f39
+    last_write_checksum: sha1:6ca6a769fa7083ae3d869d54c2038fdc95d2b34f
+    pristine_git_object: d26c921801174052c032db75384bec401d47ddb0
   docs/models/projecterror.md:
     id: 16fb90a06431
     last_write_checksum: sha1:65d6c753ab968e781fa33f448163d5fc41668e6c
@@ -402,6 +406,10 @@ trackedFiles:
     id: 8da42e54d1f8
     last_write_checksum: sha1:24a5c29da5a7316ce5b0882f255481921f8d023f
     pristine_git_object: 5fcbd306d1eb1311d42b3287b1af90f2d8fff988
+  docs/models/projecttype.md:
+    id: 885ee6eb2ca3
+    last_write_checksum: sha1:f6e4aa3b1de9e3746bcbc1f4a3e83bd4bea70a20
+    pristine_git_object: 2ea7d87356a69c5133a84dd829a6c7e2b6799894
   docs/models/release.md:
     id: 704b04b89ff5
     last_write_checksum: sha1:59d3a662090f51505a99c607d427af8a87e5d130
@@ -484,8 +492,8 @@ trackedFiles:
     pristine_git_object: a293e0769915f0da0082d573a17e56cb0bcbf28c
   docs/sdks/events/README.md:
     id: cf45a4390b9b
-    last_write_checksum: sha1:486ec0866cb71db578a1c1a27017968c79419b00
-    pristine_git_object: 6abab198f0a16c30fce99b03e3104891b9dd68bb
+    last_write_checksum: sha1:5579b14b478f61b2f21dbb955a981f263f2d56dc
+    pristine_git_object: db36d0def02461dc7ca9726331fb4e33dc03534b
   docs/sdks/issues/README.md:
     id: cbb80cd6efef
     last_write_checksum: sha1:d009925ead996f40db95cc59bfd4db12238bd26c
@@ -496,8 +504,8 @@ trackedFiles:
     pristine_git_object: 5cd21fe4f894befdd4faeab80e7a401956422ab2
   docs/sdks/projects/README.md:
     id: 1c5f71754e17
-    last_write_checksum: sha1:0ce43cdf96e6c2a791a3f3488102ef4c5e897209
-    pristine_git_object: 892ad3122f70875aec1eb0463d602df3bc0b0b76
+    last_write_checksum: sha1:6427e2fb41877d7b92ac1cf14355655af4aa8546
+    pristine_git_object: d52d28405205d6bbefde78f25570e49bde8efe70
   docs/sdks/releases/README.md:
     id: 63d3c821dfd3
     last_write_checksum: sha1:164f93c05b2bd33c0c1a43471524e3551b4320f8
@@ -520,8 +528,8 @@ trackedFiles:
     pristine_git_object: acf118e71b6e009ac50c1e81c50bb9d3a6d230ea
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:c29031487b5dd6b3b24ec3edb779a33fa161da80
-    pristine_git_object: 08d2eab670e2ce9626e6df6af22bedb3f25611ff
+    last_write_checksum: sha1:8095698a6948373ca57745740439c3cda36d1a66
+    pristine_git_object: 59362ddca55c29cec0026d90911e879a7fbce94c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:c87a34a7b385c45d801ea4570aaed5b8e12eeac3
@@ -548,8 +556,8 @@ trackedFiles:
     pristine_git_object: 336908e19d943edcc6d49482de0d61f40197e2ae
   src/owasp_nest/_version.py:
     id: 36e8ce475baa
-    last_write_checksum: sha1:df0b80bab6311a94e181b9896064efc21b72e500
-    pristine_git_object: 2ed11092d616f541907e6ed6a460661283527199
+    last_write_checksum: sha1:fb2de21c26567c6914ae5b111b602cc1c5883d5d
+    pristine_git_object: a7b5ded39884db4e86c69db6584a7857bdf58444
   src/owasp_nest/basesdk.py:
     id: 9727edc94589
     last_write_checksum: sha1:d9f028124fcc32fe95daa57fbc931178f10fb670
@@ -568,8 +576,8 @@ trackedFiles:
     pristine_git_object: 46c74072ce7d9da520a4048bbc44f027f3d32fcd
   src/owasp_nest/events.py:
     id: 9e6250bd35e0
-    last_write_checksum: sha1:0570dee4971d991fc56c81f9e9d50d41a5200dd7
-    pristine_git_object: 048637127291dff2109a2817c533ee78afb87ae2
+    last_write_checksum: sha1:9f1121eb7d15dab029fce5d2285537049feb7c4e
+    pristine_git_object: dda0532c85579c3caccbbdc1c3912094855ae439
   src/owasp_nest/httpclient.py:
     id: b78cee027f40
     last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
@@ -584,16 +592,20 @@ trackedFiles:
     pristine_git_object: 4a6602a7bc3289f8dc3441889e43a8cb8757f5d0
   src/owasp_nest/models/__init__.py:
     id: 4bb3871d870f
-    last_write_checksum: sha1:c93374606635eb501dd551146ace4b8703c850f9
-    pristine_git_object: dfafc0117b8d0535ff31dcbf4f6c3fc82d9a4d39
+    last_write_checksum: sha1:f3c4ab4342bd22a07d77e14c3b1c9f68f58ce711
+    pristine_git_object: 53f84c64dd078240da18f60796a99864f71c3740
+  src/owasp_nest/models/category.py:
+    id: c333ca58560a
+    last_write_checksum: sha1:92f466cf800cb346e6cff677a1a5b7c719bdac20
+    pristine_git_object: 36ebd980b8d70707142c5791efb56b1d84d85554
   src/owasp_nest/models/chapter.py:
     id: 8e8245c44d00
-    last_write_checksum: sha1:1a218e20197633c423d5fe2eb80d177f0575f9b7
-    pristine_git_object: 32eea353974cda10828c095df93233ba9c217db6
+    last_write_checksum: sha1:98187f73b6c2ba498058af4833d2fc950fe87cb3
+    pristine_git_object: 30b517e165542cf7e2e20212ffbf89d5fe611871
   src/owasp_nest/models/chapterdetail.py:
     id: c6787bf512e8
-    last_write_checksum: sha1:5bd030eca74cf987176e22fd3a5291a4e46148a0
-    pristine_git_object: 697013a40a96641701e2ee054567511be9992a14
+    last_write_checksum: sha1:59867908bb674b3054eb2093b095da298729e8c8
+    pristine_git_object: ac0a96d280e36bc29b2de82bfd2dbf82dba80f55
   src/owasp_nest/models/chaptererror.py:
     id: 636caa279a71
     last_write_checksum: sha1:76838ea0ee0a6be39ef1f6c9d99a0ce235cc4d14
@@ -612,12 +624,12 @@ trackedFiles:
     pristine_git_object: 5ec48cf6b5b411e039b21167d4900450c9fbb612
   src/owasp_nest/models/event.py:
     id: 7784af6ad371
-    last_write_checksum: sha1:62fba14c300e9e92b1fbc505de81d2cf6b0b9e0c
-    pristine_git_object: dc0159a6e26e3a5a1a7a0996cf3132bf8da2acbd
+    last_write_checksum: sha1:aae77fa4c9c48096b190839896e3dae42515b5fc
+    pristine_git_object: 265b239445b4030eb0f0ae2e58616b74a7f6ab73
   src/owasp_nest/models/eventdetail.py:
     id: da3d4b6c2062
-    last_write_checksum: sha1:e7047feaa9d3cb6e74de2a706559a88757cb779d
-    pristine_git_object: a7cd90dafe580664b829c2f13bff34e7706acc74
+    last_write_checksum: sha1:92393ac3d4e603c7610859646407cd769a88aae3
+    pristine_git_object: fe4b1e5c7f7e1ff45ec11dba3a2ab0692f2a106c
   src/owasp_nest/models/eventerror.py:
     id: 276621381a00
     last_write_checksum: sha1:bb7fe65d87daebba4411cd7287efde96c50dffc6
@@ -688,76 +700,76 @@ trackedFiles:
     pristine_git_object: 4aad8d1d66120ce06a3d882d5c013ab0f49daeb5
   src/owasp_nest/models/leader.py:
     id: a258771798e6
-    last_write_checksum: sha1:cb7c7b3cea57f9b8197ad0bd18df13d35e64cc48
-    pristine_git_object: cf80675fd9fa20fbde096061ce47eb53f5464269
+    last_write_checksum: sha1:4292be6b00037a65cd4ec52267c00cc2a9098c9a
+    pristine_git_object: 0cb36d0cb924adcc13e193b88b5d53ab5df85e2d
   src/owasp_nest/models/list_chaptersop.py:
     id: ceba59007274
-    last_write_checksum: sha1:f502d2d4a4087f99f4cfe9ad2fa973752a42b3f1
-    pristine_git_object: 2dbee21dfeb2bbb24ba1c0b32bb322c3344e4d9f
+    last_write_checksum: sha1:9922bbb43e804f979c56b5f7c119ed163bbf8f2d
+    pristine_git_object: f4c34f3c5e770be390f3979b43a6b581f1765f9e
   src/owasp_nest/models/list_committeesop.py:
     id: 096fdebee6ee
-    last_write_checksum: sha1:750983b9b792f0f1d5da0b6a785137ad0ef91619
-    pristine_git_object: 82b14739cb9fcb1e234c611942d56a1c65023a41
+    last_write_checksum: sha1:1879e89cbd536fa61bb47ff20bb6d925f0d8332b
+    pristine_git_object: 9324f4f98af0d10f2fa135b7f8de65db72259359
   src/owasp_nest/models/list_eventsop.py:
     id: 7b8ec6af956d
-    last_write_checksum: sha1:1084a6a47378514f2a9edce5e2c42da0070b2094
-    pristine_git_object: 182e6041e06bca3ec3f20ced71d30ea6652238cf
+    last_write_checksum: sha1:243bb65c430960d794192b66a65645a01fa3cc47
+    pristine_git_object: 73109e7fbed932d0508cf7bce2b3d4c928a5054c
   src/owasp_nest/models/list_issuesop.py:
     id: b5894fd7eb8d
-    last_write_checksum: sha1:316a3e28fada122ac828efebdccd14365cc57bd1
-    pristine_git_object: d345c8c31de5094ae3a73e6ccf946e68f526faf7
+    last_write_checksum: sha1:d77170f8f18bf96fef10775af6de0017d45b41b6
+    pristine_git_object: 73a1d8d7c66b91631cf741fc667fc658a55979e5
   src/owasp_nest/models/list_membersop.py:
     id: 2850d40ffb12
-    last_write_checksum: sha1:322a3ab7890a508f8db245765ecba0f87f7010de
-    pristine_git_object: 989e39a27957e60a51e98e8145e666706fd6b65a
+    last_write_checksum: sha1:684f9322a4f927e245d38ec12b3e4bae3f695eba
+    pristine_git_object: 01ca1e54ab2dcc50b180c232d088c789bd4fe4b0
   src/owasp_nest/models/list_milestonesop.py:
     id: a7d5235d4f53
-    last_write_checksum: sha1:54dd8dddce217c167f71a90e969e141b248125b7
-    pristine_git_object: 5b657072e0479415786e5c5f75ef55f26953c821
+    last_write_checksum: sha1:0e70847f8d7c7cc440cba5e58c7455203526805c
+    pristine_git_object: 0fcf965694168941f018d75f4f7e0a3474b3a41f
   src/owasp_nest/models/list_organizationsop.py:
     id: 4d7ae48b4f1e
-    last_write_checksum: sha1:fc4686392f6316fc888d15753722e37124751f93
-    pristine_git_object: 417e0dc56f3ea671492b09bc85cc117edc6e351e
+    last_write_checksum: sha1:d1b312a2ebac05b4f97544c8a3bd49bc088c9ce2
+    pristine_git_object: 05e8a74d880b58ab22b3958f88ddb991aeff8d1f
   src/owasp_nest/models/list_projectsop.py:
     id: 9ea6e92bba04
-    last_write_checksum: sha1:83bb9963dcb5c541c2e9abf029064307491ddab5
-    pristine_git_object: 2fb762154f431132e0df45a7789a10d5198c711a
+    last_write_checksum: sha1:81cb5582c01818b3565625b2f111fc420557aea7
+    pristine_git_object: cb9c1f0a7fb6629556abb3193a4a15f6c712a3c3
   src/owasp_nest/models/list_releasesop.py:
     id: 29aab0b4a829
-    last_write_checksum: sha1:9cc15d7bd8b4efc583d4d13c7d0748f7580fb3e6
-    pristine_git_object: a55e884769436b203b537c5449efd433f6cf90be
+    last_write_checksum: sha1:db38f7c7fb3bfe00a40e7c8571a6eb1a63649905
+    pristine_git_object: c8f8b7f0214402c5a93ea841058bb69ad64093d4
   src/owasp_nest/models/list_repositoriesop.py:
     id: ed77c79c9ccc
-    last_write_checksum: sha1:8c78cb148a22f2de853bb125d99f69702ece82d9
-    pristine_git_object: 1a1c5a713d94fbb7997982ec53def61e52ba02fc
+    last_write_checksum: sha1:2bb1e31a544987a2a9bac401faa11a7f5e7cbb6d
+    pristine_git_object: 890c33bce874ae73928a03c931ffcf792c6debd1
   src/owasp_nest/models/list_snapshot_chaptersop.py:
     id: c1910f618109
-    last_write_checksum: sha1:40ced3fc53c06b500dffb71fd663b0e26b87b052
-    pristine_git_object: 76df0979391f505c5b1f78fa6bbf050bf3cb3a2d
+    last_write_checksum: sha1:683fa8f8d06bff50a2b4e5b5fcc1c2dc2aa25bdd
+    pristine_git_object: 25a3c64fa635db662f6b3031773d22c64d14c084
   src/owasp_nest/models/list_snapshot_issuesop.py:
     id: f196f51aa762
-    last_write_checksum: sha1:4134cd372f146497e9751ac4afd55acafa1dba1b
-    pristine_git_object: 35052aa1b33c157fc54169fa41474f8e27e38fc5
+    last_write_checksum: sha1:79f1ecf89b4b5bfc186b25d1d42abbf21f3cdbf5
+    pristine_git_object: 52edd5eb9bc7ff2d902021397f6c2239f821a1eb
   src/owasp_nest/models/list_snapshot_membersop.py:
     id: 8a9d9dd9a264
-    last_write_checksum: sha1:ad671bfac726de572a5c5f4d8b5488fe54c4a8d1
-    pristine_git_object: 2a8583bc39d501db269100f91fedbe57569c2f31
+    last_write_checksum: sha1:cc39cbb3934aba9cd25f38c08cefe89ce698df78
+    pristine_git_object: 58bd50928f5e04aaab0260410d64b52b8f1a3b75
   src/owasp_nest/models/list_snapshot_projectsop.py:
     id: 273e23f1e2c1
-    last_write_checksum: sha1:9115a2790b2464b6391c7c92a8c6ea56aa2d630b
-    pristine_git_object: b63f5e7d8921429775111e36e19887d8eda71807
+    last_write_checksum: sha1:a0805e1d5dd3c1b900101284e5919addeb9f401c
+    pristine_git_object: b771e3bec51af248192393b7d9495815ac5aaf03
   src/owasp_nest/models/list_snapshot_releasesop.py:
     id: 2b5cf6f45f52
-    last_write_checksum: sha1:d32dffc8653521fdca413e7d608d7d7b522cfe86
-    pristine_git_object: 8f3314d5b62dbcf1cd73d3ac9724a969e8d0701e
+    last_write_checksum: sha1:0e23629ff1b33cd6afb43ae721cdf741f47d14f7
+    pristine_git_object: 6c9ff15bee5af95baa29ac895d855848258ca9d9
   src/owasp_nest/models/list_snapshotsop.py:
     id: 4e88ef87cdef
-    last_write_checksum: sha1:77a83488eb100fa02d88b68de78e37083aef99d0
-    pristine_git_object: 99f2f4120ccccf14596590d3242d92ee7e0bc99e
+    last_write_checksum: sha1:dc17eb57d65db9e94cd76368fb8bf7d99284242d
+    pristine_git_object: c0790b626d6d54d7aa8eae84cb0829876160f65d
   src/owasp_nest/models/list_sponsorsop.py:
     id: cca2df8e1670
-    last_write_checksum: sha1:1ae067883119a1ef90c6c3390b8ecfffde458640
-    pristine_git_object: 3353fb0ba91b9e1aadfbb563c9e4122c62402009
+    last_write_checksum: sha1:23bba352229214372ef3cad231b431ebeaa7ecd4
+    pristine_git_object: cbae20cced73ea8922957cfaa3ee5ffe5343a9aa
   src/owasp_nest/models/member.py:
     id: 8166aff17ff1
     last_write_checksum: sha1:9805a9c03562c11928f83547daa9c33110fbc7a2
@@ -780,8 +792,8 @@ trackedFiles:
     pristine_git_object: 3bcea2fd355d6bad132f0f53243b1503adf80453
   src/owasp_nest/models/milestonedetail.py:
     id: 835fc0c5d127
-    last_write_checksum: sha1:f175bb555feb490f69c3ae263cfc0c367cff9109
-    pristine_git_object: 674d4d64554b61111e7b9ecd82dd69954707eb69
+    last_write_checksum: sha1:4ae80d30dca8586c98a3cc35f83f0b8c487201a1
+    pristine_git_object: 8a1b5442e98d31a1b108fb6dac46f1b1e734ac8a
   src/owasp_nest/models/milestoneerror.py:
     id: bdce646af95b
     last_write_checksum: sha1:6a4e181a9e012c09b236287b5992064b4f024a10
@@ -868,12 +880,12 @@ trackedFiles:
     pristine_git_object: 4b0104fa85d59c8fac68823257075c2af410b06d
   src/owasp_nest/models/project.py:
     id: f89ee0c06cd5
-    last_write_checksum: sha1:ebdb4c1528a03722cd685659a28b393c21e2cac7
-    pristine_git_object: a84079db77ee03aafd87c5ebcfe34cfca03a5a5c
+    last_write_checksum: sha1:aecadb30cdd0bdf620b56b50b120cf6419df5790
+    pristine_git_object: 1ac6fd6e24c833d326df13ee7e2b0f6fe0571951
   src/owasp_nest/models/projectdetail.py:
     id: 1a668fc8b112
-    last_write_checksum: sha1:9975157b03a1afe3852bc062842cd71ec7774c4b
-    pristine_git_object: d3532c1bd41e935a91fbe3321d654aa64167b0aa
+    last_write_checksum: sha1:2c94b6fc42cff8e4f463ba4ce348362382ca3752
+    pristine_git_object: 914ea955d97ad909812c25ccbfb86856e837fef8
   src/owasp_nest/models/projecterror.py:
     id: 61fbc7f380da
     last_write_checksum: sha1:566e78eb7ad5700e48aa3b34d8733c07e4a3f329
@@ -882,14 +894,18 @@ trackedFiles:
     id: f961230cc8ad
     last_write_checksum: sha1:b17f725a9c6d0d4a2b927ab340dc543719177cfd
     pristine_git_object: d459a8c5a7421c8e34733342eae51e00d5372e4b
+  src/owasp_nest/models/projecttype.py:
+    id: 5238245b595f
+    last_write_checksum: sha1:355f322eaadc13138ae5a0c54a9b862bbd04dba8
+    pristine_git_object: 99af2365f65bf7b7dda56e326c794b38ad0f204e
   src/owasp_nest/models/release.py:
     id: e9f78d9ffd3f
-    last_write_checksum: sha1:e710693f8457393f2c5e30905127a90fff8e324e
-    pristine_git_object: 0449dbf9b5a398834d5e616e6ddc1cf8d6aa1af0
+    last_write_checksum: sha1:56f52f2d9f47d750c690d3ddf9aff0f504397d17
+    pristine_git_object: c117495d0c05151d666c612635fef11022617c63
   src/owasp_nest/models/releasedetail.py:
     id: 0ab8ef85f47a
-    last_write_checksum: sha1:1773d5680bb800290cf16ec333c59c285485d7f1
-    pristine_git_object: f478c0232dd35d5ef15f021e61339ce70115e591
+    last_write_checksum: sha1:c327001913f7b8b69b15498c53329c331b886a73
+    pristine_git_object: 33238e46e4973f873fd5160bb4e617fe76fef631
   src/owasp_nest/models/releaseerror.py:
     id: 9ce853cae08d
     last_write_checksum: sha1:ef643815b9478b179588e20d86f62187ad8f6168
@@ -900,8 +916,8 @@ trackedFiles:
     pristine_git_object: bba10c7f07a0526fd63849d27b2f28fa70ed8440
   src/owasp_nest/models/repositorydetail.py:
     id: 7fc5bbbfce2e
-    last_write_checksum: sha1:f43873c0dafb90a70fd305b2d30b913aecb2830c
-    pristine_git_object: 88c814c63b41f657e09958a8553d2325e700e224
+    last_write_checksum: sha1:49eec3adcf393ad65e3da11053a973a45662b424
+    pristine_git_object: 8f6a37c6f7df3cd57d837dac1b898c99643ea68a
   src/owasp_nest/models/repositoryerror.py:
     id: ca73ff71a5d7
     last_write_checksum: sha1:fa9b1c06408df9461d3fda6454bb944570394c9b
@@ -928,12 +944,12 @@ trackedFiles:
     pristine_git_object: ab350acbba6b0f06b5acc5a570e287ec3eacfed6
   src/owasp_nest/models/snapshotissue.py:
     id: 0de2af101a67
-    last_write_checksum: sha1:283c0d1cbc6738cfaddf3fdbee4e9e2a425d1ded
-    pristine_git_object: bf181dc6ab009a790e56693349ccaa081d2fd048
+    last_write_checksum: sha1:a5c3beeeddcd60503f8d92df2d77cd586a35c66a
+    pristine_git_object: 1399ea904b448c45e00b96942dff4883a4ba3723
   src/owasp_nest/models/snapshotrelease.py:
     id: dec2f7cc42ae
-    last_write_checksum: sha1:6723ed155f1ed81d16c47366eaf774eab0e2f096
-    pristine_git_object: 12b54836bac97eae32e3a2ea6d9b95e3e3d8fb71
+    last_write_checksum: sha1:2e17b89d05abaef0e6d132c3c906419fc0df034e
+    pristine_git_object: fb45a96516c15cac270f7542643bc2af423e1b04
   src/owasp_nest/models/sponsor.py:
     id: fb2f12c32fad
     last_write_checksum: sha1:398e7826e808dc0ffd618baa1a2f71e49d94aacd
@@ -952,8 +968,8 @@ trackedFiles:
     pristine_git_object: ab9e722b159949961be9b8a2cee25374e8398231
   src/owasp_nest/projects.py:
     id: d9cc138704c2
-    last_write_checksum: sha1:0367b7a49b46120cf765359faf3dc1d3ae3ae51d
-    pristine_git_object: 825ed285b1fbf4db8a5413051607bd2ed84b0685
+    last_write_checksum: sha1:c6a262ba109113d49d92de14ff12f29e0c0b9025
+    pristine_git_object: 00bd6f919b0006a5b34b5887420ba43b78b68dbf
   src/owasp_nest/py.typed:
     id: 93c27d15655e
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
@@ -1321,7 +1337,7 @@ examples:
           project_id: "Nest"
       responses:
         "200":
-          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "key": "<key>", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z", "description": "since limply gah consequently ugh petticoat wholly possible", "leaders": []}
+          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "key": "<key>", "level": "lab", "name": "<value>", "type": "code", "updated_at": "2023-12-06T04:15:58.999Z", "description": "since limply gah consequently ugh petticoat wholly possible", "leaders": []}
         "404":
           application/json: {"message": "<value>"}
         "400":
@@ -1491,7 +1507,7 @@ examples:
           page_size: 100
       responses:
         "200":
-          application/json: {"current_page": 75898, "has_next": false, "has_previous": false, "items": [{"created_at": "2024-04-02T12:32:29.027Z", "key": "<key>", "level": "incubator", "name": "<value>", "updated_at": "2024-11-14T17:43:52.606Z"}], "total_count": 736300, "total_pages": 929862}
+          application/json: {"current_page": 75898, "has_next": false, "has_previous": false, "items": [{"created_at": "2024-04-02T12:32:29.027Z", "key": "<key>", "level": "incubator", "name": "<value>", "type": "code", "updated_at": "2024-11-14T17:43:52.606Z"}], "total_count": 736300, "total_pages": 929862}
   list_snapshot_releases:
     speakeasy-default-list-snapshot-releases:
       parameters:
@@ -1504,7 +1520,7 @@ examples:
         "200":
           application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `nest.events.list_events()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `nest.events.get_event()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[400]` **Added**\n* `nest.community.get_organization()`:  `error.status[400]` **Added**\n* `nest.committees.get_committee()`:  `error.status[400]` **Added**\n* `nest.issues.get_issue()`:  `error.status[400]` **Added**\n* `nest.community.get_member()`:  `error.status[400]` **Added**\n* `nest.chapters.get_chapter()`:  `error.status[400]` **Added**\n* `nest.community.get_snapshot()`:  `error.status[400]` **Added**\n* `nest.milestones.get_milestone()`:  `error.status[400]` **Added**\n* `nest.projects.list_projects()`:  `request.q` **Added**\n* `nest.projects.get_project()`:  `error.status[400]` **Added**\n* `nest.releases.get_release()`:  `error.status[400]` **Added**\n* `nest.repositories.get_repository()`:  `error.status[400]` **Added**\n* `nest.sponsors.get_sponsor()`:  `error.status[400]` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `nest.events.list_events()`:  `request.category` **Added**\n* `nest.community.list_snapshot_projects()`:  `response.items[].type` **Added**\n* `nest.projects.list_projects()`: \n  *  `request.type` **Added**\n  *  `response.items[].type` **Added**\n* `nest.projects.get_project()`:  `response.type` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
