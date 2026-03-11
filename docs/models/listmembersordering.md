@@ -19,3 +19,7 @@ value = ListMembersOrdering.CREATED_AT
 | `MINUS_CREATED_AT` | -created_at        |
 | `UPDATED_AT`       | updated_at         |
 | `MINUS_UPDATED_AT` | -updated_at        |
+| `NAME`             | name               |
+| `MINUS_NAME`       | -name              |
+| `LOGIN`            | login              |
+| `MINUS_LOGIN`      | -login             |

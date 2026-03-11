@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b66b7a6c-9758-4aea-950e-ab854bfa8451
 management:
-  docChecksum: 545c12547e303fe6942e0edb12cf45ac
-  docVersion: 0.3.6
-  speakeasyVersion: 1.748.0
-  generationVersion: 2.852.1
-  releaseVersion: 0.4.1
-  configChecksum: 2995829a2c4fd82605fc71768c3fd84b
+  docChecksum: ac15b37ce9b41c9103d7dd523c6c90f7
+  docVersion: 0.4.1
+  speakeasyVersion: 1.750.0
+  generationVersion: 2.856.1
+  releaseVersion: 0.5.0
+  configChecksum: 707821b4ff30301c64de40372a90ff90
   repoURL: https://github.com/OWASP/nest-sdk-python.git
   installationURL: https://github.com/OWASP/nest-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 6732eaac-1d4f-4217-9887-f504bfb23d7c
-  pristine_commit_hash: 712596139227c7edea0e67ec281158f2997c742c
-  pristine_tree_hash: 29fc8b24c0a1be321b9ed8a386222f2231b17e29
+  generation_id: 243f8d5e-1c16-40a7-8305-649822c55033
+  pristine_commit_hash: 53ebe51dc547e2e390a0147a200bbd8a91eb5701
+  pristine_tree_hash: 2c95bd687393ae68f09a081b32911460e051163c
 features:
   python:
     additionalDependencies: 1.0.0
@@ -192,8 +192,8 @@ trackedFiles:
     pristine_git_object: 07835e077f91082fa09cc08a8cf80f399c77a5d3
   docs/models/listmembersordering.md:
     id: 9a43df2934f9
-    last_write_checksum: sha1:3e6485f93c97dc4ce94830cea6d7e7334b5fc7b2
-    pristine_git_object: 5b68fac41fede1a9c62aef1f9c08661ae58c908c
+    last_write_checksum: sha1:470351a21680a7f447fa6404ac20b45f964a3e98
+    pristine_git_object: d8ac8821de5cbd786d21eee56fb70e306586793a
   docs/models/listmembersrequest.md:
     id: 062c85f92e46
     last_write_checksum: sha1:7b4c75c6a82b778f4686c3f115d16a1cef1d4822
@@ -528,8 +528,8 @@ trackedFiles:
     pristine_git_object: acf118e71b6e009ac50c1e81c50bb9d3a6d230ea
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:8095698a6948373ca57745740439c3cda36d1a66
-    pristine_git_object: 59362ddca55c29cec0026d90911e879a7fbce94c
+    last_write_checksum: sha1:70167817831920b7f63f6922d434a8531f20f133
+    pristine_git_object: 0e0b9175ae87156cf7b805d762d7c7706ff19a01
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:c87a34a7b385c45d801ea4570aaed5b8e12eeac3
@@ -556,8 +556,8 @@ trackedFiles:
     pristine_git_object: 336908e19d943edcc6d49482de0d61f40197e2ae
   src/owasp_nest/_version.py:
     id: 36e8ce475baa
-    last_write_checksum: sha1:fb2de21c26567c6914ae5b111b602cc1c5883d5d
-    pristine_git_object: a7b5ded39884db4e86c69db6584a7857bdf58444
+    last_write_checksum: sha1:82c2c7fbf07b3f4397a2d982ae17d3040948317a
+    pristine_git_object: 9b4b7716127a9066f051e63ef7fd736e5e2ec988
   src/owasp_nest/basesdk.py:
     id: 9727edc94589
     last_write_checksum: sha1:d9f028124fcc32fe95daa57fbc931178f10fb670
@@ -720,8 +720,8 @@ trackedFiles:
     pristine_git_object: 73a1d8d7c66b91631cf741fc667fc658a55979e5
   src/owasp_nest/models/list_membersop.py:
     id: 2850d40ffb12
-    last_write_checksum: sha1:684f9322a4f927e245d38ec12b3e4bae3f695eba
-    pristine_git_object: 01ca1e54ab2dcc50b180c232d088c789bd4fe4b0
+    last_write_checksum: sha1:144e5b6dc7af31191674a1a771758a7d392bfab0
+    pristine_git_object: 6c13fa6bc346a43977367eec697cbe8837391835
   src/owasp_nest/models/list_milestonesop.py:
     id: a7d5235d4f53
     last_write_checksum: sha1:0e70847f8d7c7cc440cba5e58c7455203526805c
@@ -1520,7 +1520,9 @@ examples:
         "200":
           application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `nest.events.list_events()`:  `request.category` **Added**\n* `nest.community.list_snapshot_projects()`:  `response.items[].type` **Added**\n* `nest.projects.list_projects()`: \n  *  `request.type` **Added**\n  *  `response.items[].type` **Added**\n* `nest.projects.get_project()`:  `response.type` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `nest.community.list_members()`:  `request.ordering` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
